@@ -91,6 +91,7 @@
 | 向量 / RAG | **pgvector**（長在 PG 裡） | PostgreSQL | 教練筆記脈絡組裝 |
 | LLM 編排 | Vercel AI SDK、LangChain | Apache-2.0 / MIT | **意圖→Action 對應、寫入確認、audit** |
 | LLM 模型 | **API（Claude/OpenAI/Gemini）** | 商業 API | 繁中 prompt / 工具定義 |
+| 語音輸入 STT | Web Speech API / Whisper API / faster-whisper | 原生 / Apache-2.0 / MIT | 繁中語音辨識調校、輸入框語音鈕 |
 | LINE | `@line/bot-sdk`、LIFF SDK | Apache-2.0 / 免費 SDK | webhook→Action 路由、帳號綁定 |
 | 物件儲存（體態照） | **S3 / Cloudflare R2**；自架選 SeaweedFS | 商業 / Apache-2.0 | — |
 | 站內搜尋 | **Meilisearch**（MIT）；勿用 Typesense(GPL-3) | MIT | — |
@@ -118,6 +119,7 @@ ORM：Prisma / Drizzle (Apache-2.0)
 快取/佇列：Valkey (BSD) + BullMQ (MIT)             ← 注意：不是 Redis ≥7.4
 Auth：Auth.js (ISC)；多租戶複雜時 Keycloak/Ory (Apache-2.0)
 AI：Vercel AI SDK (Apache-2.0) + LLM 商業 API（function calling 接 Action 層）
+語音：Web Speech API（瀏覽器原生·免費）/ Whisper API｜faster-whisper(MIT) 自架   ← Agent 語音輸入(STT)，設計原則 #7
 儲存：Cloudflare R2 / S3（體態照、InBody 圖）
 LINE：@line/bot-sdk (Apache-2.0) + LIFF
 觀測：OpenTelemetry + Prometheus (Apache-2.0)；Grafana 獨立進程

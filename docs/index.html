@@ -1720,6 +1720,7 @@ LINE 官方帳號（學員加好友）
 | 向量 / RAG | **pgvector**（長在 PG 裡） | PostgreSQL | 教練筆記脈絡組裝 |
 | LLM 編排 | Vercel AI SDK、LangChain | Apache-2.0 / MIT | **意圖→Action 對應、寫入確認、audit** |
 | LLM 模型 | **API（Claude/OpenAI/Gemini）** | 商業 API | 繁中 prompt / 工具定義 |
+| 語音輸入 STT | Web Speech API / Whisper API / faster-whisper | 原生 / Apache-2.0 / MIT | 繁中語音辨識調校、輸入框語音鈕 |
 | LINE | `@line/bot-sdk`、LIFF SDK | Apache-2.0 / 免費 SDK | webhook→Action 路由、帳號綁定 |
 | 物件儲存（體態照） | **S3 / Cloudflare R2**；自架選 SeaweedFS | 商業 / Apache-2.0 | — |
 | 站內搜尋 | **Meilisearch**（MIT）；勿用 Typesense(GPL-3) | MIT | — |
@@ -1747,6 +1748,7 @@ ORM：Prisma / Drizzle (Apache-2.0)
 快取/佇列：Valkey (BSD) + BullMQ (MIT)             ← 注意：不是 Redis ≥7.4
 Auth：Auth.js (ISC)；多租戶複雜時 Keycloak/Ory (Apache-2.0)
 AI：Vercel AI SDK (Apache-2.0) + LLM 商業 API（function calling 接 Action 層）
+語音：Web Speech API（瀏覽器原生·免費）/ Whisper API｜faster-whisper(MIT) 自架   ← Agent 語音輸入(STT)，設計原則 #7
 儲存：Cloudflare R2 / S3（體態照、InBody 圖）
 LINE：@line/bot-sdk (Apache-2.0) + LIFF
 觀測：OpenTelemetry + Prometheus (Apache-2.0)；Grafana 獨立進程
@@ -2152,6 +2154,7 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
   - 把「寫」類 tool 的 `execute` 拆成兩段：LLM 先產生 **結構化意圖物件**（要做什麼、參數），UI/LINE 回顯「我要把小明本週三五 07:00 各排一堂，確認？」→ **使用者按確認後，後端才呼叫真正的 Action 並寫 AgentActionLog**。
   - 即 AI SDK 負責「解析+選工具+填參數」，真正的副作用由 Noki 的 Action 層在確認後執行 → 天然滿足「可撤銷、可留痕」。
 - **一份 Zod schema 餵兩個前端**：同一個 `inputSchema`（Zod）既是 LLM 的 tool 參數定義，也能驅動程式化前端的表單驗證 → **真正做到「按鈕和對話呼叫同一套 Action」**。
+- **省 token 路由（定位變更）**：系統 UI 處理多數操作；只有口語/語音/跨模組請求才進 LLM，簡單意圖走規則/捷徑或直接導去 Dashboard（架構設計原則 #4）。Agent 輸入框另須支援**語音輸入(STT)**（原則 #7）。
 - **注意版本**：AI SDK v6 起 `generateObject` 標記為 deprecated，結構化輸出改用 `generateText({ output: Output.object(...) })`。新做就直接走 v6 寫法。
 - **替代/補充**：LangChain.js（MIT，生態大但偏重）、Mastra（MIT，agent 框架含 workflow/memory）。**建議主線用 AI SDK（輕、型別好、provider 無關），Phase 2 若要複雜自動化工作流再評估 Mastra。**
 
@@ -2220,6 +2223,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 | **PWA / 前端框架** | §8.2 PWA 起步 | Next.js（+ next-pwa） | MIT | 與 AI SDK、cal.diy 同生態 |
 | **身分驗證** | 教練/學員登入、LINE 綁定 | Auth.js (NextAuth) | ISC/MIT | 支援 LINE Login provider |
 | **台灣金流 / 電子發票** | §8.4、Phase 1.5 | 綠界/藍新多為 SDK 非開源 | — | **開源缺口：台灣金流幾乎無成熟開源，要自接官方 SDK** |
+| **語音輸入 STT** | Agent 輸入框語音轉文字（架構原則 #7） | Web Speech API（瀏覽器原生·免費）/ OpenAI Whisper API / faster-whisper(自架) | 原生 / Apache-2.0 / MIT | ★定位變更新增：行動端優先原生 STT，繁中辨識品質要顧 |
 
 > 結論：**AI SDK + Next.js + Auth.js + line-bot-sdk + Recharts + BullMQ + Prisma** 可組成一條全 TS、授權乾淨、彼此同生態的主線技術棧。
 
@@ -2283,6 +2287,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 3. **§7.1 MVP IN 補三項**：動作庫繁中化、學員健康篩查問卷、RIR/RPE 記錄欄位。
 4. **§8 技術架構**：補「通知排程引擎（佇列）」「外部行事曆同步」「身分驗證(Auth.js + LINE Login)」三個元件，並定出主線技術棧。
 5. **§9 LINE**：在金流段補 LINE Pay；§6.4 飲食改為「條碼記餐先行，拍照辨識後續」。
+6. **定位變更（系統為主 + Agent 加值）**：Agent 輸入框補**語音輸入(STT)**（原則 #7，技術棧補 Web Speech API / Whisper）；明確「**省 token 路由**」——簡單操作走 UI 不進 LLM（原則 #4）。
 
 ---
 
@@ -2326,6 +2331,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 - **線上金流不進 MVP**：手動對帳（標記已收/部分/未收）。金流 → Phase 1.5。
 - **MVP 飲食 = 對話 + 文字筆記**；拍照辨識/營養素 → Phase 2。
 - **學員端跑在 LINE LIFF（零安裝）**；教練/主理人以 Web 後台為主 + Agent。
+- **系統（UI/Dashboard）為主體、Agent 為加值窗口**：Agent 選擇性使用、省 token（簡單事走 UI、不丟 LLM）；**Agent 輸入框（教練端＋學員端）須支援語音輸入(STT)**。（架構設計原則 #4、#7）
 
 > 整併時的去重原則：journeys §8 已納入的邊界情境（衝堂、no-show、取消政策、堂數用盡、離職交接、同名澄清）**不再當「新缺口」**，直接列為對應 Epic 的 MVP 開發項。`oss-stack-and-gaps.md §4` 真正**新增**的項目以 `★缺口` 標注。
 
@@ -2417,6 +2423,8 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 | E4.8 | 學員端 Agent over LINE（查詢/預約等 reply 情境） | 1.5 | E4.2, E5.1 | 架構 §9.7 |
 | E4.9 | 經營副駕主動預警（流失/續約主動推播） | 2 | E4.7, E0.6 | 架構 §6.3 |
 | E4.10 | 自動化工作流引擎（評估 Mastra） | 2 | E4.7 | oss §2.2 |
+| E4.11 | **語音輸入 (STT)**：Agent 輸入框語音→文字（教練端＋學員端 LIFF）；行動端優先原生 STT / Web Speech API，繁中辨識品質要顧 | MVP | E4.1 | ★定位變更新增；架構原則 #7 |
+| E4.12 | **省 token 路由**：明確/簡單/單一模組請求走規則或導去 Dashboard，不每次呼叫 LLM | MVP | E4.2 | ★定位變更新增；架構原則 #4 |
 
 ---
 

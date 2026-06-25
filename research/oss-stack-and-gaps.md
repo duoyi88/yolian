@@ -62,6 +62,7 @@
   - 把「寫」類 tool 的 `execute` 拆成兩段：LLM 先產生 **結構化意圖物件**（要做什麼、參數），UI/LINE 回顯「我要把小明本週三五 07:00 各排一堂，確認？」→ **使用者按確認後，後端才呼叫真正的 Action 並寫 AgentActionLog**。
   - 即 AI SDK 負責「解析+選工具+填參數」，真正的副作用由 Noki 的 Action 層在確認後執行 → 天然滿足「可撤銷、可留痕」。
 - **一份 Zod schema 餵兩個前端**：同一個 `inputSchema`（Zod）既是 LLM 的 tool 參數定義，也能驅動程式化前端的表單驗證 → **真正做到「按鈕和對話呼叫同一套 Action」**。
+- **省 token 路由（定位變更）**：系統 UI 處理多數操作；只有口語/語音/跨模組請求才進 LLM，簡單意圖走規則/捷徑或直接導去 Dashboard（架構設計原則 #4）。Agent 輸入框另須支援**語音輸入(STT)**（原則 #7）。
 - **注意版本**：AI SDK v6 起 `generateObject` 標記為 deprecated，結構化輸出改用 `generateText({ output: Output.object(...) })`。新做就直接走 v6 寫法。
 - **替代/補充**：LangChain.js（MIT，生態大但偏重）、Mastra（MIT，agent 框架含 workflow/memory）。**建議主線用 AI SDK（輕、型別好、provider 無關），Phase 2 若要複雜自動化工作流再評估 Mastra。**
 
@@ -130,6 +131,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 | **PWA / 前端框架** | §8.2 PWA 起步 | Next.js（+ next-pwa） | MIT | 與 AI SDK、cal.diy 同生態 |
 | **身分驗證** | 教練/學員登入、LINE 綁定 | Auth.js (NextAuth) | ISC/MIT | 支援 LINE Login provider |
 | **台灣金流 / 電子發票** | §8.4、Phase 1.5 | 綠界/藍新多為 SDK 非開源 | — | **開源缺口：台灣金流幾乎無成熟開源，要自接官方 SDK** |
+| **語音輸入 STT** | Agent 輸入框語音轉文字（架構原則 #7） | Web Speech API（瀏覽器原生·免費）/ OpenAI Whisper API / faster-whisper(自架) | 原生 / Apache-2.0 / MIT | ★定位變更新增：行動端優先原生 STT，繁中辨識品質要顧 |
 
 > 結論：**AI SDK + Next.js + Auth.js + line-bot-sdk + Recharts + BullMQ + Prisma** 可組成一條全 TS、授權乾淨、彼此同生態的主線技術棧。
 
@@ -193,6 +195,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 3. **§7.1 MVP IN 補三項**：動作庫繁中化、學員健康篩查問卷、RIR/RPE 記錄欄位。
 4. **§8 技術架構**：補「通知排程引擎（佇列）」「外部行事曆同步」「身分驗證(Auth.js + LINE Login)」三個元件，並定出主線技術棧。
 5. **§9 LINE**：在金流段補 LINE Pay；§6.4 飲食改為「條碼記餐先行，拍照辨識後續」。
+6. **定位變更（系統為主 + Agent 加值）**：Agent 輸入框補**語音輸入(STT)**（原則 #7，技術棧補 Web Speech API / Whisper）；明確「**省 token 路由**」——簡單操作走 UI 不進 LLM（原則 #4）。
 
 ---
 
