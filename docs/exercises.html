@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Noki 動作庫 — 873 個訓練動作</title>
+<style>
+:root{
+  --accent:#14b8a6; --accent-d:#0d9488; --ink:#0f172a; --muted:#64748b;
+  --bg:#f6f8fa; --card:#ffffff; --line:#e2e8f0; --sidebar:#0f172a; --chip:#f1f5f9;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* password gate */
+#gate{position:fixed;inset:0;z-index:1000;background:linear-gradient(135deg,#0f172a,#134e4a);display:flex;align-items:center;justify-content:center;padding:24px}
+#gate .card{background:var(--card);border-radius:18px;padding:40px 34px;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+#gate .logo{font-size:30px;font-weight:800}
+#gate .logo span{color:var(--accent)}
+#gate p{color:var(--muted);margin:.4em 0 1.4em;font-size:14px}
+#gate input{width:100%;padding:13px 15px;font-size:18px;text-align:center;letter-spacing:.3em;border:1.5px solid var(--line);border-radius:11px;outline:none}
+#gate input:focus{border-color:var(--accent)}
+#gate button{margin-top:14px;width:100%;padding:13px;font-size:16px;font-weight:700;color:#fff;background:var(--accent);border:none;border-radius:11px;cursor:pointer}
+#gate .err{color:#e11d48;font-size:13px;height:18px;margin-top:10px}
+
+#app{display:none}
+header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 22px}
+.top-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;max-width:1280px;margin:0 auto}
+.brand{font-size:20px;font-weight:800;white-space:nowrap}
+.brand span{color:var(--accent)}
+.brand small{font-weight:600;color:var(--muted);font-size:13px;margin-left:6px}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;padding:10px 14px 10px 38px;font-size:15px;border:1.5px solid var(--line);border-radius:10px;outline:none;background:var(--bg)}
+.search input:focus{border-color:var(--accent);background:#fff}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:17px;height:17px;fill:var(--muted)}
+.count{font-size:13px;color:var(--muted);white-space:nowrap}
+.count b{color:var(--accent-d);font-size:15px}
+
+.wrap{display:flex;max-width:1280px;margin:0 auto;gap:22px;padding:20px 22px 70px;align-items:flex-start}
+aside.filters{width:236px;flex-shrink:0;position:sticky;top:78px}
+.fgroup{margin-bottom:18px}
+.fgroup h4{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--chip);cursor:pointer;user-select:none;transition:.12s;color:#334155}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.chip .n{opacity:.6;font-size:11px;margin-left:3px}
+.clearbtn{font-size:12px;color:var(--accent-d);background:none;border:none;cursor:pointer;padding:0}
+.clearbtn:disabled{color:var(--muted);opacity:.5;cursor:default}
+
+main.results{flex:1;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:16px}
+.exc{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;cursor:pointer;transition:.14s;display:flex;flex-direction:column}
+.exc:hover{border-color:var(--accent);box-shadow:0 8px 22px rgba(20,184,166,.13);transform:translateY(-2px)}
+.exc .ph{aspect-ratio:5/4;background:#eef2f6 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="%23cbd5e1"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3 3.5-4.5 4.5 6H5l3.5-4.5z"/></svg>') center/40px no-repeat;position:relative;overflow:hidden}
+.exc .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.exc .body{padding:11px 13px 13px;display:flex;flex-direction:column;gap:7px;flex:1}
+.exc .zh{font-weight:700;font-size:14.5px;line-height:1.35}
+.exc .en{font-size:11.5px;color:var(--muted);margin-top:-3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.exc .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto}
+.tg{font-size:11px;padding:2px 7px;border-radius:6px;background:var(--chip);color:#475569}
+.tg.lv{background:#ecfeff;color:#0e7490}
+.empty{text-align:center;color:var(--muted);padding:80px 20px}
+
+/* modal */
+#modal{position:fixed;inset:0;z-index:200;background:rgba(15,23,42,.72);display:none;align-items:center;justify-content:center;padding:24px}
+#modal .box{background:#fff;border-radius:16px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+#modal .mhead{padding:22px 26px 14px;border-bottom:1px solid var(--line);position:relative}
+#modal .mhead h2{margin:0;font-size:22px}
+#modal .mhead .men{color:var(--muted);font-size:14px;margin-top:3px}
+#modal .x{position:absolute;top:18px;right:20px;font-size:26px;line-height:1;color:var(--muted);background:none;border:none;cursor:pointer}
+#modal .imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:18px 26px}
+#modal .imgs img{width:100%;border-radius:10px;background:#eef2f6;aspect-ratio:5/4;object-fit:cover}
+#modal .meta{display:flex;flex-wrap:wrap;gap:8px;padding:0 26px 14px}
+#modal .meta .tg{font-size:12.5px;padding:4px 10px}
+#modal .sec{padding:4px 26px 8px}
+#modal .sec h3{font-size:14px;color:var(--muted);margin:10px 0 6px}
+#modal ol{margin:0;padding-left:20px}
+#modal ol li{font-size:13.5px;margin-bottom:7px;color:#334155}
+#modal .yt{display:inline-flex;align-items:center;gap:8px;margin:8px 26px 24px;padding:11px 18px;background:#ff0000;color:#fff;font-weight:700;font-size:14px;border-radius:10px;text-decoration:none}
+#modal .yt:hover{background:#d70000}
+#modal .yt svg{width:20px;height:20px;fill:#fff}
+.note{font-size:12px;color:var(--muted);padding:10px 26px 22px}
+
+@media(max-width:780px){
+  .wrap{flex-direction:column;padding:14px}
+  aside.filters{width:100%;position:static}
+  .fgroup .chips{max-height:none}
+  #modal .imgs{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <form class="card" id="gate-form">
+    <div class="logo">No<span>ki</span></div>
+    <p>動作庫 · 請輸入存取密碼</p>
+    <input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" autofocus>
+    <button type="submit">進入</button>
+    <div class="err" id="err"></div>
+  </form>
+</div>
+
+<div id="app">
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">No<span>ki</span> 動作庫<small>free-exercise-db · 繁中</small></div>
+      <div class="search">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+        <input id="q" type="search" placeholder="搜尋動作（中文或英文）…" autocomplete="off">
+      </div>
+      <div class="count"><b id="cnt">0</b> / 873 個動作</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <aside class="filters" id="filters"></aside>
+    <main class="results">
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="empty" hidden>沒有符合條件的動作，試試放寬篩選。</div>
+    </main>
+  </div>
+</div>
+
+<div id="modal"><div class="box" id="mbox"></div></div>
+
+<script>
+var NAMES={"3_4_Sit-Up":"3/4仰臥起坐","90_90_Hamstring":"90/90腿後","Ab_Crunch_Machine":"腹捲腹機械","Ab_Roller":"腹滾輪","Adductor":"內收肌","Adductor_Groin":"內收肌/鼠蹊","Advanced_Kettlebell_Windmill":"進階壺鈴風車","Air_Bike":"空氣單車","All_Fours_Quad_Stretch":"全四肢股四頭伸展","Alternate_Hammer_Curl":"交替錘式彎舉","Alternate_Heel_Touchers":"交替腳跟觸碰","Alternate_Incline_Dumbbell_Curl":"交替上斜啞鈴彎舉","Alternate_Leg_Diagonal_Bound":"交替腿對角跳躍","Alternating_Cable_Shoulder_Press":"交替滑輪肩推","Alternating_Deltoid_Raise":"交替三角肌舉","Alternating_Floor_Press":"交替地板臥推","Alternating_Hang_Clean":"交替懸垂上膊","Alternating_Kettlebell_Press":"交替壺鈴推","Alternating_Kettlebell_Row":"交替壺鈴划船","Alternating_Renegade_Row":"交替叛逆划船","Ankle_Circles":"踝繞環","Ankle_On_The_Knee":"踝置於膝","Anterior_Tibialis-SMR":"前側脛前肌肌筋膜放鬆","Anti-Gravity_Press":"Anti-Gravity推","Arm_Circles":"手臂繞環","Arnold_Dumbbell_Press":"阿諾啞鈴推","Around_The_Worlds":"繞環","Atlas_Stone_Trainer":"阿特拉斯石訓練器","Atlas_Stones":"阿特拉斯石","Axle_Deadlift":"粗槓硬舉","Back_Flyes_-_With_Bands":"背飛鳥加彈力帶","Backward_Drag":"後向拖曳","Backward_Medicine_Ball_Throw":"後向藥球拋擲","Balance_Board":"平衡板","Ball_Leg_Curl":"球腿後彎舉","Band_Assisted_Pull-Up":"彈力帶輔助引體向上","Band_Good_Morning":"彈力帶早安式體前屈","Band_Good_Morning_Pull_Through":"彈力帶早安式體前屈（拉穿過）","Band_Hip_Adductions":"彈力帶髖內收","Band_Pull_Apart":"彈力帶拉分開","Band_Skull_Crusher":"彈力帶仰臥臂屈伸","Barbell_Ab_Rollout":"槓鈴腹推輪","Barbell_Ab_Rollout_-_On_Knees":"槓鈴腹推輪於膝","Barbell_Bench_Press_-_Medium_Grip":"槓鈴臥推中握法","Barbell_Curl":"槓鈴彎舉","Barbell_Curls_Lying_Against_An_Incline":"槓鈴彎舉仰臥對抗上斜","Barbell_Deadlift":"槓鈴硬舉","Barbell_Full_Squat":"槓鈴全程深蹲","Barbell_Glute_Bridge":"槓鈴臀橋","Barbell_Guillotine_Bench_Press":"槓鈴斷頭台臥推","Barbell_Hack_Squat":"槓鈴哈克深蹲","Barbell_Hip_Thrust":"槓鈴臀推","Barbell_Incline_Bench_Press_-_Medium_Grip":"槓鈴上斜臥推中握法","Barbell_Incline_Shoulder_Raise":"槓鈴上斜聳肩","Barbell_Lunge":"槓鈴弓步","Barbell_Rear_Delt_Row":"槓鈴後三角肌划船","Barbell_Rollout_from_Bench":"槓鈴推輪從臥推凳","Barbell_Seated_Calf_Raise":"槓鈴坐姿提踵","Barbell_Shoulder_Press":"槓鈴肩推","Barbell_Shrug":"槓鈴聳肩","Barbell_Shrug_Behind_The_Back":"槓鈴聳肩背後","Barbell_Side_Bend":"槓鈴側彎","Barbell_Side_Split_Squat":"槓鈴側分腿蹲","Barbell_Squat":"槓鈴深蹲","Barbell_Squat_To_A_Bench":"槓鈴深蹲至臥推凳","Barbell_Step_Ups":"槓鈴登階次","Barbell_Walking_Lunge":"槓鈴行走弓步","Battling_Ropes":"戰繩","Bear_Crawl_Sled_Drags":"熊爬行雪橇拖曳","Behind_Head_Chest_Stretch":"背後頭胸伸展","Bench_Dips":"臥推凳撐體","Bench_Jump":"臥推凳跳","Bench_Press_-_Powerlifting":"臥推健力","Bench_Press_-_With_Bands":"臥推加彈力帶","Bench_Press_with_Chains":"臥推加鐵鏈","Bench_Sprint":"臥推凳衝刺","Bent_Over_Barbell_Row":"俯身槓鈴划船","Bent_Over_Dumbbell_Rear_Delt_Raise_With_Head_On_Bench":"俯身啞鈴後三角舉加頭於臥推凳","Bent_Over_Low-Pulley_Side_Lateral":"俯身低滑輪側側","Bent_Over_One-Arm_Long_Bar_Row":"俯身單臂長槓划船","Bent_Over_Two-Arm_Long_Bar_Row":"俯身雙臂長槓划船","Bent_Over_Two-Dumbbell_Row":"俯身雙啞鈴划船","Bent_Over_Two-Dumbbell_Row_With_Palms_In":"俯身雙啞鈴划船加掌心","Bent_Press":"俯身推","Bent-Arm_Barbell_Pullover":"屈臂槓鈴仰臥上拉","Bent-Arm_Dumbbell_Pullover":"屈臂啞鈴仰臥上拉","Bent-Knee_Hip_Raise":"俯身膝抬髖","Bicycling":"踩單車","Bicycling_Stationary":"踩單車、原地","Board_Press":"板推","Body_Tricep_Press":"身體三頭推","Body-Up":"身體上","Bodyweight_Flyes":"徒手飛鳥","Bodyweight_Mid_Row":"徒手中划船","Bodyweight_Squat":"徒手深蹲","Bodyweight_Walking_Lunge":"徒手行走弓步","Bosu_Ball_Cable_Crunch_With_Side_Bends":"BOSU球滑輪捲腹加側彎","Bottoms_Up":"底上","Bottoms-Up_Clean_From_The_Hang_Position":"底朝上上膊從懸垂姿勢","Box_Jump_Multiple_Response":"跳箱（多反應）","Box_Skip":"箱跳繩","Box_Squat":"箱式蹲","Box_Squat_with_Bands":"箱式蹲加彈力帶","Box_Squat_with_Chains":"箱式蹲加鐵鏈","Brachialis-SMR":"Brachialis-SMR","Bradford_Rocky_Presses":"布拉福/洛基推","Butt_Lift_Bridge":"臀上舉（橋式）","Butt-Ups":"臀次","Butterfly":"蝴蝶","Cable_Chest_Press":"滑輪胸推","Cable_Crossover":"滑輪夾胸","Cable_Crunch":"滑輪捲腹","Cable_Deadlifts":"滑輪硬舉","Cable_Hammer_Curls_-_Rope_Attachment":"滑輪錘式彎舉繩握把","Cable_Hip_Adduction":"滑輪髖內收","Cable_Incline_Pushdown":"滑輪上斜下壓","Cable_Incline_Triceps_Extension":"滑輪上斜三頭伸展","Cable_Internal_Rotation":"滑輪內旋","Cable_Iron_Cross":"滑輪鐵交叉","Cable_Judo_Flip":"滑輪柔道翻轉","Cable_Lying_Triceps_Extension":"滑輪仰臥三頭伸展","Cable_One_Arm_Tricep_Extension":"滑輪單臂三頭伸展","Cable_Preacher_Curl":"滑輪牧師彎舉","Cable_Rear_Delt_Fly":"滑輪後三角飛鳥","Cable_Reverse_Crunch":"滑輪反向捲腹","Cable_Rope_Overhead_Triceps_Extension":"滑輪繩過頭三頭伸展","Cable_Rope_Rear-Delt_Rows":"滑輪繩後三角肌划船","Cable_Russian_Twists":"滑輪俄羅斯轉體","Cable_Seated_Crunch":"滑輪坐姿捲腹","Cable_Seated_Lateral_Raise":"滑輪坐姿側平舉","Cable_Shoulder_Press":"滑輪肩推","Cable_Shrugs":"滑輪聳肩","Cable_Wrist_Curl":"滑輪腕彎舉","Calf_Press":"提踵推","Calf_Press_On_The_Leg_Press_Machine":"提踵推於腿推機械","Calf_Raise_On_A_Dumbbell":"提踵於啞鈴","Calf_Raises_-_With_Bands":"小腿舉加彈力帶","Calf_Stretch_Elbows_Against_Wall":"小腿伸展肘對抗靠牆","Calf_Stretch_Hands_Against_Wall":"小腿伸展手對抗靠牆","Calf-Machine_Shoulder_Shrug":"小腿機械肩聳肩","Calves-SMR":"小腿肌筋膜放鬆","Car_Deadlift":"汽車硬舉","Car_Drivers":"汽車驅動","Carioca_Quick_Step":"卡里奧卡快速登階","Cat_Stretch":"貓伸展","Catch_and_Overhead_Throw":"接與過頭拋擲","Chain_Handle_Extension":"鐵鏈握把伸展","Chain_Press":"鐵鏈推","Chair_Leg_Extended_Stretch":"椅腿伸展伸展","Chair_Lower_Back_Stretch":"椅下背伸展","Chair_Squat":"椅深蹲","Chair_Upper_Body_Stretch":"椅上身體伸展","Chest_And_Front_Of_Shoulder_Stretch":"胸與前肩伸展","Chest_Push_multiple_response":"胸推（多反應）","Chest_Push_single_response":"胸推（單反應）","Chest_Push_from_3_point_stance":"胸推從3點站距","Chest_Push_with_Run_Release":"胸推加跑放鬆","Chest_Stretch_on_Stability_Ball":"胸伸展於抗力球","Childs_Pose":"嬰兒式","Chin_To_Chest_Stretch":"反手引體至胸伸展","Chin-Up":"反手引體","Circus_Bell":"馬戲鈴","Clean":"上膊","Clean_and_Jerk":"挺舉","Clean_and_Press":"上膊推舉","Clean_Deadlift":"上膊硬舉","Clean_from_Blocks":"上膊從墊塊","Clean_Pull":"上膊拉","Clean_Shrug":"上膊聳肩","Clock_Push-Up":"時鐘伏地挺身","Close-Grip_Barbell_Bench_Press":"窄握槓鈴臥推","Close-Grip_Dumbbell_Press":"窄握啞鈴推","Close-Grip_EZ_Bar_Curl":"窄握EZ槓彎舉","Close-Grip_EZ-Bar_Curl_with_Band":"窄握EZ槓彎舉加彈力帶","Close-Grip_EZ-Bar_Press":"窄握EZ槓推","Close-Grip_Front_Lat_Pulldown":"窄握前闊背下拉","Close-Grip_Push-Up_off_of_a_Dumbbell":"窄握伏地挺身離啞鈴","Close-Grip_Standing_Barbell_Curl":"窄握站姿槓鈴彎舉","Cocoons":"蜷縮","Conans_Wheel":"Conan's輪","Concentration_Curls":"集中彎舉","Cross_Body_Hammer_Curl":"交叉身體錘式彎舉","Cross_Over_-_With_Bands":"交叉過加彈力帶","Cross-Body_Crunch":"交叉身體捲腹","Crossover_Reverse_Lunge":"交叉反向弓步","Crucifix":"十字","Crunch_-_Hands_Overhead":"捲腹手過頭","Crunch_-_Legs_On_Exercise_Ball":"捲腹腿於健身球","Crunches":"捲腹","Cuban_Press":"古巴推","Dancers_Stretch":"舞者伸展","Dead_Bug":"靜止蟲","Deadlift_with_Bands":"硬舉加彈力帶","Deadlift_with_Chains":"硬舉加鐵鏈","Decline_Barbell_Bench_Press":"下斜槓鈴臥推","Decline_Close-Grip_Bench_To_Skull_Crusher":"下斜窄握臥推凳至仰臥臂屈伸","Decline_Crunch":"下斜捲腹","Decline_Dumbbell_Bench_Press":"下斜啞鈴臥推","Decline_Dumbbell_Flyes":"下斜啞鈴飛鳥","Decline_Dumbbell_Triceps_Extension":"下斜啞鈴三頭伸展","Decline_EZ_Bar_Triceps_Extension":"下斜EZ槓三頭伸展","Decline_Oblique_Crunch":"下斜腹斜捲腹","Decline_Push-Up":"下斜伏地挺身","Decline_Reverse_Crunch":"下斜反向捲腹","Decline_Smith_Press":"下斜史密斯推","Deficit_Deadlift":"墊高硬舉","Depth_Jump_Leap":"深度跳躍","Dip_Machine":"撐體機械","Dips_-_Chest_Version":"撐體胸版本","Dips_-_Triceps_Version":"撐體三頭版本","Donkey_Calf_Raises":"驢式小腿舉","Double_Kettlebell_Alternating_Hang_Clean":"雙壺鈴交替懸垂上膊","Double_Kettlebell_Jerk":"雙壺鈴挺舉","Double_Kettlebell_Push_Press":"雙壺鈴借力推","Double_Kettlebell_Snatch":"雙壺鈴抓舉","Double_Kettlebell_Windmill":"雙壺鈴風車","Double_Leg_Butt_Kick":"雙腿臀踢","Downward_Facing_Balance":"下面向平衡","Drag_Curl":"拖曳彎舉","Drop_Push":"落下推","Dumbbell_Alternate_Bicep_Curl":"啞鈴交替二頭彎舉","Dumbbell_Bench_Press":"啞鈴臥推","Dumbbell_Bench_Press_with_Neutral_Grip":"啞鈴臥推加中立握","Dumbbell_Bicep_Curl":"啞鈴二頭彎舉","Dumbbell_Clean":"啞鈴上膊","Dumbbell_Floor_Press":"啞鈴地板臥推","Dumbbell_Flyes":"啞鈴飛鳥","Dumbbell_Incline_Row":"啞鈴上斜划船","Dumbbell_Incline_Shoulder_Raise":"啞鈴上斜聳肩","Dumbbell_Lunges":"啞鈴弓步","Dumbbell_Lying_One-Arm_Rear_Lateral_Raise":"啞鈴仰臥單臂後側平舉","Dumbbell_Lying_Pronation":"啞鈴仰臥旋前","Dumbbell_Lying_Rear_Lateral_Raise":"啞鈴仰臥後側平舉","Dumbbell_Lying_Supination":"啞鈴仰臥旋後","Dumbbell_One-Arm_Shoulder_Press":"啞鈴單臂肩推","Dumbbell_One-Arm_Triceps_Extension":"啞鈴單臂三頭伸展","Dumbbell_One-Arm_Upright_Row":"啞鈴單臂直立划船","Dumbbell_Prone_Incline_Curl":"啞鈴俯臥上斜彎舉","Dumbbell_Raise":"啞鈴舉","Dumbbell_Rear_Lunge":"啞鈴後弓步","Dumbbell_Scaption":"啞鈴肩胛面舉","Dumbbell_Seated_Box_Jump":"啞鈴坐姿跳箱","Dumbbell_Seated_One-Leg_Calf_Raise":"啞鈴坐姿單腿提踵","Dumbbell_Shoulder_Press":"啞鈴肩推","Dumbbell_Shrug":"啞鈴聳肩","Dumbbell_Side_Bend":"啞鈴側彎","Dumbbell_Squat":"啞鈴深蹲","Dumbbell_Squat_To_A_Bench":"啞鈴深蹲至臥推凳","Dumbbell_Step_Ups":"啞鈴登階次","Dumbbell_Tricep_Extension_-Pronated_Grip":"啞鈴三頭伸展旋前握法","Dynamic_Back_Stretch":"動態背伸展","Dynamic_Chest_Stretch":"動態胸伸展","Elbow_Circles":"肘繞環","Elbow_to_Knee":"肘至膝","Elbows_Back":"肘背","Elevated_Back_Lunge":"墊高背弓步","Elevated_Cable_Rows":"墊高滑輪划船","Elliptical_Trainer":"橢圓機訓練器","Exercise_Ball_Crunch":"健身球捲腹","Exercise_Ball_Pull-In":"健身球收腿","Extended_Range_One-Arm_Kettlebell_Floor_Press":"伸展範圍單臂壺鈴地板臥推","External_Rotation":"外旋","External_Rotation_with_Band":"外旋加彈力帶","External_Rotation_with_Cable":"外旋加滑輪","EZ-Bar_Curl":"EZ槓彎舉","EZ-Bar_Skullcrusher":"EZ槓仰臥臂屈伸","Face_Pull":"臉拉","Farmers_Walk":"農夫行走","Fast_Skipping":"快速跳繩","Finger_Curls":"手指彎舉","Flat_Bench_Cable_Flyes":"平臥推凳滑輪飛鳥","Flat_Bench_Leg_Pull-In":"平臥推凳腿收腿","Flat_Bench_Lying_Leg_Raise":"平臥推凳仰臥抬腿","Flexor_Incline_Dumbbell_Curls":"屈肌上斜啞鈴彎舉","Floor_Glute-Ham_Raise":"地板臀腿後舉","Floor_Press":"地板臥推","Floor_Press_with_Chains":"地板臥推加鐵鏈","Flutter_Kicks":"拍動踢","Foot-SMR":"腳肌筋膜放鬆","Forward_Drag_with_Press":"前向拖曳加推","Frankenstein_Squat":"Frankenstein深蹲","Freehand_Jump_Squat":"徒手跳深蹲","Frog_Hops":"青蛙跳","Frog_Sit-Ups":"青蛙仰臥起坐","Front_Barbell_Squat":"前槓鈴深蹲","Front_Barbell_Squat_To_A_Bench":"前槓鈴深蹲至臥推凳","Front_Box_Jump":"前跳箱","Front_Cable_Raise":"前滑輪舉","Front_Cone_Hops_or_hurdle_hops":"前三角錐跳（或跨欄跳）","Front_Dumbbell_Raise":"前啞鈴舉","Front_Incline_Dumbbell_Raise":"前上斜啞鈴舉","Front_Leg_Raises":"前抬腿","Front_Plate_Raise":"前槓片舉","Front_Raise_And_Pullover":"前平舉與仰臥上拉","Front_Squat_Clean_Grip":"前蹲舉（上膊握法）","Front_Squats_With_Two_Kettlebells":"前深蹲加雙壺鈴","Front_Two-Dumbbell_Raise":"前雙啞鈴舉","Full_Range-Of-Motion_Lat_Pulldown":"全程Range-Of-Motion闊背下拉","Gironda_Sternum_Chins":"Gironda胸骨反手引體","Glute_Ham_Raise":"臀腿後舉","Glute_Kickback":"臀後踢","Goblet_Squat":"高腳杯蹲","Good_Morning":"早安式體前屈","Good_Morning_off_Pins":"早安式體前屈離插銷","Gorilla_Chin_Crunch":"大猩猩反手引體/捲腹","Groin_and_Back_Stretch":"鼠蹊與背伸展","Groiners":"Groiners","Hack_Squat":"哈克深蹲","Hammer_Curls":"錘式彎舉","Hammer_Grip_Incline_DB_Bench_Press":"錘式握法上斜DB臥推","Hamstring_Stretch":"腿後伸展","Hamstring-SMR":"腿後肌筋膜放鬆","Handstand_Push-Ups":"Handstand推次","Hang_Clean":"懸垂上膊","Hang_Clean_-_Below_the_Knees":"懸垂上膊下方膝","Hang_Snatch":"懸垂抓舉","Hang_Snatch_-_Below_Knees":"懸垂抓舉下方膝","Hanging_Bar_Good_Morning":"懸垂槓早安式體前屈","Hanging_Leg_Raise":"懸垂抬腿","Hanging_Pike":"懸垂Pike","Heaving_Snatch_Balance":"Heaving抓舉平衡","Heavy_Bag_Thrust":"HeavyBag推","High_Cable_Curls":"高滑輪彎舉","Hip_Circles_prone":"髖繞環（俯臥）","Hip_Extension_with_Bands":"髖伸展加彈力帶","Hip_Flexion_with_Band":"髖屈曲加彈力帶","Hip_Lift_with_Band":"髖上舉加彈力帶","Hug_A_Ball":"抱球","Hug_Knees_To_Chest":"抱膝至胸","Hurdle_Hops":"跨欄跳","Hyperextensions_Back_Extensions":"背部伸展（背伸展）","Hyperextensions_With_No_Hyperextension_Bench":"背部伸展加No背部伸展臥推凳","Iliotibial_Tract-SMR":"IliotibialTract-SMR","Inchworm":"Inchworm","Incline_Barbell_Triceps_Extension":"上斜槓鈴三頭伸展","Incline_Bench_Pull":"上斜臥推凳拉","Incline_Cable_Chest_Press":"上斜滑輪胸推","Incline_Cable_Flye":"上斜滑輪飛鳥","Incline_Dumbbell_Bench_With_Palms_Facing_In":"上斜啞鈴臥推凳加掌心面向","Incline_Dumbbell_Curl":"上斜啞鈴彎舉","Incline_Dumbbell_Flyes":"上斜啞鈴飛鳥","Incline_Dumbbell_Flyes_-_With_A_Twist":"上斜啞鈴飛鳥加轉體","Incline_Dumbbell_Press":"上斜啞鈴推","Incline_Hammer_Curls":"上斜錘式彎舉","Incline_Inner_Biceps_Curl":"上斜內側二頭彎舉","Incline_Push-Up":"上斜伏地挺身","Incline_Push-Up_Close-Grip":"上斜伏地挺身窄握","Incline_Push-Up_Depth_Jump":"上斜伏地挺身深度跳","Incline_Push-Up_Medium":"上斜伏地挺身中","Incline_Push-Up_Reverse_Grip":"上斜伏地挺身反握","Incline_Push-Up_Wide":"上斜伏地挺身寬","Intermediate_Groin_Stretch":"進階鼠蹊伸展","Intermediate_Hip_Flexor_and_Quad_Stretch":"進階髖屈肌與股四頭伸展","Internal_Rotation_with_Band":"內旋加彈力帶","Inverted_Row":"反向划船","Inverted_Row_with_Straps":"反向划船加Straps","Iron_Cross":"鐵交叉","Iron_Crosses_stretch":"鐵Crosses（伸展）","Isometric_Chest_Squeezes":"等長胸Squeezes","Isometric_Neck_Exercise_-_Front_And_Back":"等長頸運動前與背","Isometric_Neck_Exercise_-_Sides":"等長頸運動Sides","Isometric_Wipers":"等長Wipers","IT_Band_and_Glute_Stretch":"IT彈力帶與臀伸展","Jackknife_Sit-Up":"折刀仰臥起坐","Janda_Sit-Up":"Janda仰臥起坐","Jefferson_Squats":"傑佛遜深蹲","Jerk_Balance":"挺舉平衡","Jerk_Dip_Squat":"挺舉撐體深蹲","JM_Press":"JM推","Jogging_Treadmill":"Jogging、跑步機","Keg_Load":"Keg負荷","Kettlebell_Arnold_Press":"壺鈴阿諾推","Kettlebell_Dead_Clean":"壺鈴靜止上膊","Kettlebell_Figure_8":"壺鈴Figure8","Kettlebell_Hang_Clean":"壺鈴懸垂上膊","Kettlebell_One-Legged_Deadlift":"壺鈴單腿硬舉","Kettlebell_Pass_Between_The_Legs":"壺鈴傳遞Between腿","Kettlebell_Pirate_Ships":"壺鈴PirateShips","Kettlebell_Pistol_Squat":"壺鈴手槍式深蹲","Kettlebell_Seated_Press":"壺鈴坐姿推","Kettlebell_Seesaw_Press":"壺鈴Seesaw推","Kettlebell_Sumo_High_Pull":"壺鈴Sumo高拉","Kettlebell_Thruster":"壺鈴推舉","Kettlebell_Turkish_Get-Up_Lunge_style":"壺鈴土耳其起立（弓步式）","Kettlebell_Turkish_Get-Up_Squat_style":"壺鈴土耳其起立（深蹲式）","Kettlebell_Windmill":"壺鈴風車","Kipping_Muscle_Up":"Kipping肌肉上","Knee_Across_The_Body":"膝Across身體","Knee_Circles":"膝繞環","Knee_Tuck_Jump":"膝收跳","Knee_Hip_Raise_On_Parallel_Bars":"膝/抬髖於平行Bars","Kneeling_Arm_Drill":"跪姿手臂訓練","Kneeling_Cable_Crunch_With_Alternating_Oblique_Twists":"跪姿滑輪捲腹加交替腹斜轉體","Kneeling_Cable_Triceps_Extension":"跪姿滑輪三頭伸展","Kneeling_Forearm_Stretch":"跪姿前臂伸展","Kneeling_High_Pulley_Row":"跪姿高滑輪划船","Kneeling_Hip_Flexor":"跪姿髖屈肌","Kneeling_Jump_Squat":"跪姿跳深蹲","Kneeling_Single-Arm_High_Pulley_Row":"跪姿單臂高滑輪划船","Kneeling_Squat":"跪姿深蹲","Landmine_180s":"槓桿臂180's","Landmine_Linear_Jammer":"槓桿臂直線推舉臂","Lateral_Bound":"側跳躍","Lateral_Box_Jump":"側跳箱","Lateral_Cone_Hops":"側三角錐跳","Lateral_Raise_-_With_Bands":"側平舉加彈力帶","Latissimus_Dorsi-SMR":"LatissimusDorsi-SMR","Leg_Extensions":"腿伸展","Leg_Lift":"腿上舉","Leg_Press":"腿推","Leg_Pull-In":"腿收腿","Leg-Over_Floor_Press":"腿過地板臥推","Leg-Up_Hamstring_Stretch":"腿上腿後伸展","Leverage_Chest_Press":"槓桿胸推","Leverage_Deadlift":"槓桿硬舉","Leverage_Decline_Chest_Press":"槓桿下斜胸推","Leverage_High_Row":"槓桿高划船","Leverage_Incline_Chest_Press":"槓桿上斜胸推","Leverage_Iso_Row":"槓桿Iso划船","Leverage_Shoulder_Press":"槓桿肩推","Leverage_Shrug":"槓桿聳肩","Linear_3-Part_Start_Technique":"直線3-PartStartTechnique","Linear_Acceleration_Wall_Drill":"直線Acceleration靠牆訓練","Linear_Depth_Jump":"直線深度跳","Log_Lift":"Log上舉","London_Bridges":"LondonBridges","Looking_At_Ceiling":"LookingAtCeiling","Low_Cable_Crossover":"低滑輪夾胸","Low_Cable_Triceps_Extension":"低滑輪三頭伸展","Low_Pulley_Row_To_Neck":"低滑輪划船至頸","Lower_Back_Curl":"下背彎舉","Lower_Back-SMR":"下背肌筋膜放鬆","Lunge_Pass_Through":"弓步傳遞穿過","Lunge_Sprint":"弓步衝刺","Lying_Bent_Leg_Groin":"仰臥俯身腿鼠蹊","Lying_Cable_Curl":"仰臥滑輪彎舉","Lying_Cambered_Barbell_Row":"仰臥Cambered槓鈴划船","Lying_Close-Grip_Bar_Curl_On_High_Pulley":"仰臥窄握槓彎舉於高滑輪","Lying_Close-Grip_Barbell_Triceps_Extension_Behind_The_Head":"仰臥窄握槓鈴三頭伸展背後頭","Lying_Close-Grip_Barbell_Triceps_Press_To_Chin":"仰臥窄握槓鈴三頭推至反手引體","Lying_Crossover":"仰臥交叉","Lying_Dumbbell_Tricep_Extension":"仰臥啞鈴三頭伸展","Lying_Face_Down_Plate_Neck_Resistance":"仰臥臉下槓片頸阻力","Lying_Face_Up_Plate_Neck_Resistance":"仰臥臉上槓片頸阻力","Lying_Glute":"仰臥臀","Lying_Hamstring":"仰臥腿後","Lying_High_Bench_Barbell_Curl":"仰臥高臥推凳槓鈴彎舉","Lying_Leg_Curls":"仰臥腿彎舉","Lying_Machine_Squat":"仰臥機械深蹲","Lying_One-Arm_Lateral_Raise":"仰臥單臂側平舉","Lying_Prone_Quadriceps":"仰臥俯臥Quadriceps","Lying_Rear_Delt_Raise":"仰臥後三角舉","Lying_Supine_Dumbbell_Curl":"仰臥仰臥啞鈴彎舉","Lying_T-Bar_Row":"仰臥T槓划船","Lying_Triceps_Press":"仰臥三頭推","Machine_Bench_Press":"機械臥推","Machine_Bicep_Curl":"機械二頭彎舉","Machine_Preacher_Curls":"機械牧師彎舉","Machine_Shoulder_Military_Press":"機械肩（Military）推","Machine_Triceps_Extension":"機械三頭伸展","Medicine_Ball_Chest_Pass":"藥球胸傳遞","Medicine_Ball_Full_Twist":"藥球全程轉體","Medicine_Ball_Scoop_Throw":"藥球Scoop拋擲","Middle_Back_Shrug":"中部背聳肩","Middle_Back_Stretch":"中部背伸展","Mixed_Grip_Chin":"Mixed握法反手引體","Monster_Walk":"Monster行走","Mountain_Climbers":"MountainClimbers","Moving_Claw_Series":"MovingClawSeries","Muscle_Snatch":"肌肉抓舉","Muscle_Up":"肌肉上","Narrow_Stance_Hack_Squats":"窄站距哈克深蹲","Narrow_Stance_Leg_Press":"窄站距腿推","Narrow_Stance_Squats":"窄站距深蹲","Natural_Glute_Ham_Raise":"Natural臀腿後舉","Neck_Press":"頸推","Neck-SMR":"頸肌筋膜放鬆","Oblique_Crunches":"腹斜捲腹","Oblique_Crunches_-_On_The_Floor":"腹斜捲腹於地板","Olympic_Squat":"奧林匹克深蹲","On_Your_Side_Quad_Stretch":"於側股四頭伸展","On-Your-Back_Quad_Stretch":"於背股四頭伸展","One_Arm_Against_Wall":"單臂對抗靠牆","One_Arm_Chin-Up":"單臂反手引體","One_Arm_Dumbbell_Bench_Press":"單臂啞鈴臥推","One_Arm_Dumbbell_Preacher_Curl":"單臂啞鈴牧師彎舉","One_Arm_Floor_Press":"單臂地板臥推","One_Arm_Lat_Pulldown":"單臂闊背下拉","One_Arm_Pronated_Dumbbell_Triceps_Extension":"單臂旋前啞鈴三頭伸展","One_Arm_Supinated_Dumbbell_Triceps_Extension":"單臂旋後啞鈴三頭伸展","One_Half_Locust":"單HalfLocust","One_Handed_Hang":"單Handed懸垂","One_Knee_To_Chest":"單膝至胸","One_Leg_Barbell_Squat":"單腿槓鈴深蹲","One-Arm_Dumbbell_Row":"單臂啞鈴划船","One-Arm_Flat_Bench_Dumbbell_Flye":"單臂平臥推凳啞鈴飛鳥","One-Arm_High-Pulley_Cable_Side_Bends":"單臂高滑輪滑輪側彎","One-Arm_Incline_Lateral_Raise":"單臂上斜側平舉","One-Arm_Kettlebell_Clean":"單臂壺鈴上膊","One-Arm_Kettlebell_Clean_and_Jerk":"單臂壺鈴挺舉","One-Arm_Kettlebell_Floor_Press":"單臂壺鈴地板臥推","One-Arm_Kettlebell_Jerk":"單臂壺鈴挺舉","One-Arm_Kettlebell_Military_Press_To_The_Side":"單臂壺鈴軍式推舉至側","One-Arm_Kettlebell_Para_Press":"單臂壺鈴Para推","One-Arm_Kettlebell_Push_Press":"單臂壺鈴借力推","One-Arm_Kettlebell_Row":"單臂壺鈴划船","One-Arm_Kettlebell_Snatch":"單臂壺鈴抓舉","One-Arm_Kettlebell_Split_Jerk":"單臂壺鈴分腿挺舉","One-Arm_Kettlebell_Split_Snatch":"單臂壺鈴分腿抓舉","One-Arm_Kettlebell_Swings":"單臂壺鈴擺盪","One-Arm_Long_Bar_Row":"單臂長槓划船","One-Arm_Medicine_Ball_Slam":"單臂藥球砸","One-Arm_Open_Palm_Kettlebell_Clean":"單臂開掌心壺鈴上膊","One-Arm_Overhead_Kettlebell_Squats":"單臂過頭壺鈴深蹲","One-Arm_Side_Deadlift":"單臂側硬舉","One-Arm_Side_Laterals":"單臂側側舉","One-Legged_Cable_Kickback":"單腿滑輪後踢","Open_Palm_Kettlebell_Clean":"開掌心壺鈴上膊","Otis-Up":"Otis-Up","Overhead_Cable_Curl":"過頭滑輪彎舉","Overhead_Lat":"過頭闊背","Overhead_Slam":"過頭砸","Overhead_Squat":"過頭蹲","Overhead_Stretch":"過頭伸展","Overhead_Triceps":"過頭三頭","Pallof_Press":"Pallof推","Pallof_Press_With_Rotation":"Pallof推加旋轉","Palms-Down_Dumbbell_Wrist_Curl_Over_A_Bench":"掌心向下啞鈴腕彎舉過臥推凳","Palms-Down_Wrist_Curl_Over_A_Bench":"掌心向下腕彎舉過臥推凳","Palms-Up_Barbell_Wrist_Curl_Over_A_Bench":"掌心向上槓鈴腕彎舉過臥推凳","Palms-Up_Dumbbell_Wrist_Curl_Over_A_Bench":"掌心向上啞鈴腕彎舉過臥推凳","Parallel_Bar_Dip":"平行槓撐體","Pelvic_Tilt_Into_Bridge":"骨盆傾斜Into橋式","Peroneals_Stretch":"Peroneals伸展","Peroneals-SMR":"Peroneals-SMR","Physioball_Hip_Bridge":"Physioball臀橋","Pin_Presses":"Pin推","Piriformis-SMR":"Piriformis-SMR","Plank":"棒式","Plate_Pinch":"槓片Pinch","Plate_Twist":"槓片轉體","Platform_Hamstring_Slides":"Platform腿後Slides","Plie_Dumbbell_Squat":"Plie啞鈴深蹲","Plyo_Kettlebell_Pushups":"增強式壺鈴伏地挺身","Plyo_Push-up":"增強式伏地挺身","Posterior_Tibialis_Stretch":"後側脛前肌伸展","Power_Clean":"爆發上膊","Power_Clean_from_Blocks":"爆發上膊從墊塊","Power_Jerk":"爆發挺舉","Power_Partials":"爆發Partials","Power_Snatch":"爆發抓舉","Power_Snatch_from_Blocks":"爆發抓舉從墊塊","Power_Stairs":"爆發Stairs","Preacher_Curl":"牧師彎舉","Preacher_Hammer_Dumbbell_Curl":"牧師錘式啞鈴彎舉","Press_Sit-Up":"推仰臥起坐","Prone_Manual_Hamstring":"俯臥Manual腿後","Prowler_Sprint":"Prowler衝刺","Pull_Through":"拉穿過","Pullups":"引體向上","Push_Press":"借力推","Push_Press_-_Behind_the_Neck":"借力推頸後","Push_Up_to_Side_Plank":"伏地挺身至側棒式","Push-Up_Wide":"伏地挺身寬","Push-Ups_-_Close_Triceps_Position":"推次窄三頭姿勢","Push-Ups_With_Feet_Elevated":"推次加腳墊高","Push-Ups_With_Feet_On_An_Exercise_Ball":"推次加腳於健身球","Pushups":"伏地挺身","Pushups_Close_and_Wide_Hand_Positions":"伏地挺身（窄與寬手Positions）","Pyramid":"Pyramid","Quad_Stretch":"股四頭伸展","Quadriceps-SMR":"Quadriceps-SMR","Quick_Leap":"快速躍","Rack_Delivery":"架Delivery","Rack_Pull_with_Bands":"架拉加彈力帶","Rack_Pulls":"架Pulls","Rear_Leg_Raises":"後抬腿","Recumbent_Bike":"Recumbent單車","Return_Push_from_Stance":"Return推從站距","Reverse_Band_Bench_Press":"反向彈力帶臥推","Reverse_Band_Box_Squat":"反向彈力帶箱式蹲","Reverse_Band_Deadlift":"反向彈力帶硬舉","Reverse_Band_Power_Squat":"反向彈力帶爆發深蹲","Reverse_Band_Sumo_Deadlift":"反向彈力帶相撲硬舉","Reverse_Barbell_Curl":"反向槓鈴彎舉","Reverse_Barbell_Preacher_Curls":"反向槓鈴牧師彎舉","Reverse_Cable_Curl":"反向滑輪彎舉","Reverse_Crunch":"反向捲腹","Reverse_Flyes":"反向飛鳥","Reverse_Flyes_With_External_Rotation":"反向飛鳥加外旋","Reverse_Grip_Bent-Over_Rows":"反握俯身划船","Reverse_Grip_Triceps_Pushdown":"反握三頭下壓","Reverse_Hyperextension":"反向背部伸展","Reverse_Machine_Flyes":"反向機械飛鳥","Reverse_Plate_Curls":"反向槓片彎舉","Reverse_Triceps_Bench_Press":"反向三頭臥推","Rhomboids-SMR":"Rhomboids-SMR","Rickshaw_Carry":"人力車負重行走","Rickshaw_Deadlift":"人力車硬舉","Ring_Dips":"Ring撐體","Rocket_Jump":"Rocket跳","Rocking_Standing_Calf_Raise":"Rocking站姿提踵","Rocky_Pull-Ups_Pulldowns":"洛基拉次/下拉","Romanian_Deadlift":"羅馬尼亞硬舉","Romanian_Deadlift_from_Deficit":"羅馬尼亞硬舉從墊高","Rope_Climb":"繩Climb","Rope_Crunch":"繩捲腹","Rope_Jumping":"繩Jumping","Rope_Straight-Arm_Pulldown":"繩直臂下拉","Round_The_World_Shoulder_Stretch":"Round環肩伸展","Rowing_Stationary":"Rowing、原地","Runners_Stretch":"Runner's伸展","Running_Treadmill":"跑、跑步機","Russian_Twist":"俄羅斯轉體","Sandbag_Load":"Sandbag負荷","Scapular_Pull-Up":"肩胛引體向上","Scissor_Kick":"剪踢","Scissors_Jump":"剪式跳","Seated_Band_Hamstring_Curl":"坐姿彈力帶腿後彎舉","Seated_Barbell_Military_Press":"坐姿槓鈴軍式推舉","Seated_Barbell_Twist":"坐姿槓鈴轉體","Seated_Bent-Over_One-Arm_Dumbbell_Triceps_Extension":"坐姿俯身單臂啞鈴三頭伸展","Seated_Bent-Over_Rear_Delt_Raise":"坐姿俯身後三角舉","Seated_Bent-Over_Two-Arm_Dumbbell_Triceps_Extension":"坐姿俯身雙臂啞鈴三頭伸展","Seated_Biceps":"坐姿二頭","Seated_Cable_Rows":"坐姿滑輪划船","Seated_Cable_Shoulder_Press":"坐姿滑輪肩推","Seated_Calf_Raise":"坐姿提踵","Seated_Calf_Stretch":"坐姿小腿伸展","Seated_Close-Grip_Concentration_Barbell_Curl":"坐姿窄握集中槓鈴彎舉","Seated_Dumbbell_Curl":"坐姿啞鈴彎舉","Seated_Dumbbell_Inner_Biceps_Curl":"坐姿啞鈴內側二頭彎舉","Seated_Dumbbell_Palms-Down_Wrist_Curl":"坐姿啞鈴掌心向下腕彎舉","Seated_Dumbbell_Palms-Up_Wrist_Curl":"坐姿啞鈴掌心向上腕彎舉","Seated_Dumbbell_Press":"坐姿啞鈴推","Seated_Flat_Bench_Leg_Pull-In":"坐姿平臥推凳腿收腿","Seated_Floor_Hamstring_Stretch":"坐姿地板腿後伸展","Seated_Front_Deltoid":"坐姿前三角肌","Seated_Glute":"坐姿臀","Seated_Good_Mornings":"坐姿早安式體前屈","Seated_Hamstring":"坐姿腿後","Seated_Hamstring_and_Calf_Stretch":"坐姿腿後與小腿伸展","Seated_Head_Harness_Neck_Resistance":"坐姿頭牽引帶頸阻力","Seated_Leg_Curl":"坐姿腿後彎舉","Seated_Leg_Tucks":"坐姿腿Tucks","Seated_One-arm_Cable_Pulley_Rows":"坐姿單臂滑輪滑輪划船","Seated_One-Arm_Dumbbell_Palms-Down_Wrist_Curl":"坐姿單臂啞鈴掌心向下腕彎舉","Seated_One-Arm_Dumbbell_Palms-Up_Wrist_Curl":"坐姿單臂啞鈴掌心向上腕彎舉","Seated_Overhead_Stretch":"坐姿過頭伸展","Seated_Palm-Up_Barbell_Wrist_Curl":"坐姿掌心上槓鈴腕彎舉","Seated_Palms-Down_Barbell_Wrist_Curl":"坐姿掌心向下槓鈴腕彎舉","Seated_Side_Lateral_Raise":"坐姿側平舉","Seated_Triceps_Press":"坐姿三頭推","Seated_Two-Arm_Palms-Up_Low-Pulley_Wrist_Curl":"坐姿雙臂掌心向上低滑輪腕彎舉","See-Saw_Press_Alternating_Side_Press":"See-Saw推（交替側推）","Shotgun_Row":"Shotgun划船","Shoulder_Circles":"肩繞環","Shoulder_Press_-_With_Bands":"肩推加彈力帶","Shoulder_Raise":"聳肩","Shoulder_Stretch":"肩伸展","Side_Bridge":"側橋式","Side_Hop-Sprint":"側跳衝刺","Side_Jackknife":"側折刀","Side_Lateral_Raise":"側平舉","Side_Laterals_to_Front_Raise":"側側舉至前平舉","Side_Leg_Raises":"側抬腿","Side_Lying_Groin_Stretch":"側仰臥鼠蹊伸展","Side_Neck_Stretch":"側頸伸展","Side_Standing_Long_Jump":"側站姿長跳","Side_to_Side_Box_Shuffle":"側至側箱Shuffle","Side_To_Side_Chins":"側至側反手引體","Side_Wrist_Pull":"側手腕拉","Side-Lying_Floor_Stretch":"側仰臥地板伸展","Single_Dumbbell_Raise":"單啞鈴舉","Single_Leg_Butt_Kick":"單腿臀踢","Single_Leg_Glute_Bridge":"單腿臀橋","Single_Leg_Push-off":"單腿推離","Single-Arm_Cable_Crossover":"單臂滑輪夾胸","Single-Arm_Linear_Jammer":"單臂直線推舉臂","Single-Arm_Push-Up":"單臂伏地挺身","Single-Cone_Sprint_Drill":"單三角錐衝刺訓練","Single-Leg_High_Box_Squat":"單腿高箱式蹲","Single-Leg_Hop_Progression":"單腿跳Progression","Single-Leg_Lateral_Hop":"單腿側跳","Single-Leg_Leg_Extension":"單腿腿伸展","Single-Leg_Stride_Jump":"單腿跨步跳","Sit_Squats":"Sit深蹲","Sit-Up":"仰臥起坐","Skating":"Skating","Sled_Drag_-_Harness":"雪橇拖曳牽引帶","Sled_Overhead_Backward_Walk":"雪橇過頭後向行走","Sled_Overhead_Triceps_Extension":"雪橇過頭三頭伸展","Sled_Push":"雪橇推","Sled_Reverse_Flye":"雪橇反向飛鳥","Sled_Row":"雪橇划船","Sledgehammer_Swings":"Sledgehammer擺盪","Smith_Incline_Shoulder_Raise":"史密斯上斜聳肩","Smith_Machine_Behind_the_Back_Shrug":"史密斯機背後聳肩","Smith_Machine_Bench_Press":"史密斯機臥推","Smith_Machine_Bent_Over_Row":"史密斯機俯身划船","Smith_Machine_Calf_Raise":"史密斯機提踵","Smith_Machine_Close-Grip_Bench_Press":"史密斯機窄握臥推","Smith_Machine_Decline_Press":"史密斯機下斜推","Smith_Machine_Hang_Power_Clean":"史密斯機懸垂爆發上膊","Smith_Machine_Hip_Raise":"史密斯機抬髖","Smith_Machine_Incline_Bench_Press":"史密斯機上斜臥推","Smith_Machine_Leg_Press":"史密斯機腿推","Smith_Machine_One-Arm_Upright_Row":"史密斯機單臂直立划船","Smith_Machine_Overhead_Shoulder_Press":"史密斯機過頭肩推","Smith_Machine_Pistol_Squat":"史密斯機手槍式深蹲","Smith_Machine_Reverse_Calf_Raises":"史密斯機反向小腿舉","Smith_Machine_Squat":"史密斯機深蹲","Smith_Machine_Stiff-Legged_Deadlift":"史密斯機直腿硬舉","Smith_Machine_Upright_Row":"史密斯機直立划船","Smith_Single-Leg_Split_Squat":"史密斯單腿分腿蹲","Snatch":"抓舉","Snatch_Balance":"抓舉平衡","Snatch_Deadlift":"抓舉硬舉","Snatch_from_Blocks":"抓舉從墊塊","Snatch_Pull":"抓舉拉","Snatch_Shrug":"抓舉聳肩","Speed_Band_Overhead_Triceps":"速度彈力帶過頭三頭","Speed_Box_Squat":"速度箱式蹲","Speed_Squats":"速度深蹲","Spell_Caster":"拼字投擲","Spider_Crawl":"蜘蛛爬行","Spider_Curl":"蜘蛛彎舉","Spinal_Stretch":"Spinal伸展","Split_Clean":"分腿上膊","Split_Jerk":"分腿挺舉","Split_Jump":"分腿跳","Split_Snatch":"分腿抓舉","Split_Squat_with_Dumbbells":"分腿蹲加啞鈴","Split_Squats":"分腿深蹲","Squat_Jerk":"深蹲挺舉","Squat_with_Bands":"深蹲加彈力帶","Squat_with_Chains":"深蹲加鐵鏈","Squat_with_Plate_Movers":"深蹲加槓片Movers","Squats_-_With_Bands":"深蹲加彈力帶","Stairmaster":"Stairmaster","Standing_Alternating_Dumbbell_Press":"站姿交替啞鈴推","Standing_Barbell_Calf_Raise":"站姿槓鈴提踵","Standing_Barbell_Press_Behind_Neck":"站姿槓鈴推頸後","Standing_Bent-Over_One-Arm_Dumbbell_Triceps_Extension":"站姿俯身單臂啞鈴三頭伸展","Standing_Bent-Over_Two-Arm_Dumbbell_Triceps_Extension":"站姿俯身雙臂啞鈴三頭伸展","Standing_Biceps_Cable_Curl":"站姿二頭滑輪彎舉","Standing_Biceps_Stretch":"站姿二頭伸展","Standing_Bradford_Press":"站姿布拉福推","Standing_Cable_Chest_Press":"站姿滑輪胸推","Standing_Cable_Lift":"站姿滑輪上舉","Standing_Cable_Wood_Chop":"站姿滑輪Wood劈砍","Standing_Calf_Raises":"站姿小腿舉","Standing_Concentration_Curl":"站姿集中彎舉","Standing_Dumbbell_Calf_Raise":"站姿啞鈴提踵","Standing_Dumbbell_Press":"站姿啞鈴推","Standing_Dumbbell_Reverse_Curl":"站姿啞鈴反向彎舉","Standing_Dumbbell_Straight-Arm_Front_Delt_Raise_Above_Head":"站姿啞鈴直臂前三角肌舉Above頭","Standing_Dumbbell_Triceps_Extension":"站姿啞鈴三頭伸展","Standing_Dumbbell_Upright_Row":"站姿啞鈴直立划船","Standing_Elevated_Quad_Stretch":"站姿墊高股四頭伸展","Standing_Front_Barbell_Raise_Over_Head":"站姿前槓鈴舉過頭","Standing_Gastrocnemius_Calf_Stretch":"站姿Gastrocnemius小腿伸展","Standing_Hamstring_and_Calf_Stretch":"站姿腿後與小腿伸展","Standing_Hip_Circles":"站姿髖繞環","Standing_Hip_Flexors":"站姿髖Flexors","Standing_Inner-Biceps_Curl":"站姿內側二頭彎舉","Standing_Lateral_Stretch":"站姿側伸展","Standing_Leg_Curl":"站姿腿後彎舉","Standing_Long_Jump":"站姿長跳","Standing_Low-Pulley_Deltoid_Raise":"站姿低滑輪三角肌舉","Standing_Low-Pulley_One-Arm_Triceps_Extension":"站姿低滑輪單臂三頭伸展","Standing_Military_Press":"站姿軍式推舉","Standing_Olympic_Plate_Hand_Squeeze":"站姿奧林匹克槓片手Squeeze","Standing_One-Arm_Cable_Curl":"站姿單臂滑輪彎舉","Standing_One-Arm_Dumbbell_Curl_Over_Incline_Bench":"站姿單臂啞鈴彎舉過上斜臥推凳","Standing_One-Arm_Dumbbell_Triceps_Extension":"站姿單臂啞鈴三頭伸展","Standing_Overhead_Barbell_Triceps_Extension":"站姿過頭槓鈴三頭伸展","Standing_Palm-In_One-Arm_Dumbbell_Press":"站姿掌心單臂啞鈴推","Standing_Palms-In_Dumbbell_Press":"站姿掌心啞鈴推","Standing_Palms-Up_Barbell_Behind_The_Back_Wrist_Curl":"站姿掌心向上槓鈴背後腕彎舉","Standing_Pelvic_Tilt":"站姿骨盆傾斜","Standing_Rope_Crunch":"站姿繩捲腹","Standing_Soleus_And_Achilles_Stretch":"站姿Soleus與Achilles伸展","Standing_Toe_Touches":"站姿腳尖Touches","Standing_Towel_Triceps_Extension":"站姿Towel三頭伸展","Standing_Two-Arm_Overhead_Throw":"站姿雙臂過頭拋擲","Star_Jump":"Star跳","Step_Mill":"登階Mill","Step-up_with_Knee_Raise":"登階加提膝","Stiff_Leg_Barbell_Good_Morning":"僵直腿槓鈴早安式體前屈","Stiff-Legged_Barbell_Deadlift":"直腿槓鈴硬舉","Stiff-Legged_Dumbbell_Deadlift":"直腿啞鈴硬舉","Stomach_Vacuum":"StomachVacuum","Straight_Bar_Bench_Mid_Rows":"直槓臥推凳中划船","Straight_Raises_on_Incline_Bench":"直舉於上斜臥推凳","Straight-Arm_Dumbbell_Pullover":"直臂啞鈴仰臥上拉","Straight-Arm_Pulldown":"直臂下拉","Stride_Jump_Crossover":"跨步跳交叉","Sumo_Deadlift":"相撲硬舉","Sumo_Deadlift_with_Bands":"相撲硬舉加彈力帶","Sumo_Deadlift_with_Chains":"相撲硬舉加鐵鏈","Superman":"超人","Supine_Chest_Throw":"仰臥胸拋擲","Supine_One-Arm_Overhead_Throw":"仰臥單臂過頭拋擲","Supine_Two-Arm_Overhead_Throw":"仰臥雙臂過頭拋擲","Suspended_Fallout":"懸吊Fallout","Suspended_Push-Up":"懸吊伏地挺身","Suspended_Reverse_Crunch":"懸吊反向捲腹","Suspended_Row":"懸吊划船","Suspended_Split_Squat":"懸吊分腿蹲","Svend_Press":"Svend推","T-Bar_Row_with_Handle":"T槓划船加握把","Tate_Press":"泰特推","The_Straddle":"Straddle","Thigh_Abductor":"大腿Abductor","Thigh_Adductor":"大腿內收肌","Tire_Flip":"Tire翻轉","Toe_Touchers":"腳尖觸碰","Torso_Rotation":"Torso旋轉","Trail_Running_Walking":"Trail跑/行走","Trap_Bar_Deadlift":"斜方肌槓硬舉","Tricep_Dumbbell_Kickback":"三頭啞鈴後踢","Tricep_Side_Stretch":"三頭側伸展","Triceps_Overhead_Extension_with_Rope":"三頭過頭伸展加繩","Triceps_Pushdown":"三頭下壓","Triceps_Pushdown_-_Rope_Attachment":"三頭下壓繩握把","Triceps_Pushdown_-_V-Bar_Attachment":"三頭下壓V槓握把","Triceps_Stretch":"三頭伸展","Tuck_Crunch":"收捲腹","Two-Arm_Dumbbell_Preacher_Curl":"雙臂啞鈴牧師彎舉","Two-Arm_Kettlebell_Clean":"雙臂壺鈴上膊","Two-Arm_Kettlebell_Jerk":"雙臂壺鈴挺舉","Two-Arm_Kettlebell_Military_Press":"雙臂壺鈴軍式推舉","Two-Arm_Kettlebell_Row":"雙臂壺鈴划船","Underhand_Cable_Pulldowns":"Underhand滑輪下拉","Upper_Back_Stretch":"上背伸展","Upper_Back-Leg_Grab":"上背腿Grab","Upright_Barbell_Row":"直立槓鈴划船","Upright_Cable_Row":"直立滑輪划船","Upright_Row_-_With_Bands":"直立划船加彈力帶","Upward_Stretch":"Upward伸展","V-Bar_Pulldown":"V槓下拉","V-Bar_Pullup":"V槓引體向上","Vertical_Swing":"Vertical擺盪","Walking_Treadmill":"行走、跑步機","Weighted_Ball_Hyperextension":"負重球背部伸展","Weighted_Ball_Side_Bend":"負重球側彎","Weighted_Bench_Dip":"負重臥推凳撐體","Weighted_Crunches":"負重捲腹","Weighted_Jump_Squat":"負重跳深蹲","Weighted_Pull_Ups":"負重拉次","Weighted_Sissy_Squat":"負重西西里深蹲","Weighted_Sit-Ups_-_With_Bands":"負重仰臥起坐加彈力帶","Weighted_Squat":"負重深蹲","Wide_Stance_Barbell_Squat":"寬站距槓鈴深蹲","Wide_Stance_Stiff_Legs":"寬站距僵直腿","Wide-Grip_Barbell_Bench_Press":"寬握槓鈴臥推","Wide-Grip_Decline_Barbell_Bench_Press":"寬握下斜槓鈴臥推","Wide-Grip_Decline_Barbell_Pullover":"寬握下斜槓鈴仰臥上拉","Wide-Grip_Lat_Pulldown":"寬握闊背下拉","Wide-Grip_Pulldown_Behind_The_Neck":"寬握下拉頸後","Wide-Grip_Rear_Pull-Up":"寬握後引體向上","Wide-Grip_Standing_Barbell_Curl":"寬握站姿槓鈴彎舉","Wind_Sprints":"WindSprints","Windmills":"Windmills","Worlds_Greatest_Stretch":"世界Greatest伸展","Wrist_Circles":"手腕繞環","Wrist_Roller":"手腕滾輪","Wrist_Rotations_with_Straight_Bar":"手腕旋轉加直槓","Yoke_Walk":"Yoke行走","Zercher_Squats":"澤奇深蹲","Zottman_Curl":"佐特曼彎舉","Zottman_Preacher_Curl":"佐特曼牧師彎舉"}, FILTERS={"category":[["strength","力量訓練",581],["stretching","伸展",123],["plyometrics","增強式",61],["powerlifting","健力",38],["olympic weightlifting","奧林匹克舉重",35],["strongman","大力士",21],["cardio","有氧",14]],"muscle":[["quadriceps","股四頭肌",148],["shoulders","肩部",127],["abdominals","腹肌",93],["chest","胸部",84],["hamstrings","腿後肌",79],["triceps","三頭肌",71],["biceps","二頭肌",53],["lats","闊背肌",38],["middle back","中背部",34],["calves","小腿",28],["lower back","下背部",27],["forearms","前臂",25],["glutes","臀肌",22],["traps","斜方肌",15],["adductors","內收肌",13],["neck","頸部",8],["abductors","外展肌",8]],"equipment":[["barbell","槓鈴",170],["dumbbell","啞鈴",123],["other","其他",122],["body only","徒手",111],["cable","滑輪",81],["machine","機械",67],["kettlebells","壺鈴",53],["bands","彈力帶",20],["medicine ball","藥球",17],["exercise ball","健身球",12],["foam roll","滾筒",11],["e-z curl bar","EZ彎舉槓",9]],"level":[["beginner","初級",523],["intermediate","中級",293],["expert","高級",57]],"force":[["pull","拉",371],["push","推",369],["static","靜態",104]],"mechanic":[["compound","複合動作",489],["isolation","孤立動作",297]]}, LABELS={"category":{"strength":"力量訓練","stretching":"伸展","plyometrics":"增強式","powerlifting":"健力","olympic weightlifting":"奧林匹克舉重","strongman":"大力士","cardio":"有氧"},"muscle":{"quadriceps":"股四頭肌","shoulders":"肩部","abdominals":"腹肌","chest":"胸部","hamstrings":"腿後肌","triceps":"三頭肌","biceps":"二頭肌","lats":"闊背肌","middle back":"中背部","calves":"小腿","lower back":"下背部","forearms":"前臂","glutes":"臀肌","traps":"斜方肌","adductors":"內收肌","neck":"頸部","abductors":"外展肌"},"equipment":{"barbell":"槓鈴","dumbbell":"啞鈴","body only":"徒手","cable":"滑輪","machine":"機械","kettlebells":"壺鈴","bands":"彈力帶","medicine ball":"藥球","exercise ball":"健身球","foam roll":"滾筒","e-z curl bar":"EZ彎舉槓","other":"其他"},"level":{"beginner":"初級","intermediate":"中級","expert":"高級"},"force":{"pull":"拉","push":"推","static":"靜態"},"mechanic":{"compound":"複合動作","isolation":"孤立動作"}};
+var CDN="https://cdn.jsdelivr.net/gh/yuhonas/free-exercise-db@main/exercises/";
+var DIM={category:"類別",muscle:"主要部位",equipment:"器材",level:"難度",force:"發力",mechanic:"類型"};
+var DATA=[], state={q:"",category:[],muscle:[],equipment:[],level:[],force:[],mechanic:[]};
+
+/* ---- gate ---- */
+var gate=document.getElementById('gate'),app=document.getElementById('app');
+if(sessionStorage.getItem('noki_ok')==='1'){enter();}
+document.getElementById('gate-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(document.getElementById('pw').value.trim()==='555'){sessionStorage.setItem('noki_ok','1');enter();}
+  else{document.getElementById('err').textContent='密碼錯誤，請再試一次';document.getElementById('pw').value='';}
+});
+function enter(){gate.style.display='none';app.style.display='block';if(!DATA.length)load();}
+
+/* ---- data ---- */
+function load(){
+  var url="https://cdn.jsdelivr.net/gh/yuhonas/free-exercise-db@main/dist/exercises.json";
+  fetch(url).then(function(r){return r.json();}).then(function(j){
+    DATA=j.map(function(e){return {
+      id:e.id, en:e.name, zh:NAMES[e.id]||e.name,
+      category:e.category, level:e.level, force:e.force, mechanic:e.mechanic,
+      equipment:e.equipment, muscles:e.primaryMuscles||[], sec:e.secondaryMuscles||[],
+      instructions:e.instructions||[], images:e.images||[]
+    };});
+    buildFilters(); apply();
+  }).catch(function(){
+    document.getElementById('grid').innerHTML='<div class="empty">資料載入失敗，請檢查網路連線後重新整理。</div>';
+  });
+}
+
+function L(dim,key){return (LABELS[dim]&&LABELS[dim][key])||key;}
+
+/* ---- filters ui ---- */
+function buildFilters(){
+  var host=document.getElementById('filters'),h='';
+  h+='<div class="fgroup"><h4>篩選 <button class="clearbtn" id="clr" disabled>清除全部</button></h4></div>';
+  Object.keys(DIM).forEach(function(dim){
+    var rows=FILTERS[dim]||[];
+    h+='<div class="fgroup"><h4>'+DIM[dim]+'</h4><div class="chips">';
+    rows.forEach(function(r){
+      h+='<span class="chip" data-dim="'+dim+'" data-key="'+enc(r[0])+'">'+r[1]+'<span class="n">'+r[2]+'</span></span>';
+    });
+    h+='</div></div>';
+  });
+  host.innerHTML=h;
+  host.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click',function(){toggle(c.dataset.dim,c.dataset.key,c);});
+  });
+  document.getElementById('clr').addEventListener('click',clearAll);
+}
+function enc(s){return s.replace(/"/g,'&quot;');}
+function toggle(dim,key,el){
+  var a=state[dim],i=a.indexOf(key);
+  if(i<0){a.push(key);el.classList.add('on');}else{a.splice(i,1);el.classList.remove('on');}
+  apply();
+}
+function clearAll(){
+  Object.keys(DIM).forEach(function(d){state[d]=[];});
+  document.querySelectorAll('.chip.on').forEach(function(c){c.classList.remove('on');});
+  apply();
+}
+
+/* ---- search ---- */
+var qbox=document.getElementById('q'),qt;
+qbox.addEventListener('input',function(){clearTimeout(qt);qt=setTimeout(function(){state.q=qbox.value.trim().toLowerCase();apply();},120);});
+
+/* ---- apply + render ---- */
+function apply(){
+  var q=state.q;
+  var out=DATA.filter(function(e){
+    if(q && e.en.toLowerCase().indexOf(q)<0 && e.zh.toLowerCase().indexOf(q)<0) return false;
+    if(state.category.length && state.category.indexOf(e.category)<0) return false;
+    if(state.equipment.length && state.equipment.indexOf(e.equipment)<0) return false;
+    if(state.level.length && state.level.indexOf(e.level)<0) return false;
+    if(state.force.length && state.force.indexOf(e.force)<0) return false;
+    if(state.mechanic.length && state.mechanic.indexOf(e.mechanic)<0) return false;
+    if(state.muscle.length && !state.muscle.some(function(m){return e.muscles.indexOf(m)>=0;})) return false;
+    return true;
+  });
+  render(out);
+  document.getElementById('cnt').textContent=out.length;
+  var any=Object.keys(DIM).some(function(d){return state[d].length;})||q;
+  var clr=document.getElementById('clr'); if(clr) clr.disabled=!any;
+}
+function render(list){
+  var grid=document.getElementById('grid'),empty=document.getElementById('empty');
+  if(!list.length){grid.innerHTML='';empty.hidden=false;return;}
+  empty.hidden=true;
+  var h=list.map(function(e){
+    var img=e.images[0]?'<img loading="lazy" src="'+CDN+e.images[0]+'" alt="">':'';
+    var tags='';
+    if(e.equipment) tags+='<span class="tg">'+L('equipment',e.equipment)+'</span>';
+    if(e.muscles[0]) tags+='<span class="tg">'+L('muscle',e.muscles[0])+'</span>';
+    if(e.level) tags+='<span class="tg lv">'+L('level',e.level)+'</span>';
+    return '<article class="exc" data-id="'+e.id+'"><div class="ph">'+img+'</div>'+
+      '<div class="body"><div class="zh">'+e.zh+'</div><div class="en">'+e.en+'</div>'+
+      '<div class="tags">'+tags+'</div></div></article>';
+  }).join('');
+  grid.innerHTML=h;
+  grid.querySelectorAll('.exc').forEach(function(c){
+    c.addEventListener('click',function(){openModal(c.dataset.id);});
+  });
+}
+
+/* ---- modal ---- */
+var modal=document.getElementById('modal'),mbox=document.getElementById('mbox');
+function openModal(id){
+  var e=DATA.find(function(x){return x.id===id;}); if(!e)return;
+  var imgs=e.images.map(function(p){return '<img loading="lazy" src="'+CDN+p+'" alt="">';}).join('');
+  var meta='';
+  if(e.category) meta+='<span class="tg">'+L('category',e.category)+'</span>';
+  if(e.equipment) meta+='<span class="tg">'+L('equipment',e.equipment)+'</span>';
+  if(e.level) meta+='<span class="tg lv">'+L('level',e.level)+'</span>';
+  if(e.force) meta+='<span class="tg">發力：'+L('force',e.force)+'</span>';
+  if(e.mechanic) meta+='<span class="tg">'+L('mechanic',e.mechanic)+'</span>';
+  e.muscles.forEach(function(m){meta+='<span class="tg">'+L('muscle',m)+'</span>';});
+  var steps=e.instructions.map(function(s){return '<li>'+esc(s)+'</li>';}).join('');
+  var yt="https://www.youtube.com/results?search_query="+encodeURIComponent(e.en+" exercise form");
+  mbox.innerHTML=
+    '<div class="mhead"><button class="x" id="mx">&times;</button>'+
+      '<h2>'+e.zh+'</h2><div class="men">'+e.en+'</div></div>'+
+    (imgs?'<div class="imgs">'+imgs+'</div>':'')+
+    '<div class="meta">'+meta+'</div>'+
+    (steps?'<div class="sec"><h3>步驟說明（原文）</h3><ol>'+steps+'</ol></div>':'')+
+    '<a class="yt" href="'+yt+'" target="_blank" rel="noopener">'+
+      '<svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l6.2 3.3-6.2 3.3z"/></svg>'+
+      'YouTube 看動作示範</a>'+
+    '<div class="note">示範影片為 YouTube 即時搜尋結果（資料庫本身僅含實拍圖、無影片）。</div>';
+  document.getElementById('mx').addEventListener('click',closeModal);
+  modal.style.display='flex';
+}
+function closeModal(){modal.style.display='none';mbox.innerHTML='';}
+modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script>
+</body>
+</html>

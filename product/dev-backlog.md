@@ -50,13 +50,17 @@
 | E1.1 | 匯入 `free-exercise-db`（800+ JSON + 圖）到**自有 DB / 物件儲存**（不 runtime 依賴對方 GitHub） | MVP | E0.1 | oss §2.1；Unlicense 可商用 |
 | E1.2 | **動作庫繁中化**：800 筆 name/instructions LLM 批次初翻 + 教練校對 | MVP | E1.1 | ★缺口（隱性成本）：原資料純英文 |
 | E1.3 | 器材/部位 enum 收斂成 Yolian 分類法（對方偶有 null） | MVP | E1.1 | oss §2.1 |
-| E1.4 | Exercise / Program / Template 資料模型 + 模板複用 + 指派 | MVP | E0.2 | 架構 §5 |
+| E1.4 | Exercise（含主/次肌群 + 類別 肌力/伸展/有氧）/ Program / Template 資料模型 + 模板複用 + 指派 | MVP | E0.2 | 架構 §5.1/5.3B |
 | E1.5 | WorkoutLog：每組重量/次數、完成度、**本次 vs 上次** | MVP | E1.4 | journeys 教練 J2 |
 | E1.6 | **RIR/RPE 自覺強度欄位** | MVP | E1.5 | ★缺口：低成本高價值 |
-| E1.7 | 組類型最小化：正式組 / 熱身組 | MVP | E1.4 | ★缺口：Program 結構偏平 |
-| E1.8 | 成長折線圖（各動作/體態，Recharts） | MVP | E1.5 | 架構 §6.5；指定圖表庫 |
-| E1.9 | 動作影片（靜態圖之外） | 1.5 | E1.1 | free-exercise-db 只有圖，無影片 |
-| E1.10 | 自動重量漸進規則（達標自動加重） | 2 | E1.4 | oss §4.2；wger 有，MVP 先手動 |
+| E1.7 | **系統化訓練結構**：ProgramDay(焦點肌群/休息日) + Block(熱身/主訓練/伸展/收操) + 組間休息秒數 | MVP | E1.4 | ★整併：架構 §5.3B（取代原「正式組/熱身組」最小化） |
+| E1.8 | **訓練週期/分項範本**：週分項(推拉腿/上下肢…) + 一週肌群平衡檢查 | MVP | E1.7 | 架構 §5.3B TrainingCycle |
+| E1.9 | **體組成記錄 BodyComposition**：裝置(InBody/Tanita/手動) + 核心欄位(體重/體脂率/骨骼肌量/內臟脂肪/體水分/BMR) 手動輸入 | MVP | E0.2 | ★整併：架構 §5.3A |
+| E1.10 | 成長折線圖（各動作 + **體脂↓/骨骼肌↑ 雙線**，Recharts） | MVP | E1.5, E1.9 | 架構 §6.5；指定圖表庫 |
+| E1.11 | 動作影片（靜態圖之外） | 1.5 | E1.1 | free-exercise-db 只有圖，無影片 |
+| E1.12 | **體組成報告拍照 OCR 自動入帳**（InBody/Tanita 報告單） | 2 | E1.9 | 架構 §5.3A；對標 OneFloors |
+| E1.13 | 部位別(節段)體組成 + 裝置匯出/API 串接評估 | 2 | E1.9 | 架構 §5.3A |
+| E1.14 | 自動重量漸進規則（達標自動加重） | 2 | E1.4 | oss §4.2；wger 有，MVP 先手動 |
 
 ---
 
