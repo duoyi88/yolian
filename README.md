@@ -1,4 +1,4 @@
-# Noki — 健身教練 / 工作室營運平台
+# Yolian — 健身教練 / 工作室營運平台
 
 面向健身教練與個人工作室的營運平台研究與產品藍圖。核心願景：讓教練工作更輕鬆有效率、學員看得見成長、程式化前端 + Agent-like AI 操作窗口。
 
@@ -6,7 +6,7 @@
 - `research/competitor-research.md` — 台灣 / 國外 / 中國 同業研究 + AI 缺口分析
 - `research/deep-dive-competitors.md` — 競品逐家深度拆解（含後台 / App 實機畫面）
 - `research/screenshots/` — 34 張競品實地截圖
-- `product/product-architecture.md` — Noki 產品架構、資料模型、Agent 能力目錄、MVP 範圍
+- `product/product-architecture.md` — Yolian 產品架構、資料模型、Agent 能力目錄、MVP 範圍
 - `research/open-source-strategy.md` — 開源整併 → 商業服務策略、授權光譜與合規、變天事件簿、買借造矩陣
 - `docs/` — 由上述文件產生的可瀏覽網站（GitHub Pages 發布目錄）
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a self-contained, password-gated static site from the Noki research docs.
+"""Build a self-contained, password-gated static site from the Yolian research docs.
 
 Re-run after editing any of the source markdown files:
     python3 build_site.py
@@ -20,7 +20,7 @@ PASSWORD = "555"
 DOCS = [
     ("research", "競品研究（台/外/中）", os.path.join(BASE, "research", "competitor-research.md")),
     ("deepdive", "競品深度拆解", os.path.join(BASE, "research", "deep-dive-competitors.md")),
-    ("product", "Noki 產品架構", os.path.join(BASE, "product", "product-architecture.md")),
+    ("product", "Yolian 產品架構", os.path.join(BASE, "product", "product-architecture.md")),
     ("style", "UI 風格系統", os.path.join(BASE, "research", "ui-style-system.md")),
     ("opensource", "開源整併與授權", os.path.join(BASE, "research", "open-source-strategy.md")),
     ("journeys", "使用者歷程", os.path.join(BASE, "product", "user-journeys.md")),
@@ -116,7 +116,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Noki — 健身平台研究與產品藍圖</title>
+<title>Yolian — 健身平台研究與產品藍圖</title>
 <style>
 :root{
   --accent:#14b8a6; --accent-d:#0d9488; --ink:#0f172a; --muted:#64748b;
@@ -211,7 +211,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 <div id="gate">
   <form class="card" id="gate-form">
-    <div class="logo">No<span>ki</span></div>
+    <div class="logo">Yo<span>lian</span></div>
     <p>健身平台研究與產品藍圖 · 請輸入存取密碼</p>
     <input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" autofocus>
     <button type="submit">進入</button>
@@ -223,7 +223,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 <div id="app">
   <aside class="sidebar" id="sidebar">
-    <div class="brand">No<span>ki</span></div>
+    <div class="brand">Yo<span>lian</span></div>
     <div class="tag">健身教練 / 工作室營運平台</div>
     __NAV__
     <div class="side-foot">同業研究 · 競品深度拆解 · 產品藍圖<br>2026 · 內部文件</div>
@@ -241,12 +241,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
         <div class="kpi"><b>34 張</b><span>實地探查截圖佐證</span></div>
         <div class="kpi"><b>0 家</b><span>同時做到訓練深度+完整營運+AI Agent</span></div>
       </div>
-      <div class="callout"><b>核心發現：</b>全市場的 AI 只到三種——生成內容、唯讀查詢、對外客服賣課。<b>沒有人做「教練端、跨模組的對話式寫入操作」</b>，這就是 Noki 的真空白。</div>
+      <div class="callout"><b>核心發現：</b>全市場的 AI 只到三種——生成內容、唯讀查詢、對外客服賣課。<b>沒有人做「教練端、跨模組的對話式寫入操作」</b>，這就是 Yolian 的真空白。</div>
       <h3>文件導覽</h3>
       <div class="ov-links" id="ovLinks">
         <button data-target="research"><b>競品研究（台/外/中）</b><span>三地服務商總覽、功能、定價、AI 缺口分析</span></button>
         <button data-target="deepdive"><b>競品深度拆解</b><span>逐家功能/定價/後台/App 實機畫面 + 試用紀錄</span></button>
-        <button data-target="product"><b>Noki 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
+        <button data-target="product"><b>Yolian 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
         <button data-target="style"><b>UI 風格系統</b><span>6 風格原型 × Dark/Light × 多租戶品牌識別（Pencil 模擬）</span></button>
         <button data-target="opensource"><b>開源整併與授權</b><span>開源→商業服務策略、買借造矩陣、授權合規與地雷</span></button>
         <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
@@ -273,11 +273,11 @@ __MDBLOCKS__
   var PW="__PASSWORD__";
   var gate=document.getElementById('gate'), app=document.getElementById('app');
   // session unlock
-  if(sessionStorage.getItem('noki_ok')==='1'){gate.style.display='none';app.style.display='block';}
+  if(sessionStorage.getItem('yolian_ok')==='1'){gate.style.display='none';app.style.display='block';}
   document.getElementById('gate-form').addEventListener('submit',function(e){
     e.preventDefault();
     var v=document.getElementById('pw').value.trim();
-    if(v===PW){sessionStorage.setItem('noki_ok','1');gate.style.display='none';app.style.display='block';render();}
+    if(v===PW){sessionStorage.setItem('yolian_ok','1');gate.style.display='none';app.style.display='block';render();}
     else{document.getElementById('err').textContent='密碼錯誤，請再試一次';document.getElementById('pw').value='';}
   });
 

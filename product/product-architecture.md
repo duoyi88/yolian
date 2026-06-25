@@ -1,6 +1,6 @@
-# Noki 產品架構與 MVP 功能地圖 v1
+# Yolian 產品架構與 MVP 功能地圖 v1
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
 > 本文把三份研究（`research/competitor-research.md`、`research/deep-dive-competitors.md` + 截圖）收斂成可執行的產品藍圖：定位 → 用戶 → 資訊架構 → 三面產品 → Agent 能力 → MVP 範圍 → 技術架構 → 商業模式 → 待決策。
 > 日期：2026-06-25 · 狀態：v1 待你校準（文末有「待決策」清單）
 
@@ -8,7 +8,7 @@
 
 ## 0. 一句話定位（研究收斂結論）
 
-> **Noki = 一個「系統（UI）為主體」的健身工作室營運平台，外加一個 AI Agent 加值窗口 —— 把「教練行政效率」「學員看得見成長」「（選擇性的）跨模組 AI Agent 操作」縫進同一個產品。**
+> **Yolian = 一個「系統（UI）為主體」的健身工作室營運平台，外加一個 AI Agent 加值窗口 —— 把「教練行政效率」「學員看得見成長」「（選擇性的）跨模組 AI Agent 操作」縫進同一個產品。**
 >
 > 定位校準：**系統能直接輸入、完成所有事**；Agent 是疊在系統之上的窗口，只在「值得」時介入（口語、語音、跨模組、零碎隨手）。**簡單的事用 Dashboard 解決就好，不必丟給 LLM 浪費 token。**
 
@@ -16,7 +16,7 @@
 - 行政營運（CRM/排課/合約/金流/報表）是紅海，人人都有 → **門檻、非差異化**
 - 訓練深度（動作庫/飲食/體態/成長可視化）只有教練類 App 強 → **加分項**
 - AI 全市場只到三種：生成內容、唯讀查詢、對外客服賣課 → **沒有人做「教練端、跨模組的對話式寫入操作」**
-- **三者同時具備者：0 家** ← 這就是 Noki 的座標
+- **三者同時具備者：0 家** ← 這就是 Yolian 的座標
 
 ---
 
@@ -41,7 +41,7 @@
 
 ## 2. 目標用戶（Personas）
 
-| Persona | 是誰 | 最痛的事 | Noki 給的解法 |
+| Persona | 是誰 | 最痛的事 | Yolian 給的解法 |
 |---------|------|---------|--------------|
 | **獨立教練 Coach Solo** | 自由教練，20–40 名學員，無行政支援 | 排課/記錄/追蹤靠 LINE+Excel+腦袋；課後還要打字記錄 | 一句話排課/記錄/通知；學員成長自動成圖 |
 | **工作室主理人 Studio Owner**（= Noki Studio） | 1–10 名教練的小工作室 | 多教練排課衝堂、合約到期沒人追、業績難算 | 多教練排課+衝堂偵測、合約到期提醒、經營儀表板 |
@@ -71,7 +71,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                     Noki Platform                          │
+│                     Yolian Platform                          │
 │                                                            │
 │   面 2：Agent 窗口（加值層，非必經、可省則省）              │
 │   ┌───────────────────────────────────────────────┐      │
@@ -95,7 +95,7 @@
 ```
 
 - **面 1 程式化前端（主體）**：教練/主理人的 Web + 行動後台。儀表板、行事曆排課、會員清單、合約、訓練課表編輯、報表。**這是系統的主體，多數操作在此直接完成**。對標 SimpleTraining + 17FIT 的完整度。
-- **面 2 Agent 窗口（加值層，非必經）**：Noki 的差異化王牌，但**疊在系統之上**。教練端「一句話 / 一段語音完成跨模組操作 + 主動經營提醒」；**輸入框支援語音輸入**；可常駐側欄或行動端對話框。簡單操作不必走它（省 token）。
+- **面 2 Agent 窗口（加值層，非必經）**：Yolian 的差異化王牌，但**疊在系統之上**。教練端「一句話 / 一段語音完成跨模組操作 + 主動經營提醒」；**輸入框支援語音輸入**；可常駐側欄或行動端對話框。簡單操作不必走它（省 token）。
 - **面 3 學員端**：今日課表、語音/文字記錄、本次 vs 上次、12 週折線、成長敘事、與教練互動交流。跑在 **LINE LIFF（零安裝）**。（拍照記餐辨識為 Phase 2）
 
 ---
@@ -129,7 +129,7 @@
 
 ---
 
-## 6. Agent 能力目錄（Noki 的王牌）
+## 6. Agent 能力目錄（Yolian 的王牌）
 
 > 設計成「意圖（intent）→ 對應一個或多個 Action/Query」。下表是能力清單，標注讀/寫、涉及模組、是否 MVP。MVP 先做**高頻、低風險、跨模組價值高**的。
 
@@ -243,46 +243,46 @@ LINE（通知/預約入口）、台灣金流與電子發票（Phase 1.5）、繁
 
 ## 9. LINE 官方帳號 + LIFF 整合策略（台灣關鍵渠道）★ 補件
 
-> 這是先前藍圖漏掉、但對台灣灘頭堡至關重要的一塊。台灣 LINE 有 **約 2,100 萬活躍用戶**，且研究中幾乎每個台灣競品都靠 LINE（17FIT、BookFast、VibeAI、Trainge、艾美力 imary、SimplyBook.me 全在做 LINE 預約）。LINE 官方主打的場景就是美業/醫療的「**線上預約 + 提醒、降低失約率**」——剛好命中教練痛點。對 Noki 而言，LINE 不只是通知管道，而是**學員端零安裝的主要交付載體**，直接補掉 OneFloors「僅 iOS」與 SimpleTraining「純 PWA」的缺口。
+> 這是先前藍圖漏掉、但對台灣灘頭堡至關重要的一塊。台灣 LINE 有 **約 2,100 萬活躍用戶**，且研究中幾乎每個台灣競品都靠 LINE（17FIT、BookFast、VibeAI、Trainge、艾美力 imary、SimplyBook.me 全在做 LINE 預約）。LINE 官方主打的場景就是美業/醫療的「**線上預約 + 提醒、降低失約率**」——剛好命中教練痛點。對 Yolian 而言，LINE 不只是通知管道，而是**學員端零安裝的主要交付載體**，直接補掉 OneFloors「僅 iOS」與 SimpleTraining「純 PWA」的缺口。
 
 ### 9.1 三個積木（角色分工）
-| 積木 | 是什麼 | 對 Noki 的角色 |
+| 積木 | 是什麼 | 對 Yolian 的角色 |
 |------|--------|--------------|
 | **LINE 官方帳號 (OA)** | 品牌在 LINE 的帳號；含圖文選單、群發/分眾、集點、優惠券、AI 自動回應、聊天 | 工作室/教練的 LINE 門面 + 學員入口 + 推播管道 |
-| **Messaging API** | 後端 ↔ LINE 的程式介面（webhook 收訊息、push/reply 發訊息、Flex 卡片、Rich Menu） | 把 LINE 接進 Noki 的 Action 層：推播提醒 + Agent 對話 |
+| **Messaging API** | 後端 ↔ LINE 的程式介面（webhook 收訊息、push/reply 發訊息、Flex 卡片、Rich Menu） | 把 LINE 接進 Yolian 的 Action 層：推播提醒 + Agent 對話 |
 | **LIFF（LINE Front-end Framework）** | 在 LINE 內建瀏覽器跑的 web app，**零安裝**、可直接取得 LINE 使用者身分 | **學員端主介面**（今日課表/記錄/成長）就跑在 LINE 裡 |
 
-### 9.2 LIFF 能力（已查證，對應 Noki 用途）
-- **零安裝 + 自動身分**：在 LIFF browser 內免登入即可拿到使用者 → `liff.getProfile()` 得 `userId / displayName / pictureUrl`；`liff.getIDToken()/getAccessToken()` 傳後端做帳號連結（LINE userId ⇄ Noki Member）。
+### 9.2 LIFF 能力（已查證，對應 Yolian 用途）
+- **零安裝 + 自動身分**：在 LIFF browser 內免登入即可拿到使用者 → `liff.getProfile()` 得 `userId / displayName / pictureUrl`；`liff.getIDToken()/getAccessToken()` 傳後端做帳號連結（LINE userId ⇄ Yolian Member）。
 - **三種視窗尺寸**：Compact / Tall / Full（成長頁用 Full、快速記錄用 Tall）。
 - **`liff.sendMessages()`**：代使用者在當前聊天送訊息（例如記錄完成回拋一張卡）。
 - **`liff.shareTargetPicker()`**：分享給 LINE 好友 → **學員轉介獲客**。
 - **`liff.scanCodeV2()`**：掃 QR → **到場簽到/消課**（對標 SimpleTraining 的 QR 簽到）。
-- 需求：一個 LINE Login channel + HTTPS endpoint（Noki 的 web app 直接當 LIFF app 載入，沿用同一套 Action 層）。access token 效期 12 小時。
+- 需求：一個 LINE Login channel + HTTPS endpoint（Yolian 的 web app 直接當 LIFF app 載入，沿用同一套 Action 層）。access token 效期 12 小時。
 
 ### 9.3 Messaging API 能力（已查證）
-- **收**：使用者傳訊 → webhook 事件（message / follow 加好友 / postback 按鈕 / beacon…）→ 進 Noki Agent。
+- **收**：使用者傳訊 → webhook 事件（message / follow 加好友 / postback 按鈕 / beacon…）→ 進 Yolian Agent。
 - **發**：reply（回覆，**免費**）、push/multicast/broadcast（主動推播，**計費**）。
 - **訊息型態**：文字、圖片、**Flex Message（自訂卡片，做課表卡/成長卡）**、Template、Quick Reply、貼圖、位置。
 - **Rich Menu（圖文選單）**：聊天室永久置底入口，可放「今日課表 / 我的進度 / 預約 / 聯絡教練」直開 LIFF。
-- 其他：account link（安全綁定 Noki 帳號）、get profile、beacon。
+- 其他：account link（安全綁定 Yolian 帳號）、get profile、beacon。
 
-### 9.4 對接 Noki 三面 + Agent
+### 9.4 對接 Yolian 三面 + Agent
 ```
 LINE 官方帳號（學員加好友）
    │
    ├── Rich Menu（永久入口）
-   │      └─▶ LIFF App = Noki 學員端（面 3）  零安裝、自動 LINE 身分
+   │      └─▶ LIFF App = Yolian 學員端（面 3）  零安裝、自動 LINE 身分
    │             今日課表 / 語音·文字記錄 / 本次vs上次 / 12週折線 / 成長敘事
    │
-   ├── 使用者傳訊 ──webhook──▶ Noki Agent（面 2）──reply(免費)──▶ 回覆
+   ├── 使用者傳訊 ──webhook──▶ Yolian Agent（面 2）──reply(免費)──▶ 回覆
    │      「幫我約這週的課」「我這個月進步多少」→ 走同一套 Action/Query 層
    │
    └── push（計費，高價值才用）
           上課提醒(降爽約) / 合約到期 / 週成長摘要 / AI 成長敘事
 ```
-- **學員端（面 3）= LIFF**：這是最大槓桿——學員不必下載任何 App，在 LINE 裡就能用 Noki，身分自動帶入。**直接解掉 OneFloors iOS-only 的痛**。
-- **Agent（面 2）可長在 LINE 對話**：學員/教練在 LINE 打字 → webhook → Noki Agent → 回覆。等於 Agent 多了一個「人人都在用的入口」。
+- **學員端（面 3）= LIFF**：這是最大槓桿——學員不必下載任何 App，在 LINE 裡就能用 Yolian，身分自動帶入。**直接解掉 OneFloors iOS-only 的痛**。
+- **Agent（面 2）可長在 LINE 對話**：學員/教練在 LINE 打字 → webhook → Yolian Agent → 回覆。等於 Agent 多了一個「人人都在用的入口」。
 - **設計原則 #1 延伸**：LIFF 與 webhook 都只是 Action 層的另一個前端，與 Web 後台共用同一套操作，零裂縫。
 
 ### 9.5 高價值用例（對應教練/學員痛點）
@@ -297,7 +297,7 @@ LINE 官方帳號（學員加好友）
 - **計費模型**：reply（回覆使用者）+ 一對一聊天 + 自動回應 + 歡迎訊息 + LINE VOOM **皆不計費**；**群發/分眾/API push 才計費**（按目標好友數×次數）。→ 架構上：**Agent 對話走 reply（免費）、提醒才用 push（精省）**。
 - **TW 方案**（2023 改版，**數字以官網計算機為準**）：輕用量（免費，少量訊息）/ 中用量（月費約 NT$800）/ 高用量（月費約 NT$1,200），各含免費訊息額度 + 超量加購。
 - **帳號類型**：一般 / 認證(藍盾) / 企業(綠盾)；Messaging API 一般帳號即可用，認證帳號可投「加好友廣告」。2026/4 起一般帳號不再顯示灰盾。
-- **健康/醫療業種限制**：LINE 對醫療/金融等敏感業種的「**LINE 內建 AI 聊天機器人(β)**」可能拒絕提供。Noki 用**自有 Agent（走 Messaging API webhook）不受此限**，但健身鄰近健康，內容合規仍要留意。
+- **健康/醫療業種限制**：LINE 對醫療/金融等敏感業種的「**LINE 內建 AI 聊天機器人(β)**」可能拒絕提供。Yolian 用**自有 Agent（走 Messaging API webhook）不受此限**，但健身鄰近健康，內容合規仍要留意。
 - LIFF 限制：需 HTTPS、在 OpenChat 不支援、外部瀏覽器無法用 `scanCode`。
 
 ### 9.7 對 MVP 的建議
@@ -313,7 +313,7 @@ LINE 官方帳號（學員加好友）
 | VibeAI | 免費 LINE 預約系統、LINE OAuth、自動提醒降爽約 | 預約/提醒 |
 | 艾美力 imary | 主打 LINE 深度整合、私域流量、拒平台抽成 | 私域經營 |
 | SimplyBook.me | LINE 預約機器人 | 預約 |
-> 結論：台灣「LINE 預約」已是標配，但**沒人把 LINE 當「訓練深度 + 成長敘事 + Agent」的零安裝載體**。Noki 用 LIFF 把差異化體驗直接送進 LINE，而非只做預約。
+> 結論：台灣「LINE 預約」已是標配，但**沒人把 LINE 當「訓練深度 + 成長敘事 + Agent」的零安裝載體**。Yolian 用 LIFF 把差異化體驗直接送進 LINE，而非只做預約。
 
 ---
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Noki — 健身平台研究與產品藍圖</title>
+<title>Yolian — 健身平台研究與產品藍圖</title>
 <style>
 :root{
   --accent:#14b8a6; --accent-d:#0d9488; --ink:#0f172a; --muted:#64748b;
@@ -99,7 +99,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 <div id="gate">
   <form class="card" id="gate-form">
-    <div class="logo">No<span>ki</span></div>
+    <div class="logo">Yo<span>lian</span></div>
     <p>健身平台研究與產品藍圖 · 請輸入存取密碼</p>
     <input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" autofocus>
     <button type="submit">進入</button>
@@ -111,12 +111,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 <div id="app">
   <aside class="sidebar" id="sidebar">
-    <div class="brand">No<span>ki</span></div>
+    <div class="brand">Yo<span>lian</span></div>
     <div class="tag">健身教練 / 工作室營運平台</div>
     <button class="nav-btn active" data-target="overview">總覽</button>
 <button class="nav-btn" data-target="research">競品研究（台/外/中）</button>
 <button class="nav-btn" data-target="deepdive">競品深度拆解</button>
-<button class="nav-btn" data-target="product">Noki 產品架構</button>
+<button class="nav-btn" data-target="product">Yolian 產品架構</button>
 <button class="nav-btn" data-target="style">UI 風格系統</button>
 <button class="nav-btn" data-target="opensource">開源整併與授權</button>
 <button class="nav-btn" data-target="journeys">使用者歷程</button>
@@ -138,12 +138,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
         <div class="kpi"><b>34 張</b><span>實地探查截圖佐證</span></div>
         <div class="kpi"><b>0 家</b><span>同時做到訓練深度+完整營運+AI Agent</span></div>
       </div>
-      <div class="callout"><b>核心發現：</b>全市場的 AI 只到三種——生成內容、唯讀查詢、對外客服賣課。<b>沒有人做「教練端、跨模組的對話式寫入操作」</b>，這就是 Noki 的真空白。</div>
+      <div class="callout"><b>核心發現：</b>全市場的 AI 只到三種——生成內容、唯讀查詢、對外客服賣課。<b>沒有人做「教練端、跨模組的對話式寫入操作」</b>，這就是 Yolian 的真空白。</div>
       <h3>文件導覽</h3>
       <div class="ov-links" id="ovLinks">
         <button data-target="research"><b>競品研究（台/外/中）</b><span>三地服務商總覽、功能、定價、AI 缺口分析</span></button>
         <button data-target="deepdive"><b>競品深度拆解</b><span>逐家功能/定價/後台/App 實機畫面 + 試用紀錄</span></button>
-        <button data-target="product"><b>Noki 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
+        <button data-target="product"><b>Yolian 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
         <button data-target="style"><b>UI 風格系統</b><span>6 風格原型 × Dark/Light × 多租戶品牌識別（Pencil 模擬）</span></button>
         <button data-target="opensource"><b>開源整併與授權</b><span>開源→商業服務策略、買借造矩陣、授權合規與地雷</span></button>
         <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
@@ -207,7 +207,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 <script type="text/markdown" id="md-research">
 # 健身教練 / 個人工作室管理平台 — 同業研究報告
 
-> 專案：Noki（暫名）— 面向所有健身教練與個人工作室的營運平台
+> 專案：Yolian（暫名）— 面向所有健身教練與個人工作室的營運平台
 > 核心定位：讓教練工作更輕鬆有效率 + 學員看得見自己的成長 + 程式化前端 + Agent-like AI 輸入/作業窗口
 > 研究範圍：台灣、國外（歐美為主）、中國
 > 建立日期：2026-06-24（持續更新中）
@@ -233,11 +233,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 | B. 教練↔學員 訓練/成長 App | MoHot、OneFloors、WonderGym、LiftPlan、SimpleTraining | 課表、訓練紀錄、進度可視化 |
 | C. 純預約排程工具（泛用） | SimplyBook.me、VibeAI | 線上預約、行事曆同步 |
 
-> 對 Noki 最直接的對手是 **B 類**（特別是 OneFloors、SimpleTraining、MoHot），因為它們同時碰「教練效率」與「學員成長可視化」。
+> 對 Yolian 最直接的對手是 **B 類**（特別是 OneFloors、SimpleTraining、MoHot），因為它們同時碰「教練效率」與「學員成長可視化」。
 
 ---
 
-### 1.1 OneFloors （onefloors.cc）★ 最接近 Noki 的願景
+### 1.1 OneFloors （onefloors.cc）★ 最接近 Yolian 的願景
 
 - **定位**：AI 教練 × 學員的訓練、飲食、體態 App（iOS only，2026 年新產品）
 - **目標客群**：私人教練 + 學員；可單人使用，教練端為加值
@@ -254,7 +254,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **定價**：學員端永久免費；教練端 NT$490/月（含學員清單、儀表板、預約、教練個人網站）；企業/團體另談
 - **AI 能力**：✅ 拍照辨識飲食 + AI 營養師對話（目前台灣同類最強 AI）
 - **缺口/弱點**：僅 iOS、無 Android；以「個人教練+學員」為主，場館營運（金流/會籍/門禁/多分店）薄弱
-- **對 Noki 的啟示**：這是最像我們願景的對手，但他們沒有「Agent-like 全功能輸入窗口」、沒有場館營運層、無 Android、無 Web 程式化後台
+- **對 Yolian 的啟示**：這是最像我們願景的對手，但他們沒有「Agent-like 全功能輸入窗口」、沒有場館營運層、無 Android、無 Web 程式化後台
 - 來源：https://onefloors.cc/
 
 ### 1.2 SimpleTraining 簡單練 （simpletraining.co）★ 直接競品（營運 SaaS 取向）
@@ -272,7 +272,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **技術**：PostgreSQL + SSL，PWA
 - **AI 能力**：❌ 目前無明顯 AI（名稱「簡單練」非 AI 導向）
 - **缺口/弱點**：無 AI 輸入、無訓練動作庫/飲食辨識、無原生 App、學員端較輕
-- **對 Noki 的啟示**：營運/合約/業績/排課這套行政流程做得完整且便宜，是「教練行政效率」的標竿；但完全沒有 AI 與學員成長深度
+- **對 Yolian 的啟示**：營運/合約/業績/排課這套行政流程做得完整且便宜，是「教練行政效率」的標竿；但完全沒有 AI 與學員成長深度
 - 來源：https://simpletraining.co/
 
 ### 1.3 MoHot 摩哈特 （mohot.com）★ 老牌訓練紀錄 App + 場館 POS
@@ -287,7 +287,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **AI 能力**：❌ 偏傳統紀錄/報表，無 AI 辨識/對話
 - **優勢**：動作庫龐大、健身圈知名度高、產品線齊全（個人→教練→場館）
 - **缺口/弱點**：UI 較舊、無 AI、飲食/體態追蹤弱
-- **對 Noki 的啟示**：訓練紀錄與動作庫的深度是門檻；「教練幫學員開課表 + 學員看得到成長」這條線他們很早就做了
+- **對 Yolian 的啟示**：訓練紀錄與動作庫的深度是門檻；「教練幫學員開課表 + 學員看得到成長」這條線他們很早就做了
 - 來源：https://mohot.com/tw/、https://pos.mohot.com
 
 ### 1.4 17FIT （17fit.com）★ 場館營運 SaaS 龍頭
@@ -297,7 +297,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **定價**：未公開（場館談）
 - **AI 能力**：❌（以營運後台為主）
 - **缺口/弱點**：場館導向，個人教練/學員成長層較弱；被部分競品點名「平台抽成、稀釋私域流量」
-- **對 Noki 的啟示**：營運後台的標準功能集（預約/金流/POS/CRM/報表）；龍頭但無 AI、無深度訓練成長
+- **對 Yolian 的啟示**：營運後台的標準功能集（預約/金流/POS/CRM/報表）；龍頭但無 AI、無深度訓練成長
 - 來源：https://17fit.com/、https://blog.17fit.com/、https://17fithelp.zendesk.com/
 
 ### 1.5 其他台灣玩家（場館 / 預約 / 訓練 App）
@@ -327,7 +327,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 | B. 場館 / 工作室管理（會員營運） | Mindbody、Glofox、Vagaro、PushPress、Zen Planner、Pike13、TeamUp、Gymdesk、WellnessLiving、Wodify、Mariana Tek、Momence | 預約、會籍、金流、門禁、行銷、POS |
 | C. 純 AI 消費級健身 App | Fitbod、FitnessAI、Freeletics、Future、Coachify.AI、TrainAsONE | 演算法生成課表、自動調整 |
 
-### 2.A 線上教練 / PT 軟體（與 Noki「教練效率＋學員成長」最相關）
+### 2.A 線上教練 / PT 軟體（與 Yolian「教練效率＋學員成長」最相關）
 
 #### Trainerize（ABC Trainerize）★ 業界標準
 - **定位**：線上教練的黃金標準、功能最完整（被 ABC Fitness 收購）
@@ -421,7 +421,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **Lumen5 / Copy.ai / Canva Magic Write**：行銷影片/文案/視覺
 - 來源：blog.supercoach.me、truecoach.co/blog、mypthub.net/blog
 
-> **關鍵觀察**：國外平台的 AI 仍多停在「生成課表/餐單 + 自動化提醒 + 行銷文案」，**沒有真正 Agent-like 的對話式輸入窗口**（教練用自然語言一句話完成排課/記錄/調課表）。這正是 Noki 的機會缺口。
+> **關鍵觀察**：國外平台的 AI 仍多停在「生成課表/餐單 + 自動化提醒 + 行銷文案」，**沒有真正 Agent-like 的對話式輸入窗口**（教練用自然語言一句話完成排課/記錄/調課表）。這正是 Yolian 的機會缺口。
 
 ---
 
@@ -484,7 +484,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **推薦率**：國內 15% vs 國外 45%；**續費率**：國內 68% vs 國外 85%
 - **增長模式**：國內線性增長、重銷售輕產品；國外飛輪增長、重產品輕銷售、口碑驅動
 - **設計**：國內後台普遍「左樹右表」千篇一律、移動端滯後；國外 C 端 App 即品牌、極簡（PushPress 買課 3 步）
-- **報告點名的 AI 機會點**（對 Noki 極具參考）：
+- **報告點名的 AI 機會點**（對 Yolian 極具參考）：
   - ⭐⭐⭐⭐⭐ **AI 可視化工作流市場**：拖拽建立自動化（AI 寫課表→同步教練端；新會員→歡迎簡訊→7 天推優惠券；營收→自動統計→報表），按執行次數收費
   - ⭐⭐⭐⭐⭐ 跨境出海版（多幣種/合規/多語言）
   - **AI 寫課表插件**：輸入會員目標/身體/時間 → 輸出訓練+飲食計劃（按次收費）
@@ -515,7 +515,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **國外**：AI 普及度最高但仍「點狀」——生成課表/餐單、自動化提醒、行銷文案、客服機器人；**白標 + 自動化**是賣點（SuperCoach、PT Distinction）。
 - **中國**：AIoT（硬體智能）最強；軟體 AI 集中在自動排課（青橙）、AI 教練助手（鬼工）；產業報告已明確點名「AI 可視化工作流」為最大機會（⭐⭐⭐⭐⭐）。
 
-### 4.3 關鍵缺口（Noki 的藍海）
+### 4.3 關鍵缺口（Yolian 的藍海）
 
 > **沒有任何一家做到真正「Agent-like 的對話式操作中樞」。**
 
@@ -526,17 +526,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 4. **學員端「成長敘事」薄弱**：多數只給數字圖表，少有 AI 主動把「你三個月的變化」講成一個激勵故事。
 5. **跨模組自動化缺失**：排課/金流/合約/訓練/溝通各自獨立，缺少「事件→自動連鎖」的 Agent 編排。
 
-→ **Noki 的定位機會**：以 **Agent 為第一介面**（自然語言驅動全平台 CRUD + 自動化編排）＋ **程式化前端為輔**，並把「AI 操作」建立在完整營運資料（會員/合約/訓練/溝通）之上，讓教練「用講的就能完成行政與記錄」，讓學員「被 AI 用數據說出自己的成長」。
+→ **Yolian 的定位機會**：以 **Agent 為第一介面**（自然語言驅動全平台 CRUD + 自動化編排）＋ **程式化前端為輔**，並把「AI 操作」建立在完整營運資料（會員/合約/訓練/溝通）之上，讓教練「用講的就能完成行政與記錄」，讓學員「被 AI 用數據說出自己的成長」。
 
 ---
 
-## 5. 對 Noki 的策略啟示
+## 5. 對 Yolian 的策略啟示
 
 ### 5.1 市場結構總結（一句話）
 > 「營運 SaaS（行政效率）」與「訓練 App（學員成長）」長期是兩條平行線，AI 只被當成功能點散落各處。**把兩條線用一個 Agent 介面縫起來，是目前全球都還沒佔住的位置。**
 
 ### 5.2 必備功能（不做會被淘汰的基礎門檻）
-這些是台/外/中三地共識的標配，Noki 必須有（但不是差異化）：
+這些是台/外/中三地共識的標配，Yolian 必須有（但不是差異化）：
 - 會員 CRM（檔案、聯絡、標籤、時間軸）
 - 智能排課（日/週/月、多教練、衝堂偵測、行事曆同步、提醒降爽約）
 - 合約/堂數管理（簽約、扣課、到期/續約提醒、電子簽名）
@@ -546,7 +546,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - 業績/營收儀表板（教練抽成、續約率）
 - 學員端入口（App 或 PWA）+ 教練品牌頁/官網
 
-### 5.3 差異化主軸（Noki 的三個賭注）
+### 5.3 差異化主軸（Yolian 的三個賭注）
 1. **Agent 作為第一介面**：教練端「用講的/打一句話」完成排課、改課表、記錄完課、發通知、查經營數據；學員端「拍照/語音」完成飲食與訓練記錄。對標但超越 OneFloors 的 AI、補足所有營運 SaaS 缺的對話操作。
 2. **AI 建立在完整營運資料之上（Context-aware Agent）**：讓 AI 同時看得到「訓練數據 + 合約堂數 + 溝通紀錄 + 續約風險」，能主動提醒「這位會員剩 2 堂且 3 週沒進步，建議關心」——這是把「生成式 AI」升級成「經營副駕」。
 3. **學員成長敘事（AI Storytelling）**：不只給圖表，AI 主動把數據講成「你的 12 週故事」，提升學員續約動機與口碑（攻國外報告指出的「續費率/推薦率」痛點）。
@@ -557,7 +557,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 - **白標/品牌官網自動生成**（SimpleTraining/Glofox/PT Distinction 都證明有需求）
 - 後期可做：**AI 工作流市場**（按執行次數計費）、整合市場抽佣、主題市場（中國報告點名的高潛力變現）
 
-### 5.5 直接對標清單（Noki 上線前該逐一試用）
+### 5.5 直接對標清單（Yolian 上線前該逐一試用）
 | 優先 | 服務 | 為何要看 |
 |------|------|---------|
 | P0 | OneFloors（台） | 願景最接近、AI 飲食辨識+營養師、教練學員儀表板 |
@@ -587,7 +587,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 <script type="text/markdown" id="md-deepdive">
 # 健身平台競品深度拆解（B 端 + C 端 + 教練軟體）
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
 > 本文是 `competitor-research.md` 的深度版：逐一實地探查官網/功能頁/定價頁，並嘗試試用 demo/註冊流程，全程截圖佐證。
 > 探查方式：瀏覽器實地走訪（非二手轉述），截圖存於 `research/screenshots/`
 > 日期：2026-06-25
@@ -638,7 +638,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 ## 1. P0 直接競品深度拆解
 
-### 1.1 OneFloors（onefloors.cc）— 願景最接近 Noki ★★★
+### 1.1 OneFloors（onefloors.cc）— 願景最接近 Yolian ★★★
 
 **定位**：AI 教練 × 學員的訓練/飲食/體態 App（iOS）。Slogan：「讓習慣便宜、讓回饋誠實」。
 
@@ -667,12 +667,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 **教練個人網站（/coach 實證）**：7 種版型（Ironclad 肌力健力 / Smash 球類競技 / Atelier 瑜伽體態 / Concrete 極簡黑白 / Velour 高階質感 / Verdant 療癒復健 / Voltage 能量競速）。實例 Ironclad 含：Hero、想解決的問題、訓練方案（多卡片含週期/形式/說明）、教練背景與認證（NSCA-CSCS/USAPL 等）、學員成果見證（量化數字 +62.5kg）、FAQ、預約聯絡（LINE/Email/IG/電話/場地）。網址格式 `onefloors.cc/coach/<名>`。
 
-**對 Noki 的啟示**：
-- ✅ 雙角色同 App、教練改動學員端即時同步 — 這套「即時雙向」是體驗關鍵，Noki 必學
+**對 Yolian 的啟示**：
+- ✅ 雙角色同 App、教練改動學員端即時同步 — 這套「即時雙向」是體驗關鍵，Yolian 必學
 - ✅ 免費版就放 AI 課表生成 — 把 AI 當獲客鉤子
 - ✅ 教練個人網站做成「可選版型 + 自動生成」是低成本高感知價值
 - ⚠️ 弱點：**僅 iOS、無 Android、無 Web 後台**、場館營運（金流/會籍/門禁/多分店）薄弱、AI 仍是「功能點」非「操作中樞」
-- 🎯 Noki 切入：補 Android/Web、補營運層、把 AI 從「飲食辨識 + 問答」升級到「對話式操作整個平台」
+- 🎯 Yolian 切入：補 Android/Web、補營運層、把 AI 從「飲食辨識 + 問答」升級到「對話式操作整個平台」
 
 ### 1.2 SimpleTraining 簡單練（simpletraining.co）— 教練行政 SaaS 標竿 ★★★
 
@@ -699,12 +699,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 
 **試用嘗試結果**：註冊頁 `/auth/signup` **僅支援 Google 帳號 OAuth**，無 email/密碼註冊，無法在不綁真實 Google 帳號下進入後台。後台畫面只能透過官方 guide 頁的文字流程推得，無公開 demo。
 
-**對 Noki 的啟示**：
+**對 Yolian 的啟示**：
 - ✅ 行政流程（合約/業績/薪資/排課）完整度是台灣標竿，且定價極低（預付制）
 - ✅ 「痛點→解法」的敘事與「草稿模式排課」細節值得抄
 - ✅ 已有「會員客戶端入口」(PRO) — 但學員端偏輕
 - ⚠️ 弱點：**完全沒有 AI**、無訓練動作庫、無飲食/體態辨識、學員成長深度弱、無原生 App
-- 🎯 Noki 切入：SimpleTraining 的行政 + OneFloors 的 AI/學員成長 = 兩者交集正是空白
+- 🎯 Yolian 切入：SimpleTraining 的行政 + OneFloors 的 AI/學員成長 = 兩者交集正是空白
 
 ### 1.3 Trainerize（ABC Trainerize）— 全球標準 ★★★
 
@@ -731,13 +731,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 | Pro | $23 起/月（可選到 200 客戶，$79@30、$275@500 級距） | 5–200 | + Live 客服、白標 App（可加購） |
 | Studio Plus | $248/月/分店 | 500 | 場館級白標 App、含全部 add-ons、API、多分店、SSO |
 
-**對 Noki 的啟示**：
+**對 Yolian 的啟示**：
 - ✅ 動作庫 + 影音/語音/視訊 + 社群挑戰 = 學員黏著與激勵的完整工具箱
 - ✅ AI Workout Builder 從 $9 方案就給 — 同 OneFloors 把 AI 下放
 - ✅ per-client 級距定價，從個人教練到 500 人場館一條龍
 - ✅ 與 Mindbody/Glofox 整合（承認自己不做場館營運，靠整合）
 - ⚠️ 弱點：加購後昂貴、學習曲線陡、AI 僅止於生成課表/餐單；介面對純面授教練過重
-- 🎯 Noki 切入：把 Trainerize 要靠 5 個 add-ons + 整合才能拼出的東西，用一個 Agent 介面統合輸入
+- 🎯 Yolian 切入：把 Trainerize 要靠 5 個 add-ons + 整合才能拼出的東西，用一個 Agent 介面統合輸入
 
 ---
 
@@ -781,7 +781,7 @@ LINE 外掛模組、行銷（優惠券/紅利/促銷）、預約（全通路 24h
 - 金流 Mindbody Payments（powered by Stripe）
 
 **定價（pricing 頁實證）**：Starter $99/分店起 → Accelerate（進階報表/資源管理/Pick-a-Spot/促銷碼）→ Ultimate（email/SMS 行銷自動化 + Lead management）。品牌 App 與 Messenger[ai] 為 add-on。
-**啟示**：B 端功能最全 + 自帶 3M 用戶市集（雙邊網路效應），這是 Noki 短期無法複製的護城河；但貴、複雜、學習成本高、有 Dark Pattern 爭議。其 Messenger[ai] 是「AI 客服」非「AI 操作」。
+**啟示**：B 端功能最全 + 自帶 3M 用戶市集（雙邊網路效應），這是 Yolian 短期無法複製的護城河；但貴、複雜、學習成本高、有 Dark Pattern 爭議。其 Messenger[ai] 是「AI 客服」非「AI 操作」。
 
 ### 2.4 PushPress（全球 B 端，主打 AI + 免費層）★ AI 觀察重點
 
@@ -800,7 +800,7 @@ LINE 外掛模組、行銷（優惠券/紅利/促銷）、預約（全通路 24h
 | Full Stack | ~$559 | 全包 |
 
 其他亮點：Rank Tracking（武術段位）、Committed Club（出席遊戲化）、品牌 App（$81–97 add-on）、由健身房老闆打造、AI 客服解 60% 對話。
-**啟示**：PushPress 是國際上**最接近「AI 即介面」**的 B 端玩家（自然語言查經營數據），但仍停在「查詢/洞察」，沒做到「用一句話完成操作」。**這正好驗證 Noki 的 Agent 操作中樞是真空白**。
+**啟示**：PushPress 是國際上**最接近「AI 即介面」**的 B 端玩家（自然語言查經營數據），但仍停在「查詢/洞察」，沒做到「用一句話完成操作」。**這正好驗證 Yolian 的 Agent 操作中樞是真空白**。
 
 ### 2.5 Glofox（全球 B 端，精品工作室）
 
@@ -824,7 +824,7 @@ LINE 外掛模組、行銷（優惠券/紅利/促銷）、預約（全通路 24h
 **首頁實證**：四大切入（健身房/健身產業鏈/健身教練/**AI 賦能**）。AI 賦能定位「基於人工智能算法，深入挖掘健身產業數據，快速感知行業動態」。
 **定價創新**：Pro 版「**按帳號數**」**19.9 元/員工/月**起（≤10 人小工作室），首月不扣費。
 **產品線**：24h 自助健身房（物聯網 + 無人值守）、**自由教練專用管理系統**（19.9 元/月，獨立授課/會員管理/多渠道營銷獲客）。API 開放度國內最高。
-**啟示**：低價 + 自由教練專屬系統 + AI 排課，是針對「超級個體教練」的精準打法，與 Noki 目標客群高度重疊。
+**啟示**：低價 + 自由教練專屬系統 + AI 排課，是針對「超級個體教練」的精準打法，與 Yolian 目標客群高度重疊。
 
 ---
 
@@ -834,7 +834,7 @@ LINE 外掛模組、行銷（優惠券/紅利/促銷）、預約（全通路 24h
 - **乐刻运动**（leoao.com）：2000+ 門店、24h 自助、月卡制、量身私教課/包月私教、線上「跟我練」、OMO。
 - **超级猩猩**（supermonkey.com.cn）：按次付費不辦卡、~100 種團課、24h 自助（Sream 智能系統）、教練 KOL 化、私教為第二曲線。
 
-**C 端啟示**：C 端是「內容 + 流量 + 消費」生意，與 Noki 的「教練營運工具」不同層；但其「教練 KOL 化、學員追隨、按次付費去推銷化」的信任模型，可借鏡到 Noki 的教練個人品牌頁與學員關係設計。
+**C 端啟示**：C 端是「內容 + 流量 + 消費」生意，與 Yolian 的「教練營運工具」不同層；但其「教練 KOL 化、學員追隨、按次付費去推銷化」的信任模型，可借鏡到 Yolian 的教練個人品牌頁與學員關係設計。
 
 ---
 
@@ -875,7 +875,7 @@ LINE 外掛模組、行銷（優惠券/紅利/促銷）、預約（全通路 24h
 ### 結論：全球都還沒有「Agent 操作中樞」
 - 最強的 AI 也只到三種：**生成內容（課表/餐單）**、**查詢/洞察數據（PushPress 自然語言、STYD 小助理）**、**對外客服（Mindbody Messenger[ai]）**。
 - **沒有任何一家**做到讓教練用一句話完成跨模組操作：例如「把王小明這週的課改到三、五早上，深蹲加 5 公斤，並通知他、順便看他這個月還剩幾堂」——這需要 AI 同時讀寫排課 + 訓練 + 溝通 + 合約。
-- PushPress 已喊出「Just ask」但只敢做唯讀查詢；這恰恰證明**「對話式寫入操作」是真空白，也是 Noki 最尖銳的差異化**。
+- PushPress 已喊出「Just ask」但只敢做唯讀查詢；這恰恰證明**「對話式寫入操作」是真空白，也是 Yolian 最尖銳的差異化**。
 
 ---
 
@@ -904,7 +904,7 @@ LINE 外掛模組、行銷（優惠券/紅利/促銷）、預約（全通路 24h
 **讀表結論**：
 1. 行政營運（CRM/排課/合約/金流/業績/多分店）是紅海，人人都有。
 2. 訓練深度（動作庫/飲食/體態/成長可視化）只有教練類 App 強（OneFloors/Trainerize/MoHot），B 端場館系統幾乎空白。
-3. **「訓練深度 + 完整營運 + AI Agent」三者同時具備者：0 家。** 這就是 Noki 的座標。
+3. **「訓練深度 + 完整營運 + AI Agent」三者同時具備者：0 家。** 這就是 Yolian 的座標。
 
 ---
 
@@ -947,16 +947,16 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 - **POS**：電腦即可操作結帳、無需額外軟硬體
 - **入出場 IoT**：場館通關/點名/票券/人流顯示智能化
 
-> 17FIT 定性：**B 端營運深度（預約金流會員報表門禁）非常完整、繁中在地、含美容跨業**，但全線**無 AI、無訓練成長**。是 Noki「行政營運層」最完整的在地對標。
+> 17FIT 定性：**B 端營運深度（預約金流會員報表門禁）非常完整、繁中在地、含美容跨業**，但全線**無 AI、無訓練成長**。是 Yolian「行政營運層」最完整的在地對標。
 
 ### E. 本輪結論（不改變總判斷，反而強化）
 - OneFloors 的「一句話重算營養」證明：**對話式輸入在學員端已被驗證可行且體驗好**，但全市場仍把它鎖在單一車道（飲食目標）。
 - Mindbody Messenger[ai] 證明：**AI「執行寫入動作」已商業化**，但鎖在「對外客服/賣課」車道。
-- 把這兩點合起來看：**「教練端、跨模組（排課+訓練+合約+溝通）的對話式寫入操作」依然 0 家** —— Noki 的 Agent 操作中樞定位再次被驗證為真空白。
+- 把這兩點合起來看：**「教練端、跨模組（排課+訓練+合約+溝通）的對話式寫入操作」依然 0 家** —— Yolian 的 Agent 操作中樞定位再次被驗證為真空白。
 
 ---
 
-## 7. 對 Noki 的可執行結論
+## 7. 對 Yolian 的可執行結論
 
 1. **必備（門檻）**：CRM、排課（含草稿模式/衝堂偵測）、合約堂數、金流、業績薪資、品牌官網、多分店、學員端入口 — 直接對標 SimpleTraining + 17FIT 的完整度。
 2. **訓練深度（學員成長）**：動作庫、訓練紀錄「本次 vs 上次」、12 週折線、體態/InBody、飲食辨識 — 對標 OneFloors + Trainerize + MoHot。
@@ -965,13 +965,13 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 5. **商業模式**：學員端免費、教練端低價訂閱（OneFloors/SimpleTraining 已驗證）；定價透明（反中國不標價陋習）；教練個人網站自動生成（OneFloors/SimpleTraining 都證明有需求）。
 6. **獲客鉤子**：把 AI（課表生成 + 對話操作）放進免費層，如 OneFloors/Trainerize 把 AI 下放到免費/$9 方案。
 
-> 下一步可選：① 進一步用 iOS 實機安裝 OneFloors 走完整學員/教練流程截圖 ② 約 Mindbody/17FIT 業務 demo 看後台真實操作 ③ 直接進 Noki 的資訊架構 / MVP 功能地圖規劃。
+> 下一步可選：① 進一步用 iOS 實機安裝 OneFloors 走完整學員/教練流程截圖 ② 約 Mindbody/17FIT 業務 demo 看後台真實操作 ③ 直接進 Yolian 的資訊架構 / MVP 功能地圖規劃。
 
 </script>
 <script type="text/markdown" id="md-product">
-# Noki 產品架構與 MVP 功能地圖 v1
+# Yolian 產品架構與 MVP 功能地圖 v1
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
 > 本文把三份研究（`research/competitor-research.md`、`research/deep-dive-competitors.md` + 截圖）收斂成可執行的產品藍圖：定位 → 用戶 → 資訊架構 → 三面產品 → Agent 能力 → MVP 範圍 → 技術架構 → 商業模式 → 待決策。
 > 日期：2026-06-25 · 狀態：v1 待你校準（文末有「待決策」清單）
 
@@ -979,7 +979,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ## 0. 一句話定位（研究收斂結論）
 
-> **Noki = 一個「系統（UI）為主體」的健身工作室營運平台，外加一個 AI Agent 加值窗口 —— 把「教練行政效率」「學員看得見成長」「（選擇性的）跨模組 AI Agent 操作」縫進同一個產品。**
+> **Yolian = 一個「系統（UI）為主體」的健身工作室營運平台，外加一個 AI Agent 加值窗口 —— 把「教練行政效率」「學員看得見成長」「（選擇性的）跨模組 AI Agent 操作」縫進同一個產品。**
 >
 > 定位校準：**系統能直接輸入、完成所有事**；Agent 是疊在系統之上的窗口，只在「值得」時介入（口語、語音、跨模組、零碎隨手）。**簡單的事用 Dashboard 解決就好，不必丟給 LLM 浪費 token。**
 
@@ -987,7 +987,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 - 行政營運（CRM/排課/合約/金流/報表）是紅海，人人都有 → **門檻、非差異化**
 - 訓練深度（動作庫/飲食/體態/成長可視化）只有教練類 App 強 → **加分項**
 - AI 全市場只到三種：生成內容、唯讀查詢、對外客服賣課 → **沒有人做「教練端、跨模組的對話式寫入操作」**
-- **三者同時具備者：0 家** ← 這就是 Noki 的座標
+- **三者同時具備者：0 家** ← 這就是 Yolian 的座標
 
 ---
 
@@ -1012,7 +1012,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ## 2. 目標用戶（Personas）
 
-| Persona | 是誰 | 最痛的事 | Noki 給的解法 |
+| Persona | 是誰 | 最痛的事 | Yolian 給的解法 |
 |---------|------|---------|--------------|
 | **獨立教練 Coach Solo** | 自由教練，20–40 名學員，無行政支援 | 排課/記錄/追蹤靠 LINE+Excel+腦袋；課後還要打字記錄 | 一句話排課/記錄/通知；學員成長自動成圖 |
 | **工作室主理人 Studio Owner**（= Noki Studio） | 1–10 名教練的小工作室 | 多教練排課衝堂、合約到期沒人追、業績難算 | 多教練排課+衝堂偵測、合約到期提醒、經營儀表板 |
@@ -1042,7 +1042,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                     Noki Platform                          │
+│                     Yolian Platform                          │
 │                                                            │
 │   面 2：Agent 窗口（加值層，非必經、可省則省）              │
 │   ┌───────────────────────────────────────────────┐      │
@@ -1066,7 +1066,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 ```
 
 - **面 1 程式化前端（主體）**：教練/主理人的 Web + 行動後台。儀表板、行事曆排課、會員清單、合約、訓練課表編輯、報表。**這是系統的主體，多數操作在此直接完成**。對標 SimpleTraining + 17FIT 的完整度。
-- **面 2 Agent 窗口（加值層，非必經）**：Noki 的差異化王牌，但**疊在系統之上**。教練端「一句話 / 一段語音完成跨模組操作 + 主動經營提醒」；**輸入框支援語音輸入**；可常駐側欄或行動端對話框。簡單操作不必走它（省 token）。
+- **面 2 Agent 窗口（加值層，非必經）**：Yolian 的差異化王牌，但**疊在系統之上**。教練端「一句話 / 一段語音完成跨模組操作 + 主動經營提醒」；**輸入框支援語音輸入**；可常駐側欄或行動端對話框。簡單操作不必走它（省 token）。
 - **面 3 學員端**：今日課表、語音/文字記錄、本次 vs 上次、12 週折線、成長敘事、與教練互動交流。跑在 **LINE LIFF（零安裝）**。（拍照記餐辨識為 Phase 2）
 
 ---
@@ -1100,7 +1100,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ---
 
-## 6. Agent 能力目錄（Noki 的王牌）
+## 6. Agent 能力目錄（Yolian 的王牌）
 
 > 設計成「意圖（intent）→ 對應一個或多個 Action/Query」。下表是能力清單，標注讀/寫、涉及模組、是否 MVP。MVP 先做**高頻、低風險、跨模組價值高**的。
 
@@ -1214,46 +1214,46 @@ LINE（通知/預約入口）、台灣金流與電子發票（Phase 1.5）、繁
 
 ## 9. LINE 官方帳號 + LIFF 整合策略（台灣關鍵渠道）★ 補件
 
-> 這是先前藍圖漏掉、但對台灣灘頭堡至關重要的一塊。台灣 LINE 有 **約 2,100 萬活躍用戶**，且研究中幾乎每個台灣競品都靠 LINE（17FIT、BookFast、VibeAI、Trainge、艾美力 imary、SimplyBook.me 全在做 LINE 預約）。LINE 官方主打的場景就是美業/醫療的「**線上預約 + 提醒、降低失約率**」——剛好命中教練痛點。對 Noki 而言，LINE 不只是通知管道，而是**學員端零安裝的主要交付載體**，直接補掉 OneFloors「僅 iOS」與 SimpleTraining「純 PWA」的缺口。
+> 這是先前藍圖漏掉、但對台灣灘頭堡至關重要的一塊。台灣 LINE 有 **約 2,100 萬活躍用戶**，且研究中幾乎每個台灣競品都靠 LINE（17FIT、BookFast、VibeAI、Trainge、艾美力 imary、SimplyBook.me 全在做 LINE 預約）。LINE 官方主打的場景就是美業/醫療的「**線上預約 + 提醒、降低失約率**」——剛好命中教練痛點。對 Yolian 而言，LINE 不只是通知管道，而是**學員端零安裝的主要交付載體**，直接補掉 OneFloors「僅 iOS」與 SimpleTraining「純 PWA」的缺口。
 
 ### 9.1 三個積木（角色分工）
-| 積木 | 是什麼 | 對 Noki 的角色 |
+| 積木 | 是什麼 | 對 Yolian 的角色 |
 |------|--------|--------------|
 | **LINE 官方帳號 (OA)** | 品牌在 LINE 的帳號；含圖文選單、群發/分眾、集點、優惠券、AI 自動回應、聊天 | 工作室/教練的 LINE 門面 + 學員入口 + 推播管道 |
-| **Messaging API** | 後端 ↔ LINE 的程式介面（webhook 收訊息、push/reply 發訊息、Flex 卡片、Rich Menu） | 把 LINE 接進 Noki 的 Action 層：推播提醒 + Agent 對話 |
+| **Messaging API** | 後端 ↔ LINE 的程式介面（webhook 收訊息、push/reply 發訊息、Flex 卡片、Rich Menu） | 把 LINE 接進 Yolian 的 Action 層：推播提醒 + Agent 對話 |
 | **LIFF（LINE Front-end Framework）** | 在 LINE 內建瀏覽器跑的 web app，**零安裝**、可直接取得 LINE 使用者身分 | **學員端主介面**（今日課表/記錄/成長）就跑在 LINE 裡 |
 
-### 9.2 LIFF 能力（已查證，對應 Noki 用途）
-- **零安裝 + 自動身分**：在 LIFF browser 內免登入即可拿到使用者 → `liff.getProfile()` 得 `userId / displayName / pictureUrl`；`liff.getIDToken()/getAccessToken()` 傳後端做帳號連結（LINE userId ⇄ Noki Member）。
+### 9.2 LIFF 能力（已查證，對應 Yolian 用途）
+- **零安裝 + 自動身分**：在 LIFF browser 內免登入即可拿到使用者 → `liff.getProfile()` 得 `userId / displayName / pictureUrl`；`liff.getIDToken()/getAccessToken()` 傳後端做帳號連結（LINE userId ⇄ Yolian Member）。
 - **三種視窗尺寸**：Compact / Tall / Full（成長頁用 Full、快速記錄用 Tall）。
 - **`liff.sendMessages()`**：代使用者在當前聊天送訊息（例如記錄完成回拋一張卡）。
 - **`liff.shareTargetPicker()`**：分享給 LINE 好友 → **學員轉介獲客**。
 - **`liff.scanCodeV2()`**：掃 QR → **到場簽到/消課**（對標 SimpleTraining 的 QR 簽到）。
-- 需求：一個 LINE Login channel + HTTPS endpoint（Noki 的 web app 直接當 LIFF app 載入，沿用同一套 Action 層）。access token 效期 12 小時。
+- 需求：一個 LINE Login channel + HTTPS endpoint（Yolian 的 web app 直接當 LIFF app 載入，沿用同一套 Action 層）。access token 效期 12 小時。
 
 ### 9.3 Messaging API 能力（已查證）
-- **收**：使用者傳訊 → webhook 事件（message / follow 加好友 / postback 按鈕 / beacon…）→ 進 Noki Agent。
+- **收**：使用者傳訊 → webhook 事件（message / follow 加好友 / postback 按鈕 / beacon…）→ 進 Yolian Agent。
 - **發**：reply（回覆，**免費**）、push/multicast/broadcast（主動推播，**計費**）。
 - **訊息型態**：文字、圖片、**Flex Message（自訂卡片，做課表卡/成長卡）**、Template、Quick Reply、貼圖、位置。
 - **Rich Menu（圖文選單）**：聊天室永久置底入口，可放「今日課表 / 我的進度 / 預約 / 聯絡教練」直開 LIFF。
-- 其他：account link（安全綁定 Noki 帳號）、get profile、beacon。
+- 其他：account link（安全綁定 Yolian 帳號）、get profile、beacon。
 
-### 9.4 對接 Noki 三面 + Agent
+### 9.4 對接 Yolian 三面 + Agent
 ```
 LINE 官方帳號（學員加好友）
    │
    ├── Rich Menu（永久入口）
-   │      └─▶ LIFF App = Noki 學員端（面 3）  零安裝、自動 LINE 身分
+   │      └─▶ LIFF App = Yolian 學員端（面 3）  零安裝、自動 LINE 身分
    │             今日課表 / 語音·文字記錄 / 本次vs上次 / 12週折線 / 成長敘事
    │
-   ├── 使用者傳訊 ──webhook──▶ Noki Agent（面 2）──reply(免費)──▶ 回覆
+   ├── 使用者傳訊 ──webhook──▶ Yolian Agent（面 2）──reply(免費)──▶ 回覆
    │      「幫我約這週的課」「我這個月進步多少」→ 走同一套 Action/Query 層
    │
    └── push（計費，高價值才用）
           上課提醒(降爽約) / 合約到期 / 週成長摘要 / AI 成長敘事
 ```
-- **學員端（面 3）= LIFF**：這是最大槓桿——學員不必下載任何 App，在 LINE 裡就能用 Noki，身分自動帶入。**直接解掉 OneFloors iOS-only 的痛**。
-- **Agent（面 2）可長在 LINE 對話**：學員/教練在 LINE 打字 → webhook → Noki Agent → 回覆。等於 Agent 多了一個「人人都在用的入口」。
+- **學員端（面 3）= LIFF**：這是最大槓桿——學員不必下載任何 App，在 LINE 裡就能用 Yolian，身分自動帶入。**直接解掉 OneFloors iOS-only 的痛**。
+- **Agent（面 2）可長在 LINE 對話**：學員/教練在 LINE 打字 → webhook → Yolian Agent → 回覆。等於 Agent 多了一個「人人都在用的入口」。
 - **設計原則 #1 延伸**：LIFF 與 webhook 都只是 Action 層的另一個前端，與 Web 後台共用同一套操作，零裂縫。
 
 ### 9.5 高價值用例（對應教練/學員痛點）
@@ -1268,7 +1268,7 @@ LINE 官方帳號（學員加好友）
 - **計費模型**：reply（回覆使用者）+ 一對一聊天 + 自動回應 + 歡迎訊息 + LINE VOOM **皆不計費**；**群發/分眾/API push 才計費**（按目標好友數×次數）。→ 架構上：**Agent 對話走 reply（免費）、提醒才用 push（精省）**。
 - **TW 方案**（2023 改版，**數字以官網計算機為準**）：輕用量（免費，少量訊息）/ 中用量（月費約 NT$800）/ 高用量（月費約 NT$1,200），各含免費訊息額度 + 超量加購。
 - **帳號類型**：一般 / 認證(藍盾) / 企業(綠盾)；Messaging API 一般帳號即可用，認證帳號可投「加好友廣告」。2026/4 起一般帳號不再顯示灰盾。
-- **健康/醫療業種限制**：LINE 對醫療/金融等敏感業種的「**LINE 內建 AI 聊天機器人(β)**」可能拒絕提供。Noki 用**自有 Agent（走 Messaging API webhook）不受此限**，但健身鄰近健康，內容合規仍要留意。
+- **健康/醫療業種限制**：LINE 對醫療/金融等敏感業種的「**LINE 內建 AI 聊天機器人(β)**」可能拒絕提供。Yolian 用**自有 Agent（走 Messaging API webhook）不受此限**，但健身鄰近健康，內容合規仍要留意。
 - LIFF 限制：需 HTTPS、在 OpenChat 不支援、外部瀏覽器無法用 `scanCode`。
 
 ### 9.7 對 MVP 的建議
@@ -1284,7 +1284,7 @@ LINE 官方帳號（學員加好友）
 | VibeAI | 免費 LINE 預約系統、LINE OAuth、自動提醒降爽約 | 預約/提醒 |
 | 艾美力 imary | 主打 LINE 深度整合、私域流量、拒平台抽成 | 私域經營 |
 | SimplyBook.me | LINE 預約機器人 | 預約 |
-> 結論：台灣「LINE 預約」已是標配，但**沒人把 LINE 當「訓練深度 + 成長敘事 + Agent」的零安裝載體**。Noki 用 LIFF 把差異化體驗直接送進 LINE，而非只做預約。
+> 結論：台灣「LINE 預約」已是標配，但**沒人把 LINE 當「訓練深度 + 成長敘事 + Agent」的零安裝載體**。Yolian 用 LIFF 把差異化體驗直接送進 LINE，而非只做預約。
 
 ---
 
@@ -1325,9 +1325,9 @@ LINE 官方帳號（學員加好友）
 
 </script>
 <script type="text/markdown" id="md-style">
-# Noki UI 風格系統與多租戶品牌識別研究
+# Yolian UI 風格系統與多租戶品牌識別研究
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
 > 本文回答一個問題：**這個平台可以讓使用者自定哪些 UI 風格？** 並把它收斂成可實作的風格系統 —— 風格原型（Style Archetype）× 明暗模式（Dark/Light）× 多租戶品牌識別（Brand Identity）三個維度，定義每個維度可調什麼、由誰設定、套用到哪一面。
 > 日期：2026-06-25 · 狀態：v1 待校準（文末有「待決策」）
 > 關聯：`product-architecture.md` §4 產品三面、§5.1 實體（`Studio.品牌頁設定`、`Coach.個人頁`）；`deep-dive-competitors.md` §B（OneFloors 7 版型）
@@ -1343,7 +1343,7 @@ LINE 官方帳號（學員加好友）
 - **白標**是國外明確賣點（SuperCoach、PT Distinction、Trainerize 高階、Glofox 白標 App 含基本價）。
 - **多租戶的本質**就是品牌分離：每個 `Studio` 是一個租戶、每位 `Coach` 又有自己的個人品牌頁 → 平台天生需要「一份程式、多種外觀」。
 
-> **收斂結論**：Noki 的「可自定風格」= **可選風格原型（版型的本質）** + **品牌識別覆蓋（租戶自填）** + **明暗模式（使用偏好）**。三者正交組合，用同一套 token 疊出最終主題。這同時延續產品設計原則 #1（UI 與 Agent 共用動作層）的精神：**風格也是一套有型別的 token，不是散落各處的硬編碼色碼。**
+> **收斂結論**：Yolian 的「可自定風格」= **可選風格原型（版型的本質）** + **品牌識別覆蓋（租戶自填）** + **明暗模式（使用偏好）**。三者正交組合，用同一套 token 疊出最終主題。這同時延續產品設計原則 #1（UI 與 Agent 共用動作層）的精神：**風格也是一套有型別的 token，不是散落各處的硬編碼色碼。**
 
 ---
 
@@ -1375,14 +1375,14 @@ LINE 官方帳號（學員加好友）
 ## 2. 六大風格原型（Style Archetypes）
 
 > 設計法則承 OneFloors：**所有原型共用同一資訊架構與元件**，只換 token（色彩 / 字體 / 圓角 / 陰影 / 密度）。新增原型 = 新增一組 token map，不動版面與功能。
-> 每個原型都對應 Noki 研究中真實存在的教練類型，並同時提供 Light / Dark 兩版值。
+> 每個原型都對應 Yolian 研究中真實存在的教練類型，並同時提供 Light / Dark 兩版值。
 
-> **以下風格模擬以 Pencil 實際繪製**：同一個 Noki 學員端卡片元件（品牌標記／今日課表／排課按鈕／統計卡／學員列），套上不同主題即換膚 —— 印證「一份元件 × N 種主題」的可行性。原始檔：`design/noki-styles.pen`（token 已存為主題化變數）。
+> **以下風格模擬以 Pencil 實際繪製**：同一個 Yolian 學員端卡片元件（品牌標記／今日課表／排課按鈕／統計卡／學員列），套上不同主題即換膚 —— 印證「一份元件 × N 種主題」的可行性。原始檔：`design/yolian-styles.pen`（token 已存為主題化變數）。
 
-![Noki 6 風格原型 × Dark/Light 全覽](screenshots/style-showcase.png)
+![Yolian 6 風格原型 × Dark/Light 全覽](screenshots/style-showcase.png)
 
 ### 2.1 Pulse 活力（平台預設）
-- **定位 / 人格**：現代、親和、乾淨。Noki 的中性預設，誰都不出錯。
+- **定位 / 人格**：現代、親和、乾淨。Yolian 的中性預設，誰都不出錯。
 - **對應**：綜合工作室、一般私教、尚未決定品牌調性的新租戶。
 - **字體**：系統無襯線（Inter / -apple-system + PingFang TC）。
 - **形狀質感**：圓角 12–14、柔和陰影、中等密度。
@@ -1489,11 +1489,11 @@ LINE 官方帳號（學員加好友）
 
 ![Vital 療癒 Light/Dark 模擬](screenshots/style-vital.png)
 
-### 對照表：Noki 原型 ↔ OneFloors 版型
+### 對照表：Yolian 原型 ↔ OneFloors 版型
 
-| Noki 原型 | 對應 OneFloors 版型 | 教練類型 |
+| Yolian 原型 | 對應 OneFloors 版型 | 教練類型 |
 |----------|-------------------|---------|
-| Pulse 活力 | （Noki 新增，平台預設） | 綜合 / 一般私教 |
+| Pulse 活力 | （Yolian 新增，平台預設） | 綜合 / 一般私教 |
 | Forge 鍛造 | Ironclad | 肌力健力 / 重訓 |
 | Velocity 競速 | Smash + Voltage | 球類 / HIIT / 競速 |
 | Atelier 體態 | Atelier | 瑜伽 / 皮拉提斯 |
@@ -1536,11 +1536,11 @@ LINE 官方帳號（學員加好友）
 | 品牌輔色 | 次強調 / 圖表 | HEX（選填） | ◐ |
 | 字體選擇 | 從平台預設字庫挑（非自由上傳，控品質與授權） | 列表單選（每原型有預設） | ◐ |
 | 封面 / Hero 影像 | 公開品牌頁、學員端歡迎圖 | JPG/WebP ≥ 1600px；提供裁切框 | ◐ |
-| 自訂網域 / Slug | `noki.cc/coach/<名>` → 進階自訂網域 | slug 唯一；網域 = Phase 3 | ◐→Phase3 |
+| 自訂網域 / Slug | `yolian.cc/coach/<名>` → 進階自訂網域 | slug 唯一；網域 = Phase 3 | ◐→Phase3 |
 | 通知寄件識別 | Email / LINE 署名、頁首 | 文字 + Logo | Phase 1.5 |
-| 學員端品牌開關 | 學員看到的是工作室品牌還是 Noki | 布林 | Phase 2 |
+| 學員端品牌開關 | 學員看到的是工作室品牌還是 Yolian | 布林 | Phase 2 |
 | 預設明暗偏好 | 該租戶面向客戶頁的預設明暗 | Light / Dark / 跟隨 | ◐ |
-| 自訂 CSS / 完整白標 | 移除 Noki 標記、注入樣式 | 進階方案限定 | Phase 3 |
+| 自訂 CSS / 完整白標 | 移除 Yolian 標記、注入樣式 | 進階方案限定 | Phase 3 |
 
 > **MVP 收斂**：先做「品牌名 + Logo + 品牌主色 + 選 1 原型」就足以生成有辨識度的教練公開品牌頁 —— 這正是 OneFloors「選版型 + 填內容」被驗證的最小集合。其餘逐期開。
 
@@ -1550,7 +1550,7 @@ LINE 官方帳號（學員加好友）
 
 四層疊加，**後者覆蓋前者**，最終解析成一組 CSS variables。這與目前 `build_site.py` 的 `:root{ --accent … }` 寫法**完全相容**，是自然延伸而非重寫。
 
-> **風格已存檔**：六原型 × 明暗的完整 token 矩陣已存為 Pencil 主題化變數於 `design/noki-styles.pen`（兩條主題軸 `archetype` × `mode`，§2 各表的值即由此匯出）。此檔是設計端的單一事實來源，可直接匯出成前端 CSS variables 或 design token JSON。
+> **風格已存檔**：六原型 × 明暗的完整 token 矩陣已存為 Pencil 主題化變數於 `design/yolian-styles.pen`（兩條主題軸 `archetype` × `mode`，§2 各表的值即由此匯出）。此檔是設計端的單一事實來源，可直接匯出成前端 CSS variables 或 design token JSON。
 
 ```
 解析順序（後蓋前）：
@@ -1605,7 +1605,7 @@ LINE 官方帳號（學員加好友）
 | **Phase 0 MVP** | 預設 **Pulse** + **Light**；品牌基本集（名 / Logo / 主色）；公開品牌頁可**選 1 原型**。證明「選版型 + 填內容」跑通。 |
 | **Phase 1.5** | **Dark mode** 全平台；**6 原型全開**；字體預設庫；通知寄件品牌識別。 |
 | **Phase 2** | 學員端吃工作室品牌（含開關）；跟隨系統明暗；封面 / 標記資產；Coach 層覆蓋 Studio。 |
-| **Phase 3** | 自訂網域、自訂 CSS、移除 Noki 標記的**完整白標**（高階方案）。 |
+| **Phase 3** | 自訂網域、自訂 CSS、移除 Yolian 標記的**完整白標**（高階方案）。 |
 
 ---
 
@@ -1613,7 +1613,7 @@ LINE 官方帳號（學員加好友）
 
 1. **首發原型數**：MVP 先只給 **Pulse 1 個**（最快），還是直接放 **3 個**（Pulse / Forge / Atelier 覆蓋最常見三類教練）？
 2. **Dark mode 進不進 MVP**：暗色雙倍 QA 成本；先只做 Light、Phase 1.5 補暗，可接受？
-3. **學員端品牌歸屬**：學員看到「工作室品牌」會稀釋 Noki 自身曝光（獲客 vs. 白標訴求的取捨）→ 預設給誰？是否做成方案差異（免費層露 Noki、付費層可隱藏）？
+3. **學員端品牌歸屬**：學員看到「工作室品牌」會稀釋 Yolian 自身曝光（獲客 vs. 白標訴求的取捨）→ 預設給誰？是否做成方案差異（免費層露 Yolian、付費層可隱藏）？
 4. **品牌主色自由度**：完全自由 HEX（最自由但易撞醜/低對比），還是限定**校驗過對比的色盤**？
 5. **字體**：鎖平台預設字庫（控品質/授權/效能），還是高階方案開放自訂上傳？
 6. **原型 vs. 自由調**：租戶只能「選原型」，還是可在原型上再細調圓角/密度等 token（彈性 vs. 一致性/維護成本）？
@@ -1629,8 +1629,8 @@ LINE 官方帳號（學員加好友）
 <script type="text/markdown" id="md-opensource">
 # 開源整併 → 商業服務 策略與授權合規研究
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
-> 本文回答一個問題：**Noki 要如何「整併開源資源」做成可長期收費的商業 SaaS，而不在授權、護城河、可維護性上踩雷。**
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
+> 本文回答一個問題：**Yolian 要如何「整併開源資源」做成可長期收費的商業 SaaS，而不在授權、護城河、可維護性上踩雷。**
 > 收斂自 `competitor-research.md`、`deep-dive-competitors.md`、`product-architecture.md`。授權狀態以 2024–2026 一手來源查證（文中標注）。
 > 日期：2026-06-25 · 狀態：v1 · 用途：建置前的選型與合規依據
 >
@@ -1642,20 +1642,20 @@ LINE 官方帳號（學員加好友）
 
 > **用寬鬆授權的開源把所有 commodity（DB、Auth、行事曆、圖表、LLM、LINE SDK、佇列、儲存）組起來，把唯一的工程火力集中在不可外包的護城河——共用 Action 層 + 跨模組 Agent + 經營副駕 + 成長敘事——再用「託管 + 繁中 + 台灣金流/發票/LINE 合規 + 支援 + SLA」包成付費服務。開源是你的「不用自己造」，不是你的「賣點」。**
 
-對 Noki 的意義：產品的差異化（見 `product-architecture.md` §0、§6.3）完全是自研層；底層全部站在巨人肩上。整併開源不是省成本的小事，而是**讓小團隊能在 MVP 期就擁有大廠級基礎設施**的關鍵槓桿。
+對 Yolian 的意義：產品的差異化（見 `product-architecture.md` §0、§6.3）完全是自研層；底層全部站在巨人肩上。整併開源不是省成本的小事，而是**讓小團隊能在 MVP 期就擁有大廠級基礎設施**的關鍵槓桿。
 
 ---
 
 ## 1. 「開源 → 商業服務」的四種整併模式
 
-| 模式 | 做法 | 代表 | Noki 適用度 |
+| 模式 | 做法 | 代表 | Yolian 適用度 |
 |------|------|------|:--:|
-| **A. Host（託管原樣）** | 把一套開源軟體原封不動架起來收託管費 | AWS RDS、各家 Managed Redis | ✕ 非 Noki 本業 |
-| **B. Wrap & Integrate（包裹整併）** | 把多個開源元件當「零件」，縫進自有產品，客戶看不到底層 | Vercel、Supabase、絕大多數 SaaS | ★★★ **Noki 就是這型** |
+| **A. Host（託管原樣）** | 把一套開源軟體原封不動架起來收託管費 | AWS RDS、各家 Managed Redis | ✕ 非 Yolian 本業 |
+| **B. Wrap & Integrate（包裹整併）** | 把多個開源元件當「零件」，縫進自有產品，客戶看不到底層 | Vercel、Supabase、絕大多數 SaaS | ★★★ **Yolian 就是這型** |
 | **C. Open-Core（開放核心）** | 自家產品開源社群版，進階功能閉源收費 | GitLab、Cal.com、n8n | △ 早期不必，Phase 3 可考慮把 Action SDK 開源做生態 |
 | **D. Build-on-Platform（平台之上）** | 在別人的開源/開放平台上做加值 | LINE LIFF 上的應用 | ★★ 學員端就是長在 LINE 上 |
 
-> **對 Noki 的啟示**：主體是 **B（Wrap & Integrate）**。客戶買的是「用講的就完成營運」，不是「我們用了 PostgreSQL」。這決定了授權策略——**只要底層元件不要求你開源自己的商業碼即可**（見 §2）。
+> **對 Yolian 的啟示**：主體是 **B（Wrap & Integrate）**。客戶買的是「用講的就完成營運」，不是「我們用了 PostgreSQL」。這決定了授權策略——**只要底層元件不要求你開源自己的商業碼即可**（見 §2）。
 
 ---
 
@@ -1663,7 +1663,7 @@ LINE 官方帳號（學員加好友）
 
 從「最自由」到「最危險」排列，重點是**對閉源 SaaS 的義務**：
 
-| 類別 | 代表授權 | 對 Noki（閉源 SaaS）的義務 | 判斷 |
+| 類別 | 代表授權 | 對 Yolian（閉源 SaaS）的義務 | 判斷 |
 |------|---------|--------------------------|:--:|
 | **公眾領域** | CC0、Unlicense、0BSD | 無 | ✅ |
 | **寬鬆 Permissive** | **MIT、ISC、BSD-2/3、Apache-2.0** | 僅需保留版權聲明；Apache-2.0 另含**專利授權**＋改檔需在 NOTICE 標注 | ✅ **後端預設只收這類** |
@@ -1676,7 +1676,7 @@ LINE 官方帳號（學員加好友）
 1. **「源碼放在 GitHub 上」不等於「開源授權」。** SSPL / BUSL / ELv2 / FSL 都看得到碼，但**不是 OSI 認證的開源授權**，且專為堵 SaaS 而生。
 2. **Apache-2.0 > MIT 之處在「專利」。** Apache-2.0 內含明確專利授權與「專利報復」條款；對商業產品法務更安全，故元件同質時優先選 Apache-2.0。
 
-> **對 Noki 的啟示**：建立一條 CI 紅線——**新依賴若不是 §2 前三類（Permissive / 弱 Copyleft / 公眾領域），預設擋下，需人工審核**。AGPL 與所有 source-available 進「審核清單」。
+> **對 Yolian 的啟示**：建立一條 CI 紅線——**新依賴若不是 §2 前三類（Permissive / 弱 Copyleft / 公眾領域），預設擋下，需人工審核**。AGPL 與所有 source-available 進「審核清單」。
 
 ---
 
@@ -1699,18 +1699,18 @@ LINE 官方帳號（學員加好友）
 1. **2023 是「rug pull」高峰，2024–2025 出現回頭**：Redis、Elastic 因為 fork（Valkey/OpenSearch）真的成功了、社群出走痛，於是**加回 OSI 開源授權（都是 AGPL）**。但注意——加回的是 **AGPL**，仍是 SaaS 敏感授權（§8）。
 2. **有基金會托管的 fork 是最穩的避風港**：Valkey、OpenTofu、OpenSearch 都進了 Linux Foundation / 多廠商治理，**不會被單一公司一夕改約**。
 
-> **對 Noki 的啟示（選型鐵則）**：同功能優先選**治理分散**者（Apache 基金會 / CNCF / Linux Foundation / 多廠商社群）勝過「單一公司主導」者。單一公司 + 創投背景 + 雲端競爭壓力 = 未來改約高風險。
+> **對 Yolian 的啟示（選型鐵則）**：同功能優先選**治理分散**者（Apache 基金會 / CNCF / Linux Foundation / 多廠商社群）勝過「單一公司主導」者。單一公司 + 創投背景 + 雲端競爭壓力 = 未來改約高風險。
 
 ---
 
-## 4. Noki「買 / 借 / 造」決策矩陣（逐模組）
+## 4. Yolian「買 / 借 / 造」決策矩陣（逐模組）
 
 對照 `product-architecture.md` §5 資料模型與 §4 三面。原則：**commodity 借開源、護城河自造、敏感合規買服務**。
 
-| Noki 模組 | 借（開源 commodity） | 典型授權 | 自造（護城河，不外包） |
+| Yolian 模組 | 借（開源 commodity） | 典型授權 | 自造（護城河，不外包） |
 |----------|---------------------|---------|----------------------|
 | 前端框架 | Next.js / React / Vue / Svelte | MIT | 程式化前端的領域 UX |
-| UI 元件 | Tailwind、shadcn/ui、Radix、MUI | MIT | Noki 設計語言 |
+| UI 元件 | Tailwind、shadcn/ui、Radix、MUI | MIT | Yolian 設計語言 |
 | 排課行事曆 | FullCalendar、Schedule-X | MIT* | **衝堂偵測、消課狀態機**（§5.2） |
 | 圖表 / 成長折線 | Recharts、Apache ECharts、visx | MIT / Apache-2.0 | **AI 成長敘事生成**（§6.5） |
 | 身分 / 權限 | Auth.js、Keycloak、Ory、Supabase Auth | ISC / Apache-2.0 | **Coach/Studio/Member 權限規則** |
@@ -1730,7 +1730,7 @@ LINE 官方帳號（學員加好友）
 \* FullCalendar **標準套件 MIT**，但「Scheduler / 資源時間軸」等進階外掛是**商業授權**——用到要付費，別誤用。
 \** Grafana 是 AGPL，但**獨立進程**部署（你不改它、不連結進產品）即可安全使用（§8）。
 
-> **對 Noki 的啟示**：上表幾乎全是 Permissive。唯三需留意：**Valkey 取代 Redis**、**儲存用 S3/R2 不自架 MinIO**、**搜尋用 Meilisearch 不用 Typesense**。把這三條寫進工程規範即可避開九成地雷。
+> **對 Yolian 的啟示**：上表幾乎全是 Permissive。唯三需留意：**Valkey 取代 Redis**、**儲存用 S3/R2 不自架 MinIO**、**搜尋用 Meilisearch 不用 Typesense**。把這三條寫進工程規範即可避開九成地雷。
 
 ---
 
@@ -1760,13 +1760,13 @@ LINE：@line/bot-sdk (Apache-2.0) + LIFF
 - 儲存後面可換 S3 ↔ R2
 - 這層抽象**同時是 anti-vendor-lock-in 與 anti-授權變天的縫**——某元件改約，只換一個 adapter，不動上層。
 
-> **對 Noki 的啟示**：**pgvector 長在 PostgreSQL 裡**，MVP 不必另立向量資料庫（省 Pinecone/Milvus 一個元件與一筆錢）；**Valkey 一物多用**（快取 + 佇列 + pub/sub）。小團隊把元件數壓到最低，可維護性最高。
+> **對 Yolian 的啟示**：**pgvector 長在 PostgreSQL 裡**，MVP 不必另立向量資料庫（省 Pinecone/Milvus 一個元件與一筆錢）；**Valkey 一物多用**（快取 + 佇列 + pub/sub）。小團隊把元件數壓到最低，可維護性最高。
 
 ---
 
-## 6. 授權地雷清單（Noki 路線圖上「最想用、卻有坑」的）
+## 6. 授權地雷清單（Yolian 路線圖上「最想用、卻有坑」的）
 
-這些是**會直接咬到 Noki 規劃**的具體陷阱：
+這些是**會直接咬到 Yolian 規劃**的具體陷阱：
 
 | 想用它做… | 專案 | 授權真相 | 正解 |
 |----------|------|---------|------|
@@ -1779,7 +1779,7 @@ LINE：@line/bot-sdk (Apache-2.0) + LIFF
 | 日誌 / 搜尋 | **Elasticsearch** | 有 AGPL 選項但仍敏感 | 多數情境 **OpenSearch (Apache-2.0)** 更省心 |
 | IaC | **Terraform** | **BUSL 1.1** | **OpenTofu（MPL-2.0）** |
 
-> **對 Noki 的啟示**：藍圖裡最危險的兩個「很想用」是 **Cal.com（排課）** 與 **n8n（工作流市集）**——兩者都是 Open-Core / source-available，**正好卡在 Noki 的核心模組與變現模組上**。結論：**排課與工作流引擎都該自研**（反正它們本來就要接 Noki 的 Action 層、是護城河的一部分，自研而非嵌入第三方反而更對）。
+> **對 Yolian 的啟示**：藍圖裡最危險的兩個「很想用」是 **Cal.com（排課）** 與 **n8n（工作流市集）**——兩者都是 Open-Core / source-available，**正好卡在 Yolian 的核心模組與變現模組上**。結論：**排課與工作流引擎都該自研**（反正它們本來就要接 Yolian 的 Action 層、是護城河的一部分，自研而非嵌入第三方反而更對）。
 
 ---
 
@@ -1794,24 +1794,24 @@ LINE：@line/bot-sdk (Apache-2.0) + LIFF
 5. **NOTICE / 第三方授權頁**：保留所有 MIT/BSD/Apache 版權聲明，產品內附「開源授權」清單頁（法務義務，也是誠信）。
 6. **CLA / DCO**（若 Phase 3 開源 Action SDK 收外部貢獻時才需要）。
 
-> **對 Noki 的啟示**：MVP 階段就把「**授權掃描 + SBOM**」加進 CI——這是一次性低成本投入，卻能擋掉未來「上線後才發現某依賴是 AGPL / 某升版偷改授權」的災難。對閉源商業 SaaS 而言，這是不可省的保險。
+> **對 Yolian 的啟示**：MVP 階段就把「**授權掃描 + SBOM**」加進 CI——這是一次性低成本投入，卻能擋掉未來「上線後才發現某依賴是 AGPL / 某升版偷改授權」的災難。對閉源商業 SaaS 而言，這是不可省的保險。
 
 ---
 
 ## 8. AGPL 深入（因為它現在是最關鍵的灰區）
 
-Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 必須懂它的精確邊界：
+Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Yolian 必須懂它的精確邊界：
 
 - **AGPL 觸發點**：你**修改**了 AGPL 軟體，且讓使用者**透過網路互動**到它 → 你必須把「你改動的版本原始碼」對那些使用者提供。
-- **安全用法（不傳染給 Noki 商業碼）**：
+- **安全用法（不傳染給 Yolian 商業碼）**：
   - ✅ **不改原碼**，把它當**獨立進程 / 獨立服務**部署（例如 Grafana 儀表板、AGPL 版資料庫當後端），你的產品只透過網路/標準協定呼叫它。多數法律意見認為這**不使你的應用變成 AGPL 衍生作品**。
   - ✅ 用它的**客戶端 driver**（driver 通常是寬鬆授權，非 AGPL）。
 - **危險用法**：
   - 🚫 把 AGPL 程式庫**連結進**你的後端應用程式（in-process linking）。
   - 🚫 **改了** AGPL 軟體又對外提供服務，卻不釋出改動。
-- **務實結論**：Noki 對 AGPL 元件採「**不改、隔進程、用寬鬆 driver**」三原則即可安全使用；但**能用 Apache/BSD 同類就優先用**（如 Valkey 取代 Redis），省去整個灰區。
+- **務實結論**：Yolian 對 AGPL 元件採「**不改、隔進程、用寬鬆 driver**」三原則即可安全使用；但**能用 Apache/BSD 同類就優先用**（如 Valkey 取代 Redis），省去整個灰區。
 
-> **對 Noki 的啟示**：把這三原則寫進工程規範。AGPL 不是「絕對不能碰」，而是「**碰主程式才致命**」——理解邊界比恐懼更有用。
+> **對 Yolian 的啟示**：把這三原則寫進工程規範。AGPL 不是「絕對不能碰」，而是「**碰主程式才致命**」——理解邊界比恐懼更有用。
 
 ---
 
@@ -1824,11 +1824,11 @@ Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 
 | **託管與可用性** | 客戶免運維、自動備份、SLA、監控 | 競品多為 SaaS，自架不是教練的事 |
 | **在地化合規** | 繁中、台灣金流/電子發票、LINE 生態、個資/健康資料合規 | 國際大廠的弱點（`product-architecture.md` §1.1） |
 | **整合與體驗** | 把零散開源縫成「一句話完成營運」的無縫體驗 | 全市場 0 家做到（§0 真空） |
-| **資料主權與信任** | 客戶資料留在 Noki schema，不鎖進第三方模型；寫入確認 + audit | 對標但超越對手（設計原則 #3） |
+| **資料主權與信任** | 客戶資料留在 Yolian schema，不鎖進第三方模型；寫入確認 + audit | 對標但超越對手（設計原則 #3） |
 | **支援與成功** | 導入、教學、客服、教練社群 | 國內外都靠服務留存 |
 | **持續演進** | 新 Action 一加，UI 與 Agent 同時獲得新能力 | 設計原則 #1 的複利 |
 
-> **對 Noki 的啟示**：**開源讓你「站上起跑線」，加值層才是「跑道」。** Noki 的六層加值裡，「在地化合規」與「無縫整合體驗」是國際開源/大廠最難複製的，應作為定價與行銷的主訴求。
+> **對 Yolian 的啟示**：**開源讓你「站上起跑線」，加值層才是「跑道」。** Yolian 的六層加值裡，「在地化合規」與「無縫整合體驗」是國際開源/大廠最難複製的，應作為定價與行銷的主訴求。
 
 ---
 
@@ -1860,7 +1860,7 @@ Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 
 
 </script>
 <script type="text/markdown" id="md-journeys">
-# Noki 使用者歷程（User Journeys）
+# Yolian 使用者歷程（User Journeys）
 
 > 本文承 `product-architecture.md`，把 MVP 範圍展開成**不同角色的完整端到端旅程**，作為後續畫面流程 / PRD 的依據。
 > 日期：2026-06-25 · 對應 MVP（Phase 0）已定案範圍。
@@ -1934,7 +1934,7 @@ Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 
 - 註：業績抽成/薪資自動計算為 Phase 1.5；MVP 提供數據，計薪先人工。
 
 ### J4 — 多教練衝堂 / 調課（多教練特有）
-| 情境 | Noki 行為 |
+| 情境 | Yolian 行為 |
 |------|----------|
 | Max 排課撞到場地/時段被佔用 | 排課時即時**衝堂偵測**擋下，提示可用時段 |
 | 教練臨時請假 | 主理人在行事曆把該教練當日課改派或通知學員改期；Agent：「把 Max 明天的課都改到後天同時段並通知學員」 |
@@ -2065,7 +2065,7 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 
 ## 8. 邊界 / 例外情境（MVP 要想清楚）
 
-| 情境 | Noki 處理 |
+| 情境 | Yolian 處理 |
 |------|----------|
 | **排課衝堂** | 即時偵測擋下 + 建議可用時段 |
 | **學員改期/取消** | LINE 一鍵改期；自訂取消政策（太晚取消是否扣堂） |
@@ -2090,9 +2090,9 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 
 </script>
 <script type="text/markdown" id="md-ossstack">
-# Noki 開源資源採用方案與功能缺口評估 v1
+# Yolian 開源資源採用方案與功能缺口評估 v1
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
 > 本文承接 `product-architecture.md`，把第一輪掃到的開源資源**逐一深挖成可執行的採用方案**（拿什麼／不拿什麼／怎麼接／授權紅線／風險），並反向用這些成熟專案**檢查藍圖漏掉了哪些功能**。
 > 日期：2026-06-25 · 狀態：v1 · 視角：商用閉源 SaaS（授權合規優先於 star 數）
 
@@ -2101,13 +2101,13 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 ## 0. 這份文件回答兩個問題
 
 1. **怎麼用？** — 每個開源資源的「採用層級（直接內嵌 / 改造 / 僅參考）+ 整合方式 + 授權限制 + 落地風險」。
-2. **漏了什麼？** — 這些成熟產品已經踩過的坑，反推出 Noki 藍圖（§5 資料模型、§6 Agent、§7 MVP）目前**沒關注到的功能**。
+2. **漏了什麼？** — 這些成熟產品已經踩過的坑，反推出 Yolian 藍圖（§5 資料模型、§6 Agent、§7 MVP）目前**沒關注到的功能**。
 
 ---
 
 ## 1. 採用策略總綱（buy / borrow / build 的紀律）
 
-一句話結論先講：**Noki 的差異化（跨模組 Agent + LINE 原生交付 + 成長敘事）在任何開源專案裡都不存在，所以開源只負責「商品化的底層」，護城河必須自建。**
+一句話結論先講：**Yolian 的差異化（跨模組 Agent + LINE 原生交付 + 成長敘事）在任何開源專案裡都不存在，所以開源只負責「商品化的底層」，護城河必須自建。**
 
 | 層級 | 定義 | 適用授權 | 本文資源 |
 |------|------|---------|---------|
@@ -2115,7 +2115,7 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 | **改造參考（borrow）** | 抄架構/資料模型，自行實作 | 任意（含 AGPL，只看不抄碼） | wger 資料模型、cal.com 排程設計 |
 | **自建（build）** | 沒有堪用開源、且是差異化 | — | 共用 Action 層、經營副駕、成長敘事、消課鏈 |
 
-> **AGPL 鐵律**：AGPL-3.0 的程式碼**連 SaaS（不分發、只提供網路服務）都會觸發開源義務**。wger、cal.com 本體屬此類 → **只准讀設計、不准複製程式碼進 Noki**。資料（CC/開放資料授權）另計，可用但要遵守姓名標示/相同方式分享。
+> **AGPL 鐵律**：AGPL-3.0 的程式碼**連 SaaS（不分發、只提供網路服務）都會觸發開源義務**。wger、cal.com 本體屬此類 → **只准讀設計、不准複製程式碼進 Yolian**。資料（CC/開放資料授權）另計，可用但要遵守姓名標示/相同方式分享。
 
 ---
 
@@ -2125,24 +2125,24 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 
 - **授權**：Unlicense（公共領域）→ 商用零限制，可重新打包、可閉源、無需標示。**最乾淨的一個。**
 - **內容**：800+ 動作，每筆獨立 JSON，欄位：`id / name / force(推拉) / level(難度) / mechanic(複合或孤立) / equipment(器材) / primaryMuscles / secondaryMuscles / instructions[] / category / images[]`。圖片可走 GitHub raw 或自架 CDN。
-- **對應 Noki**：直接灌進 §5 的 **Exercise 動作庫**實體。欄位幾乎一對一，`primaryMuscles/equipment/level` 可直接當篩選維度。
+- **對應 Yolian**：直接灌進 §5 的 **Exercise 動作庫**實體。欄位幾乎一對一，`primaryMuscles/equipment/level` 可直接當篩選維度。
 - **採用方式**：
-  1. 抓 `dist/exercises.json`（合併檔）+ 整包圖片 → 存進 Noki 自己的 DB 與物件儲存（**不要 runtime 依賴對方 GitHub**）。
+  1. 抓 `dist/exercises.json`（合併檔）+ 整包圖片 → 存進 Yolian 自己的 DB 與物件儲存（**不要 runtime 依賴對方 GitHub**）。
   2. 建一張對照表，把英文 `name/instructions` 補上**繁中翻譯**（見下方風險）。
-  3. 器材/部位的 enum 收斂成 Noki 自己的分類法（對方 enum 偶有 null）。
+  3. 器材/部位的 enum 收斂成 Yolian 自己的分類法（對方 enum 偶有 null）。
 - **風險 / 缺口**：
   - ⚠️ **純英文**：動作名、步驟全英文。台灣教練/學員要繁中 → 需一次性翻譯（800 筆，可用 LLM 批次初翻 + 教練校對）。**這是隱性成本，要排進 MVP 工。**
   - 圖片是真人示範照（非統一風格），品牌一致性普通；MVP 可接受，Phase 2 再考慮統一重製或換繪。
-  - 沒有影片（只有靜態圖）。Noki §5 Exercise 寫的是「影片/圖示」→ 影片要嘛自建、要嘛之後接 YouTube 連結。
+  - 沒有影片（只有靜態圖）。Yolian §5 Exercise 寫的是「影片/圖示」→ 影片要嘛自建、要嘛之後接 YouTube 連結。
 
 ### 2.2 AI Agent / 工具呼叫層 — Vercel AI SDK（`/vercel/ai`）★ 直接採用，這是漏研究的最關鍵一塊
 
-> §6.6 的「意圖解析 → tool calling → 確認 → 留痕」整套機制，過去藍圖只有概念、沒有技術載體。**AI SDK 幾乎是為 Noki 設計原則 #1 量身打造的。**
+> §6.6 的「意圖解析 → tool calling → 確認 → 留痕」整套機制，過去藍圖只有概念、沒有技術載體。**AI SDK 幾乎是為 Yolian 設計原則 #1 量身打造的。**
 
 - **授權**：Apache-2.0 ✅ 商用可用。TypeScript、provider 無關（可同時掛 OpenAI / Anthropic / Gemini / 阿里 Qwen，繁中可挑最強模型甚至 A/B）。
-- **核心 API 與 Noki 的對應**：
+- **核心 API 與 Yolian 的對應**：
 
-| AI SDK 機制 | 做什麼 | 對應 Noki |
+| AI SDK 機制 | 做什麼 | 對應 Yolian |
 |------------|--------|----------|
 | `tool({ description, inputSchema: z.object({...}), execute })` | 定義一個帶型別參數的工具 | **= 共用 Action 層的一個 Action**（設計原則 #1）。Booking/Program/Contract 每個 Action 就是一個 tool |
 | `generateText({ model, tools, prompt })` | LLM 讀自然語言 → 自動選 tool、填參數、呼叫 | §6.6 意圖解析 + tool calling 一步到位 |
@@ -2152,7 +2152,7 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 
 - **「寫入確認」怎麼落地**（重要架構細節）：
   - 把「寫」類 tool 的 `execute` 拆成兩段：LLM 先產生 **結構化意圖物件**（要做什麼、參數），UI/LINE 回顯「我要把小明本週三五 07:00 各排一堂，確認？」→ **使用者按確認後，後端才呼叫真正的 Action 並寫 AgentActionLog**。
-  - 即 AI SDK 負責「解析+選工具+填參數」，真正的副作用由 Noki 的 Action 層在確認後執行 → 天然滿足「可撤銷、可留痕」。
+  - 即 AI SDK 負責「解析+選工具+填參數」，真正的副作用由 Yolian 的 Action 層在確認後執行 → 天然滿足「可撤銷、可留痕」。
 - **一份 Zod schema 餵兩個前端**：同一個 `inputSchema`（Zod）既是 LLM 的 tool 參數定義，也能驅動程式化前端的表單驗證 → **真正做到「按鈕和對話呼叫同一套 Action」**。
 - **省 token 路由（定位變更）**：系統 UI 處理多數操作；只有口語/語音/跨模組請求才進 LLM，簡單意圖走規則/捷徑或直接導去 Dashboard（架構設計原則 #4）。Agent 輸入框另須支援**語音輸入(STT)**（原則 #7）。
 - **注意版本**：AI SDK v6 起 `generateObject` 標記為 deprecated，結構化輸出改用 `generateText({ output: Output.object(...) })`。新做就直接走 v6 寫法。
@@ -2167,10 +2167,10 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 - **採用架構**（省錢關鍵）：
 
 ```
-教練/學員 LINE 訊息 ─webhook→ Noki 後端 ─→ AI SDK(意圖解析) ─→ 共用 Action 層
+教練/學員 LINE 訊息 ─webhook→ Yolian 後端 ─→ AI SDK(意圖解析) ─→ 共用 Action 層
                                             └─reply(免費) 回覆
 排程提醒/合約到期/成長敘事 ─→ push(計費，只在高價值時用)
-Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
+Rich Menu ─→ 開 LIFF = Yolian 學員端(面 3)
 ```
 
 - **關鍵紀律**：**Agent 對話一律走 reply（免費），push 只留給「降爽約提醒、合約到期、成長摘要」這種高價值主動推播**（§9.6 計費模型）。架構上把兩條路分開。
@@ -2181,7 +2181,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 > **務實提醒**：cal.com/cal.diy 的本質是「**Calendly 式的個人時段預約**」（某人開放空檔讓別人約），**不是「健身工作室多教練排班 + 團課名額 + 消合約堂數」**。兩者資料模型差很多。
 
 - **授權**：cal.diy = MIT ✅（社群版，已剔除企業功能）；**cal.com 本體 = Open Core 含 AGPL ⚠️**，要用務必用 cal.diy。
-- **技術棧**：Next.js + tRPC + Prisma + Tailwind（與 Noki 若走 TS 全棧高度相容）。
+- **技術棧**：Next.js + tRPC + Prisma + Tailwind（與 Yolian 若走 TS 全棧高度相容）。
 - **正確用法**：
   - ✅ **借設計**：可用時段計算、衝突偵測、行事曆雙向同步（Google/Apple/Outlook）、reschedule/cancel 流程、提醒工作流——這些是 cal 的強項，直接抄**設計與資料結構**。
   - ◐ **改造**：若要直接用其程式碼，要嫁接「Contract 堂數扣除、團課名額、教練抽成」等 cal 沒有的概念，整合成本可能高於自建。
@@ -2191,12 +2191,12 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 ### 2.5 健身領域資料模型黃金參考 — `wger-project/wger` ⚠️ 只參考不抄碼
 
 - **授權**：程式碼 **AGPL-3.0 ⚠️**（閉源 SaaS 不能用程式碼）；**資料（動作/食材）是 CC 授權，可用**（遵守標示/相同方式分享）。
-- **價值**：目前最完整的開源健身管理，**它的資料模型是校準 Noki §5 的最佳對照**。它有的而 Noki 藍圖目前較弱或沒有的概念（→ 見 §4 缺口分析）：
+- **價值**：目前最完整的開源健身管理，**它的資料模型是校準 Yolian §5 的最佳對照**。它有的而 Yolian 藍圖目前較弱或沒有的概念（→ 見 §4 缺口分析）：
   - **Routine 自動重量漸進規則**（progression rules）
   - **自訂體測項目**（custom measurements，不只 InBody 那幾項）
   - **飲食/食材庫 + 接 Open Food Facts**
   - **REST API 設計**（第三方整合）
-- **用法**：讀它的 models 與 API 文件（readthedocs），把它驗證過的欄位與關係納入 Noki 自己的（自寫）schema。**一行程式碼都不要複製。**
+- **用法**：讀它的 models 與 API 文件（readthedocs），把它驗證過的欄位與關係納入 Yolian 自己的（自寫）schema。**一行程式碼都不要複製。**
 
 ### 2.6 飲食 / 營養 — Open Food Facts ◐ Phase 2 採用（資料 + API）
 
@@ -2205,8 +2205,8 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 - **務實限制**：
   - 線上 API 有 **rate limit**（讀 15 req/min/IP、搜尋 10 req/min/IP），**不可拿來做 search-as-you-type**；量大要**下載 CSV/JSONL 自建本地庫**或自架 Product Opener。
   - 寫操作要自訂 User-Agent + 帳號。
-- **對應 Noki**：§6.4 拍照記餐 / NutritionLog（Phase 2）。
-- **重點機會（見 §4.3）**：**條碼掃描比「整盤拍照辨識」便宜且準**。Open Food Facts 天生是條碼庫 → Noki Phase 2 應**先做條碼記餐，再做拍照辨識**，成本/準確率都更友善。
+- **對應 Yolian**：§6.4 拍照記餐 / NutritionLog（Phase 2）。
+- **重點機會（見 §4.3）**：**條碼掃描比「整盤拍照辨識」便宜且準**。Open Food Facts 天生是條碼庫 → Yolian Phase 2 應**先做條碼記餐，再做拍照辨識**，成本/準確率都更友善。
 
 ---
 
@@ -2214,7 +2214,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 
 第一輪只看了「健身/排課/LINE」，但要把 §8 技術架構落地，還缺這些層。以下都是商用友善授權：
 
-| 層 | 對應 Noki | 建議開源 | 授權 | 備註 |
+| 層 | 對應 Yolian | 建議開源 | 授權 | 備註 |
 |----|----------|---------|------|------|
 | **圖表（成長折線/儀表板）** | §6.5 成長可視化、§7.1 經營儀表板 | Recharts / Chart.js / visx / Tremor | MIT（Tremor Apache-2.0） | 成長折線王牌功能的視覺載體，過去沒指定 |
 | **學員 intake / 健康問卷** | 新增學員、合規 | 自建（用 Zod schema）或 react-hook-form | MIT | **見 §4.5：PAR-Q 健康篩查是缺口** |
@@ -2231,7 +2231,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 
 ## 4. 功能缺口評估 ★（OSS 揭露藍圖漏掉的東西）
 
-> 方法：拿成熟產品「已經內建」的功能，逐項問「Noki §5/§6/§7 有沒有？」。下面只列**目前藍圖沒有或明顯偏弱**的。
+> 方法：拿成熟產品「已經內建」的功能，逐項問「Yolian §5/§6/§7 有沒有？」。下面只列**目前藍圖沒有或明顯偏弱**的。
 
 ### 4.1 排課域（對照 cal.com 的成熟度）
 
@@ -2315,7 +2315,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 
 </script>
 <script type="text/markdown" id="md-backlog">
-# Noki 開發項目（Dev Backlog）v1
+# Yolian 開發項目（Dev Backlog）v1
 
 > 本文把三份來源**整併成可執行、可追蹤的開發項目**：
 > `product-architecture.md`（藍圖）+ `user-journeys.md`（已定案 MVP 範圍）+ `oss-stack-and-gaps.md`（開源採用方案 + 功能缺口）。
@@ -2366,7 +2366,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 |----|------|:--:|------|----------|
 | E1.1 | 匯入 `free-exercise-db`（800+ JSON + 圖）到**自有 DB / 物件儲存**（不 runtime 依賴對方 GitHub） | MVP | E0.1 | oss §2.1；Unlicense 可商用 |
 | E1.2 | **動作庫繁中化**：800 筆 name/instructions LLM 批次初翻 + 教練校對 | MVP | E1.1 | ★缺口（隱性成本）：原資料純英文 |
-| E1.3 | 器材/部位 enum 收斂成 Noki 分類法（對方偶有 null） | MVP | E1.1 | oss §2.1 |
+| E1.3 | 器材/部位 enum 收斂成 Yolian 分類法（對方偶有 null） | MVP | E1.1 | oss §2.1 |
 | E1.4 | Exercise / Program / Template 資料模型 + 模板複用 + 指派 | MVP | E0.2 | 架構 §5 |
 | E1.5 | WorkoutLog：每組重量/次數、完成度、**本次 vs 上次** | MVP | E1.4 | journeys 教練 J2 |
 | E1.6 | **RIR/RPE 自覺強度欄位** | MVP | E1.5 | ★缺口：低成本高價值 |
@@ -2434,7 +2434,7 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
 |----|------|:--:|------|----------|
 | E5.1 | LINE OA + Messaging API webhook 接進後端/Agent | MVP | E0.1 | oss §2.3；Apache-2.0 |
 | E5.2 | **LIFF 學員端**：今日課表/記錄/成長，`getProfile` 自動身分 | MVP | E0.3 | journeys §5 |
-| E5.3 | account link：LINE userId ⇄ Noki Member 綁定 | MVP | E5.2, E0.3 | journeys §2 |
+| E5.3 | account link：LINE userId ⇄ Yolian Member 綁定 | MVP | E5.2, E0.3 | journeys §2 |
 | E5.4 | Rich Menu（今日課表/我的進度/預約/聯絡教練） | MVP | E5.1 | journeys §2 |
 | E5.5 | **reply(免費) / push(計費) 分流**：Agent 對話走 reply、提醒才 push | MVP | E5.1 | oss §2.3 省錢紀律 |
 | E5.6 | 上課提醒 push + 一鍵確認/改期（**最高 CP 值鏈**） | MVP | E5.5, E0.6 | journeys 學員 J2 |
@@ -2489,11 +2489,11 @@ Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
   var PW="555";
   var gate=document.getElementById('gate'), app=document.getElementById('app');
   // session unlock
-  if(sessionStorage.getItem('noki_ok')==='1'){gate.style.display='none';app.style.display='block';}
+  if(sessionStorage.getItem('yolian_ok')==='1'){gate.style.display='none';app.style.display='block';}
   document.getElementById('gate-form').addEventListener('submit',function(e){
     e.preventDefault();
     var v=document.getElementById('pw').value.trim();
-    if(v===PW){sessionStorage.setItem('noki_ok','1');gate.style.display='none';app.style.display='block';render();}
+    if(v===PW){sessionStorage.setItem('yolian_ok','1');gate.style.display='none';app.style.display='block';render();}
     else{document.getElementById('err').textContent='密碼錯誤，請再試一次';document.getElementById('pw').value='';}
   });
 

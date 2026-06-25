@@ -1,4 +1,4 @@
-# Noki 開發項目（Dev Backlog）v1
+# Yolian 開發項目（Dev Backlog）v1
 
 > 本文把三份來源**整併成可執行、可追蹤的開發項目**：
 > `product-architecture.md`（藍圖）+ `user-journeys.md`（已定案 MVP 範圍）+ `oss-stack-and-gaps.md`（開源採用方案 + 功能缺口）。
@@ -49,7 +49,7 @@
 |----|------|:--:|------|----------|
 | E1.1 | 匯入 `free-exercise-db`（800+ JSON + 圖）到**自有 DB / 物件儲存**（不 runtime 依賴對方 GitHub） | MVP | E0.1 | oss §2.1；Unlicense 可商用 |
 | E1.2 | **動作庫繁中化**：800 筆 name/instructions LLM 批次初翻 + 教練校對 | MVP | E1.1 | ★缺口（隱性成本）：原資料純英文 |
-| E1.3 | 器材/部位 enum 收斂成 Noki 分類法（對方偶有 null） | MVP | E1.1 | oss §2.1 |
+| E1.3 | 器材/部位 enum 收斂成 Yolian 分類法（對方偶有 null） | MVP | E1.1 | oss §2.1 |
 | E1.4 | Exercise / Program / Template 資料模型 + 模板複用 + 指派 | MVP | E0.2 | 架構 §5 |
 | E1.5 | WorkoutLog：每組重量/次數、完成度、**本次 vs 上次** | MVP | E1.4 | journeys 教練 J2 |
 | E1.6 | **RIR/RPE 自覺強度欄位** | MVP | E1.5 | ★缺口：低成本高價值 |
@@ -117,7 +117,7 @@
 |----|------|:--:|------|----------|
 | E5.1 | LINE OA + Messaging API webhook 接進後端/Agent | MVP | E0.1 | oss §2.3；Apache-2.0 |
 | E5.2 | **LIFF 學員端**：今日課表/記錄/成長，`getProfile` 自動身分 | MVP | E0.3 | journeys §5 |
-| E5.3 | account link：LINE userId ⇄ Noki Member 綁定 | MVP | E5.2, E0.3 | journeys §2 |
+| E5.3 | account link：LINE userId ⇄ Yolian Member 綁定 | MVP | E5.2, E0.3 | journeys §2 |
 | E5.4 | Rich Menu（今日課表/我的進度/預約/聯絡教練） | MVP | E5.1 | journeys §2 |
 | E5.5 | **reply(免費) / push(計費) 分流**：Agent 對話走 reply、提醒才 push | MVP | E5.1 | oss §2.3 省錢紀律 |
 | E5.6 | 上課提醒 push + 一鍵確認/改期（**最高 CP 值鏈**） | MVP | E5.5, E0.6 | journeys 學員 J2 |

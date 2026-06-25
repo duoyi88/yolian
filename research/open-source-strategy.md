@@ -1,7 +1,7 @@
 # 開源整併 → 商業服務 策略與授權合規研究
 
-> 專案：Noki — 面向健身教練與個人工作室的營運平台
-> 本文回答一個問題：**Noki 要如何「整併開源資源」做成可長期收費的商業 SaaS，而不在授權、護城河、可維護性上踩雷。**
+> 專案：Yolian — 面向健身教練與個人工作室的營運平台
+> 本文回答一個問題：**Yolian 要如何「整併開源資源」做成可長期收費的商業 SaaS，而不在授權、護城河、可維護性上踩雷。**
 > 收斂自 `competitor-research.md`、`deep-dive-competitors.md`、`product-architecture.md`。授權狀態以 2024–2026 一手來源查證（文中標注）。
 > 日期：2026-06-25 · 狀態：v1 · 用途：建置前的選型與合規依據
 >
@@ -13,20 +13,20 @@
 
 > **用寬鬆授權的開源把所有 commodity（DB、Auth、行事曆、圖表、LLM、LINE SDK、佇列、儲存）組起來，把唯一的工程火力集中在不可外包的護城河——共用 Action 層 + 跨模組 Agent + 經營副駕 + 成長敘事——再用「託管 + 繁中 + 台灣金流/發票/LINE 合規 + 支援 + SLA」包成付費服務。開源是你的「不用自己造」，不是你的「賣點」。**
 
-對 Noki 的意義：產品的差異化（見 `product-architecture.md` §0、§6.3）完全是自研層；底層全部站在巨人肩上。整併開源不是省成本的小事，而是**讓小團隊能在 MVP 期就擁有大廠級基礎設施**的關鍵槓桿。
+對 Yolian 的意義：產品的差異化（見 `product-architecture.md` §0、§6.3）完全是自研層；底層全部站在巨人肩上。整併開源不是省成本的小事，而是**讓小團隊能在 MVP 期就擁有大廠級基礎設施**的關鍵槓桿。
 
 ---
 
 ## 1. 「開源 → 商業服務」的四種整併模式
 
-| 模式 | 做法 | 代表 | Noki 適用度 |
+| 模式 | 做法 | 代表 | Yolian 適用度 |
 |------|------|------|:--:|
-| **A. Host（託管原樣）** | 把一套開源軟體原封不動架起來收託管費 | AWS RDS、各家 Managed Redis | ✕ 非 Noki 本業 |
-| **B. Wrap & Integrate（包裹整併）** | 把多個開源元件當「零件」，縫進自有產品，客戶看不到底層 | Vercel、Supabase、絕大多數 SaaS | ★★★ **Noki 就是這型** |
+| **A. Host（託管原樣）** | 把一套開源軟體原封不動架起來收託管費 | AWS RDS、各家 Managed Redis | ✕ 非 Yolian 本業 |
+| **B. Wrap & Integrate（包裹整併）** | 把多個開源元件當「零件」，縫進自有產品，客戶看不到底層 | Vercel、Supabase、絕大多數 SaaS | ★★★ **Yolian 就是這型** |
 | **C. Open-Core（開放核心）** | 自家產品開源社群版，進階功能閉源收費 | GitLab、Cal.com、n8n | △ 早期不必，Phase 3 可考慮把 Action SDK 開源做生態 |
 | **D. Build-on-Platform（平台之上）** | 在別人的開源/開放平台上做加值 | LINE LIFF 上的應用 | ★★ 學員端就是長在 LINE 上 |
 
-> **對 Noki 的啟示**：主體是 **B（Wrap & Integrate）**。客戶買的是「用講的就完成營運」，不是「我們用了 PostgreSQL」。這決定了授權策略——**只要底層元件不要求你開源自己的商業碼即可**（見 §2）。
+> **對 Yolian 的啟示**：主體是 **B（Wrap & Integrate）**。客戶買的是「用講的就完成營運」，不是「我們用了 PostgreSQL」。這決定了授權策略——**只要底層元件不要求你開源自己的商業碼即可**（見 §2）。
 
 ---
 
@@ -34,7 +34,7 @@
 
 從「最自由」到「最危險」排列，重點是**對閉源 SaaS 的義務**：
 
-| 類別 | 代表授權 | 對 Noki（閉源 SaaS）的義務 | 判斷 |
+| 類別 | 代表授權 | 對 Yolian（閉源 SaaS）的義務 | 判斷 |
 |------|---------|--------------------------|:--:|
 | **公眾領域** | CC0、Unlicense、0BSD | 無 | ✅ |
 | **寬鬆 Permissive** | **MIT、ISC、BSD-2/3、Apache-2.0** | 僅需保留版權聲明；Apache-2.0 另含**專利授權**＋改檔需在 NOTICE 標注 | ✅ **後端預設只收這類** |
@@ -47,7 +47,7 @@
 1. **「源碼放在 GitHub 上」不等於「開源授權」。** SSPL / BUSL / ELv2 / FSL 都看得到碼，但**不是 OSI 認證的開源授權**，且專為堵 SaaS 而生。
 2. **Apache-2.0 > MIT 之處在「專利」。** Apache-2.0 內含明確專利授權與「專利報復」條款；對商業產品法務更安全，故元件同質時優先選 Apache-2.0。
 
-> **對 Noki 的啟示**：建立一條 CI 紅線——**新依賴若不是 §2 前三類（Permissive / 弱 Copyleft / 公眾領域），預設擋下，需人工審核**。AGPL 與所有 source-available 進「審核清單」。
+> **對 Yolian 的啟示**：建立一條 CI 紅線——**新依賴若不是 §2 前三類（Permissive / 弱 Copyleft / 公眾領域），預設擋下，需人工審核**。AGPL 與所有 source-available 進「審核清單」。
 
 ---
 
@@ -70,18 +70,18 @@
 1. **2023 是「rug pull」高峰，2024–2025 出現回頭**：Redis、Elastic 因為 fork（Valkey/OpenSearch）真的成功了、社群出走痛，於是**加回 OSI 開源授權（都是 AGPL）**。但注意——加回的是 **AGPL**，仍是 SaaS 敏感授權（§8）。
 2. **有基金會托管的 fork 是最穩的避風港**：Valkey、OpenTofu、OpenSearch 都進了 Linux Foundation / 多廠商治理，**不會被單一公司一夕改約**。
 
-> **對 Noki 的啟示（選型鐵則）**：同功能優先選**治理分散**者（Apache 基金會 / CNCF / Linux Foundation / 多廠商社群）勝過「單一公司主導」者。單一公司 + 創投背景 + 雲端競爭壓力 = 未來改約高風險。
+> **對 Yolian 的啟示（選型鐵則）**：同功能優先選**治理分散**者（Apache 基金會 / CNCF / Linux Foundation / 多廠商社群）勝過「單一公司主導」者。單一公司 + 創投背景 + 雲端競爭壓力 = 未來改約高風險。
 
 ---
 
-## 4. Noki「買 / 借 / 造」決策矩陣（逐模組）
+## 4. Yolian「買 / 借 / 造」決策矩陣（逐模組）
 
 對照 `product-architecture.md` §5 資料模型與 §4 三面。原則：**commodity 借開源、護城河自造、敏感合規買服務**。
 
-| Noki 模組 | 借（開源 commodity） | 典型授權 | 自造（護城河，不外包） |
+| Yolian 模組 | 借（開源 commodity） | 典型授權 | 自造（護城河，不外包） |
 |----------|---------------------|---------|----------------------|
 | 前端框架 | Next.js / React / Vue / Svelte | MIT | 程式化前端的領域 UX |
-| UI 元件 | Tailwind、shadcn/ui、Radix、MUI | MIT | Noki 設計語言 |
+| UI 元件 | Tailwind、shadcn/ui、Radix、MUI | MIT | Yolian 設計語言 |
 | 排課行事曆 | FullCalendar、Schedule-X | MIT* | **衝堂偵測、消課狀態機**（§5.2） |
 | 圖表 / 成長折線 | Recharts、Apache ECharts、visx | MIT / Apache-2.0 | **AI 成長敘事生成**（§6.5） |
 | 身分 / 權限 | Auth.js、Keycloak、Ory、Supabase Auth | ISC / Apache-2.0 | **Coach/Studio/Member 權限規則** |
@@ -101,7 +101,7 @@
 \* FullCalendar **標準套件 MIT**，但「Scheduler / 資源時間軸」等進階外掛是**商業授權**——用到要付費，別誤用。
 \** Grafana 是 AGPL，但**獨立進程**部署（你不改它、不連結進產品）即可安全使用（§8）。
 
-> **對 Noki 的啟示**：上表幾乎全是 Permissive。唯三需留意：**Valkey 取代 Redis**、**儲存用 S3/R2 不自架 MinIO**、**搜尋用 Meilisearch 不用 Typesense**。把這三條寫進工程規範即可避開九成地雷。
+> **對 Yolian 的啟示**：上表幾乎全是 Permissive。唯三需留意：**Valkey 取代 Redis**、**儲存用 S3/R2 不自架 MinIO**、**搜尋用 Meilisearch 不用 Typesense**。把這三條寫進工程規範即可避開九成地雷。
 
 ---
 
@@ -131,13 +131,13 @@ LINE：@line/bot-sdk (Apache-2.0) + LIFF
 - 儲存後面可換 S3 ↔ R2
 - 這層抽象**同時是 anti-vendor-lock-in 與 anti-授權變天的縫**——某元件改約，只換一個 adapter，不動上層。
 
-> **對 Noki 的啟示**：**pgvector 長在 PostgreSQL 裡**，MVP 不必另立向量資料庫（省 Pinecone/Milvus 一個元件與一筆錢）；**Valkey 一物多用**（快取 + 佇列 + pub/sub）。小團隊把元件數壓到最低，可維護性最高。
+> **對 Yolian 的啟示**：**pgvector 長在 PostgreSQL 裡**，MVP 不必另立向量資料庫（省 Pinecone/Milvus 一個元件與一筆錢）；**Valkey 一物多用**（快取 + 佇列 + pub/sub）。小團隊把元件數壓到最低，可維護性最高。
 
 ---
 
-## 6. 授權地雷清單（Noki 路線圖上「最想用、卻有坑」的）
+## 6. 授權地雷清單（Yolian 路線圖上「最想用、卻有坑」的）
 
-這些是**會直接咬到 Noki 規劃**的具體陷阱：
+這些是**會直接咬到 Yolian 規劃**的具體陷阱：
 
 | 想用它做… | 專案 | 授權真相 | 正解 |
 |----------|------|---------|------|
@@ -150,7 +150,7 @@ LINE：@line/bot-sdk (Apache-2.0) + LIFF
 | 日誌 / 搜尋 | **Elasticsearch** | 有 AGPL 選項但仍敏感 | 多數情境 **OpenSearch (Apache-2.0)** 更省心 |
 | IaC | **Terraform** | **BUSL 1.1** | **OpenTofu（MPL-2.0）** |
 
-> **對 Noki 的啟示**：藍圖裡最危險的兩個「很想用」是 **Cal.com（排課）** 與 **n8n（工作流市集）**——兩者都是 Open-Core / source-available，**正好卡在 Noki 的核心模組與變現模組上**。結論：**排課與工作流引擎都該自研**（反正它們本來就要接 Noki 的 Action 層、是護城河的一部分，自研而非嵌入第三方反而更對）。
+> **對 Yolian 的啟示**：藍圖裡最危險的兩個「很想用」是 **Cal.com（排課）** 與 **n8n（工作流市集）**——兩者都是 Open-Core / source-available，**正好卡在 Yolian 的核心模組與變現模組上**。結論：**排課與工作流引擎都該自研**（反正它們本來就要接 Yolian 的 Action 層、是護城河的一部分，自研而非嵌入第三方反而更對）。
 
 ---
 
@@ -165,24 +165,24 @@ LINE：@line/bot-sdk (Apache-2.0) + LIFF
 5. **NOTICE / 第三方授權頁**：保留所有 MIT/BSD/Apache 版權聲明，產品內附「開源授權」清單頁（法務義務，也是誠信）。
 6. **CLA / DCO**（若 Phase 3 開源 Action SDK 收外部貢獻時才需要）。
 
-> **對 Noki 的啟示**：MVP 階段就把「**授權掃描 + SBOM**」加進 CI——這是一次性低成本投入，卻能擋掉未來「上線後才發現某依賴是 AGPL / 某升版偷改授權」的災難。對閉源商業 SaaS 而言，這是不可省的保險。
+> **對 Yolian 的啟示**：MVP 階段就把「**授權掃描 + SBOM**」加進 CI——這是一次性低成本投入，卻能擋掉未來「上線後才發現某依賴是 AGPL / 某升版偷改授權」的災難。對閉源商業 SaaS 而言，這是不可省的保險。
 
 ---
 
 ## 8. AGPL 深入（因為它現在是最關鍵的灰區）
 
-Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 必須懂它的精確邊界：
+Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Yolian 必須懂它的精確邊界：
 
 - **AGPL 觸發點**：你**修改**了 AGPL 軟體，且讓使用者**透過網路互動**到它 → 你必須把「你改動的版本原始碼」對那些使用者提供。
-- **安全用法（不傳染給 Noki 商業碼）**：
+- **安全用法（不傳染給 Yolian 商業碼）**：
   - ✅ **不改原碼**，把它當**獨立進程 / 獨立服務**部署（例如 Grafana 儀表板、AGPL 版資料庫當後端），你的產品只透過網路/標準協定呼叫它。多數法律意見認為這**不使你的應用變成 AGPL 衍生作品**。
   - ✅ 用它的**客戶端 driver**（driver 通常是寬鬆授權，非 AGPL）。
 - **危險用法**：
   - 🚫 把 AGPL 程式庫**連結進**你的後端應用程式（in-process linking）。
   - 🚫 **改了** AGPL 軟體又對外提供服務，卻不釋出改動。
-- **務實結論**：Noki 對 AGPL 元件採「**不改、隔進程、用寬鬆 driver**」三原則即可安全使用；但**能用 Apache/BSD 同類就優先用**（如 Valkey 取代 Redis），省去整個灰區。
+- **務實結論**：Yolian 對 AGPL 元件採「**不改、隔進程、用寬鬆 driver**」三原則即可安全使用；但**能用 Apache/BSD 同類就優先用**（如 Valkey 取代 Redis），省去整個灰區。
 
-> **對 Noki 的啟示**：把這三原則寫進工程規範。AGPL 不是「絕對不能碰」，而是「**碰主程式才致命**」——理解邊界比恐懼更有用。
+> **對 Yolian 的啟示**：把這三原則寫進工程規範。AGPL 不是「絕對不能碰」，而是「**碰主程式才致命**」——理解邊界比恐懼更有用。
 
 ---
 
@@ -195,11 +195,11 @@ Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 
 | **託管與可用性** | 客戶免運維、自動備份、SLA、監控 | 競品多為 SaaS，自架不是教練的事 |
 | **在地化合規** | 繁中、台灣金流/電子發票、LINE 生態、個資/健康資料合規 | 國際大廠的弱點（`product-architecture.md` §1.1） |
 | **整合與體驗** | 把零散開源縫成「一句話完成營運」的無縫體驗 | 全市場 0 家做到（§0 真空） |
-| **資料主權與信任** | 客戶資料留在 Noki schema，不鎖進第三方模型；寫入確認 + audit | 對標但超越對手（設計原則 #3） |
+| **資料主權與信任** | 客戶資料留在 Yolian schema，不鎖進第三方模型；寫入確認 + audit | 對標但超越對手（設計原則 #3） |
 | **支援與成功** | 導入、教學、客服、教練社群 | 國內外都靠服務留存 |
 | **持續演進** | 新 Action 一加，UI 與 Agent 同時獲得新能力 | 設計原則 #1 的複利 |
 
-> **對 Noki 的啟示**：**開源讓你「站上起跑線」，加值層才是「跑道」。** Noki 的六層加值裡，「在地化合規」與「無縫整合體驗」是國際開源/大廠最難複製的，應作為定價與行銷的主訴求。
+> **對 Yolian 的啟示**：**開源讓你「站上起跑線」，加值層才是「跑道」。** Yolian 的六層加值裡，「在地化合規」與「無縫整合體驗」是國際開源/大廠最難複製的，應作為定價與行銷的主訴求。
 
 ---
 
