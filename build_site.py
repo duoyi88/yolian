@@ -82,6 +82,7 @@ nav_items = ['<button class="nav-btn active" data-target="overview">總覽</butt
 for did, title, _ in DOCS:
     nav_items.append(f'<button class="nav-btn" data-target="{did}">{html.escape(title)}</button>')
 nav_items.append('<button class="nav-btn" data-target="gallery">截圖（34）</button>')
+nav_items.append('<a class="nav-btn nav-ext" href="exercises.html">動作庫（873）↗</a>')
 nav_html = "\n".join(nav_items)
 
 # build markdown script blocks + sections
@@ -147,6 +148,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 .nav-btn{display:block;width:100%;text-align:left;background:none;border:none;color:#cbd5e1;font-size:14.5px;padding:11px 12px;border-radius:9px;cursor:pointer;margin-bottom:3px;font-family:inherit}
 .nav-btn:hover{background:#1e293b;color:#fff}
 .nav-btn.active{background:var(--accent);color:#fff;font-weight:700}
+a.nav-btn{text-decoration:none}
+a.nav-ext{color:#5eead4;font-weight:600}
+a.nav-ext:hover{background:#1e293b;color:#fff}
 .side-foot{font-size:11px;color:#64748b;padding:16px 12px 0;margin-top:10px;border-top:1px solid #1e293b}
 .main{margin-left:248px;padding:38px 46px 80px;max-width:1180px}
 
@@ -160,10 +164,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 .kpi span{font-size:13px;color:var(--muted)}
 .callout{background:#ecfeff;border:1px solid #99f6e4;border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin:18px 0}
 .ov-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
-.ov-links button{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;cursor:pointer;font-family:inherit}
-.ov-links button:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(20,184,166,.12)}
+.ov-links button,.ov-links .ov-card-link{display:block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;cursor:pointer;font-family:inherit;text-decoration:none;color:inherit}
+.ov-links button:hover,.ov-links .ov-card-link:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(20,184,166,.12)}
 .ov-links b{display:block;font-size:16px;margin-bottom:4px}
 .ov-links span{font-size:13px;color:var(--muted)}
+.ov-card-link{border-color:#99f6e4;background:#f0fdfa}
 
 /* markdown */
 .md{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px 40px}
@@ -252,6 +257,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
         <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
         <button data-target="backlog"><b>開發項目</b><span>整併三份文件的可追蹤開發 backlog（Epic / 階段 / 依賴）</span></button>
         <button data-target="gallery"><b>截圖庫</b><span>34 張競品實地截圖</span></button>
+        <a class="ov-card-link" href="exercises.html"><b>動作庫（873）↗</b><span>free-exercise-db 繁中化 · 分類/部位/器材篩選 + 搜尋 + YouTube 示範</span></a>
       </div>
     </section>
 
@@ -300,7 +306,7 @@ __MDBLOCKS__
     window.scrollTo(0,0);
     document.getElementById('sidebar').classList.remove('open');
   }
-  document.querySelectorAll('.nav-btn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.target);});});
+  document.querySelectorAll('.nav-btn').forEach(function(b){if(!b.dataset.target)return;b.addEventListener('click',function(){show(b.dataset.target);});});
   document.getElementById('ovLinks').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.target);});});
 
   document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open');});

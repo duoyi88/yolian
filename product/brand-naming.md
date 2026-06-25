@@ -204,9 +204,9 @@
 1. **商標**：TIPO（＋必要時 USPTO）第 9/41/42 類人工檢索 → 送件。（§11）
 2. **搶註**：yolian.fit（已定）＋ yolian.ai、getyolian.com、npm/PyPI「yolian」；申請 **LINE 官方帳號 @yolian**；逐一確認並鎖定社群 @yolian。（§10）
 3. **改名收尾（Noki → Yolian）**：
-   - `product-architecture.md` 標題列（第 1、3 行）仍寫「Noki」→ 改 Yolian（內文已是 Yolian）。
-   - 其他 `product/*.md`、`research/*.md`、`build_site.py`、GitHub Pages 站台與 repo（`duoyi88/noki`）尚未改名。
-   - 專案資料夾 `/Users/abby/Projects/Noki/` 名稱未動（不急，路徑相依）。
+   - ✅ `product-architecture.md`、`user-journeys.md`、`build_site.py` 內文與標題皆已是 Yolian；`research/*.md` 無殘留。
+   - ⏳ 僅剩「**Noki Studio**」（真實共創工作室）一名待決定如何稱呼；改完後需 `python3 build_site.py` 重建 `docs/index.html`（站台 3 處連帶）。
+   - GitHub Pages 站台 URL 與 repo（`duoyi88/noki`）、專案資料夾 `/Users/abby/Projects/Noki/` 名稱未動（路徑相依，不急）。
 
 ---
 

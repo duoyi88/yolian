@@ -35,6 +35,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 .nav-btn{display:block;width:100%;text-align:left;background:none;border:none;color:#cbd5e1;font-size:14.5px;padding:11px 12px;border-radius:9px;cursor:pointer;margin-bottom:3px;font-family:inherit}
 .nav-btn:hover{background:#1e293b;color:#fff}
 .nav-btn.active{background:var(--accent);color:#fff;font-weight:700}
+a.nav-btn{text-decoration:none}
+a.nav-ext{color:#5eead4;font-weight:600}
+a.nav-ext:hover{background:#1e293b;color:#fff}
 .side-foot{font-size:11px;color:#64748b;padding:16px 12px 0;margin-top:10px;border-top:1px solid #1e293b}
 .main{margin-left:248px;padding:38px 46px 80px;max-width:1180px}
 
@@ -48,10 +51,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 .kpi span{font-size:13px;color:var(--muted)}
 .callout{background:#ecfeff;border:1px solid #99f6e4;border-left:4px solid var(--accent);border-radius:10px;padding:16px 18px;margin:18px 0}
 .ov-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
-.ov-links button{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;cursor:pointer;font-family:inherit}
-.ov-links button:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(20,184,166,.12)}
+.ov-links button,.ov-links .ov-card-link{display:block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;cursor:pointer;font-family:inherit;text-decoration:none;color:inherit}
+.ov-links button:hover,.ov-links .ov-card-link:hover{border-color:var(--accent);box-shadow:0 6px 18px rgba(20,184,166,.12)}
 .ov-links b{display:block;font-size:16px;margin-bottom:4px}
 .ov-links span{font-size:13px;color:var(--muted)}
+.ov-card-link{border-color:#99f6e4;background:#f0fdfa}
 
 /* markdown */
 .md{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px 40px}
@@ -123,6 +127,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 <button class="nav-btn" data-target="ossstack">開源採用與缺口</button>
 <button class="nav-btn" data-target="backlog">開發項目</button>
 <button class="nav-btn" data-target="gallery">截圖（34）</button>
+<a class="nav-btn nav-ext" href="exercises.html">動作庫（873）↗</a>
     <div class="side-foot">同業研究 · 競品深度拆解 · 產品藍圖<br>2026 · 內部文件</div>
   </aside>
 
@@ -149,6 +154,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
         <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
         <button data-target="backlog"><b>開發項目</b><span>整併三份文件的可追蹤開發 backlog（Epic / 階段 / 依賴）</span></button>
         <button data-target="gallery"><b>截圖庫</b><span>34 張競品實地截圖</span></button>
+        <a class="ov-card-link" href="exercises.html"><b>動作庫（873）↗</b><span>free-exercise-db 繁中化 · 分類/部位/器材篩選 + 搜尋 + YouTube 示範</span></a>
       </div>
     </section>
 
@@ -1082,10 +1088,11 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 | **Member** 學員 | 檔案、聯絡、標籤、來源、狀態 | 1 Member ─ N Contract/Booking/Log |
 | **Contract** 合約/堂數包 | 方案、總堂數、剩餘堂數、到期日、金額 | 屬於 Member；驅動消課 |
 | **Booking** 排課/預約 | 時間、教練、類型(1對1/團課)、狀態、簽到 | 連 Member + Coach；消 Contract 堂數 |
-| **Program / Template** 課表/訓練計劃/模板 | 週期類型(分項/全身)、分期階段、含多個 ProgramDay | 指派給 Member；可存模板複用 |
+| **Program / Template** 課表/訓練計劃/模板 | 週期類型、分期、含多個 ProgramDay；**模板標籤：目標/程度/焦點/所需器材** | 指派給 Member；可存模板複用、輸出社群內容 |
 | **TrainingCycle** 訓練週期/分期 | 微/中週期、週結構(哪天練哪肌群/休息)、漸進策略 | 屬於 Program |
 | **ProgramDay** 訓練日 | 焦點肌群、是否休息日、含多個 Block | 屬於 Program/Cycle |
 | **Block** 區段 | 類型(熱身/主訓練/伸展/收操)、動作群、組間休息秒數 | 屬於 ProgramDay |
+| **Equipment** 器材庫 | 器材名/類型/數量（對應動作 equipment 欄位） | 屬於 Studio；過濾可用動作、驅動器材感知教案 |
 | **Exercise** 動作庫 | 名稱、**主/次要肌群**、**類別(肌力/伸展/有氧)**、器材、影片/圖示 | 被 Block/Log 引用 |
 | **WorkoutLog** 訓練紀錄 | 每組實際重量/次數、**RIR/RPE**、本次vs上次、完成度 | 屬於 Member + Booking |
 | **NutritionLog** 飲食紀錄 | MVP:文字筆記/問答；Phase2:條碼/拍照+四大營養素 | 屬於 Member |
@@ -1103,7 +1110,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 - **客觀成長核心**：BodyComposition（InBody/Tanita）肌肉量↑、體脂↓ 是「學員看得見成長」最硬的客觀證據。
 - 所有寫入都過 Action 層並落 AgentActionLog。
 
-### 5.3 兩塊重點功能展開（本次整併）
+### 5.3 重點功能展開（本次整併）
 
 #### A. 客觀體組成數據（InBody / Tanita）
 - **目的**：用儀器客觀數據呈現「肌肉量↑、體脂↓」的變化 = 學員看得見成長的硬證據。
@@ -1122,6 +1129,16 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 - **週期/分期 TrainingCycle**：微週期（一週分項 split：推/拉/腿、上/下肢…）、中週期（數週漸進）。MVP 先支援「週分項 + 區段 + 休息日」；自動漸進加重留 Phase 2（見 oss §4.2）。
 - **MVP**：肌群標記 + 訓練日焦點 + 熱身/主/伸展/收操區段 + 休息日 + 組間休息秒數 + 分項範本（推拉腿等）。
 
+#### C. 器材感知的教案/模板系統（含社群內容）
+> 教練依工作室實際器材，快速組出有效教案，套用到不同進度與強化重點；而好教案本身常就是社群內容。
+- **器材庫 Equipment（屬 Studio）**：工作室登錄擁有的器材（自由重量/史密斯/各式機械/壺鈴/TRX/有氧器材…），對應 free-exercise-db 的 `equipment` 欄位 →「動作 ↔ 器材」可互相反查。
+- **器材感知生成**：建課表/挑動作時**只出該工作室有的器材**的動作；缺某器材自動建議**替代動作**（同肌群、用現有器材）。系統為主（依器材＋肌群＋目標篩選），Agent 加值（「用我們工作室的器材做一份增肌初學者 3 天分項」）。
+- **模板標籤化**：每個教案模板帶 **目標**(增肌/減脂/體態/肌力/復健)、**程度**(初/中/高)、**焦點**(肌群/弱點)、**所需器材組** → 快速搜尋與套用。
+- **套用到不同進度**：同一模板產生**進度變體**（初→中→高：加量/加組/換進階動作），或依學員當前數據微調。
+- **針對需強化處**：依弱點肌群/目標（可參考體組成節段或教練判斷）挑強化模板。
+- **教案即社群內容**：模板可一鍵輸出成**可分享內容卡**（課表卡 Flex Message / 圖文），發到教練品牌頁、LINE（`shareTargetPicker`）、社群 → 行銷與社群經營（連動 §6、§9）。
+- **MVP**：器材庫 + 器材感知挑動作/替代 + 模板標籤(目標/程度/焦點)快速套用。進度變體自動化、教案社群內容輸出 → Phase 1.5/2。
+
 ---
 
 ## 6. Agent 能力目錄（Yolian 的王牌）
@@ -1139,6 +1156,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 | 新增學員 | 「新增學員陳小美，電話 09xx，買 10 堂私教」 | Member + Contract | ✅ |
 | 指派課表 | 「把『增肌入門 8 週』指派給小美」 | Program/Template | ✅ |
 | 記錄體組成 | 「幫小明記今天 InBody：體重 70、體脂 18%、骨骼肌 33」 | BodyComposition | ✅ |
+| 依器材生成教案 | 「用我們工作室的器材，做一份增肌初學者 3 天分項課表」 | Program+Equipment | ◐ 部分 |
 
 ### 6.2 教練端 — 查詢型（讀）
 | 意圖 | 範例自然語言 | 涉及模組 | MVP |
@@ -1190,6 +1208,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 - 合約/堂數（建約、消課、到期提醒〔規則版〕）
 - 訓練：動作庫（含肌群/類別）+ **系統化課表結構**（訓練日焦點肌群 / 熱身·主訓練·伸展·收操區段 / 休息日 / 組間休息 / 分項範本）+ 模板 + 訓練紀錄（本次 vs 上次、RIR/RPE、折線）
 - **客觀體組成數據**：InBody / Tanita 手動記錄（體重/體脂/骨骼肌等）+ 變化折線（拍照入帳留 Phase 2）
+- **器材庫 + 器材感知教案/模板**：工作室器材登錄 → 依器材挑動作/替代 + 模板標籤(目標/程度/焦點)快速套用（進度變體自動化與教案社群內容輸出留 Phase 1.5/2）
 - 學員端：今日課表、訓練記錄、成長折線、週摘要〔規則版〕、**飲食「互動交流」**（教練↔學員訊息/問答 + 文字飲食筆記；MVP 不做拍照辨識與營養素追蹤，留 Phase 2）
 - **Agent 操作中樞（MVP 子集）**：§6.1 全部寫入意圖 + §6.2 查詢 + 確認/留痕
 - 教練個人品牌頁（選版型自動生成，對標 OneFloors/SimpleTraining）
@@ -2404,6 +2423,12 @@ Rich Menu ─→ 開 LIFF = Yolian 學員端(面 3)
 | E1.12 | **體組成報告拍照 OCR 自動入帳**（InBody/Tanita 報告單） | 2 | E1.9 | 架構 §5.3A；對標 OneFloors |
 | E1.13 | 部位別(節段)體組成 + 裝置匯出/API 串接評估 | 2 | E1.9 | 架構 §5.3A |
 | E1.14 | 自動重量漸進規則（達標自動加重） | 2 | E1.4 | oss §4.2；wger 有，MVP 先手動 |
+| E1.15 | **器材庫 Equipment**（屬 Studio，對應動作 equipment 欄位） | MVP | E0.1 | ★整併：架構 §5.3C |
+| E1.16 | **器材感知挑動作 + 替代建議**（只出工作室有的器材；缺則同肌群替代） | MVP | E1.15, E1.4 | 架構 §5.3C |
+| E1.17 | **模板標籤化 + 快速套用**（目標/程度/焦點/器材；搜尋＋套用） | MVP | E1.4 | 架構 §5.3C |
+| E1.18 | 模板進度變體（初→中→高自動加量/換進階動作） | 1.5 | E1.17 | 架構 §5.3C |
+| E1.19 | **教案輸出為社群內容**（課表卡 Flex/圖文 → 品牌頁/LINE/社群分享） | 1.5/2 | E1.17, E6.1 | 架構 §5.3C；連動 E5.8/E6 |
+| E1.20 | Agent 依器材生成教案（工作室器材+目標+程度 → 建議課表） | 1.5 | E1.16, E4.2 | 架構 §6.1 |
 
 ---
 
@@ -2546,7 +2571,7 @@ Rich Menu ─→ 開 LIFF = Yolian 學員端(面 3)
     window.scrollTo(0,0);
     document.getElementById('sidebar').classList.remove('open');
   }
-  document.querySelectorAll('.nav-btn').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.target);});});
+  document.querySelectorAll('.nav-btn').forEach(function(b){if(!b.dataset.target)return;b.addEventListener('click',function(){show(b.dataset.target);});});
   document.getElementById('ovLinks').querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.target);});});
 
   document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open');});
