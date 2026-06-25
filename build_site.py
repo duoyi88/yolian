@@ -21,6 +21,7 @@ DOCS = [
     ("research", "競品研究（台/外/中）", os.path.join(BASE, "research", "competitor-research.md")),
     ("deepdive", "競品深度拆解", os.path.join(BASE, "research", "deep-dive-competitors.md")),
     ("product", "Yolian 產品架構", os.path.join(BASE, "product", "product-architecture.md")),
+    ("modalities", "工作室項目類型分析", os.path.join(BASE, "research", "studio-modalities.md")),
     ("style", "UI 風格系統", os.path.join(BASE, "research", "ui-style-system.md")),
     ("opensource", "開源整併與授權", os.path.join(BASE, "research", "open-source-strategy.md")),
     ("journeys", "使用者歷程", os.path.join(BASE, "product", "user-journeys.md")),
@@ -252,6 +253,7 @@ a.nav-ext:hover{background:#1e293b;color:#fff}
         <button data-target="research"><b>競品研究（台/外/中）</b><span>三地服務商總覽、功能、定價、AI 缺口分析</span></button>
         <button data-target="deepdive"><b>競品深度拆解</b><span>逐家功能/定價/後台/App 實機畫面 + 試用紀錄</span></button>
         <button data-target="product"><b>Yolian 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
+        <button data-target="modalities"><b>工作室項目類型分析</b><span>窮舉 7 大家族 × T0–T3 引擎相容分級：客群要廣又對焦，誰服務誰排除</span></button>
         <button data-target="style"><b>UI 風格系統</b><span>6 風格原型 × Dark/Light × 多租戶品牌識別（Pencil 模擬）</span></button>
         <button data-target="opensource"><b>開源整併與授權</b><span>開源→商業服務策略、買借造矩陣、授權合規與地雷</span></button>
         <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
