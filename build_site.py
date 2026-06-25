@@ -21,6 +21,7 @@ DOCS = [
     ("research", "競品研究（台/外/中）", os.path.join(BASE, "research", "competitor-research.md")),
     ("deepdive", "競品深度拆解", os.path.join(BASE, "research", "deep-dive-competitors.md")),
     ("product", "Noki 產品架構", os.path.join(BASE, "product", "product-architecture.md")),
+    ("journeys", "使用者歷程", os.path.join(BASE, "product", "user-journeys.md")),
 ]
 
 # ---- screenshot captions ----
