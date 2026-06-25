@@ -288,7 +288,7 @@ PAGE_TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Noki 動作庫 — 873 個訓練動作</title>
+<title>Yolian 動作庫 — 873 個訓練動作</title>
 <style>
 :root{
   --accent:#14b8a6; --accent-d:#0d9488; --ink:#0f172a; --muted:#64748b;
@@ -380,7 +380,7 @@ main.results{flex:1;min-width:0}
 
 <div id="gate">
   <form class="card" id="gate-form">
-    <div class="logo">No<span>ki</span></div>
+    <div class="logo">Yo<span>lian</span></div>
     <p>動作庫 · 請輸入存取密碼</p>
     <input id="pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" autofocus>
     <button type="submit">進入</button>
@@ -391,7 +391,7 @@ main.results{flex:1;min-width:0}
 <div id="app">
   <header class="top">
     <div class="top-row">
-      <div class="brand">No<span>ki</span> 動作庫<small>free-exercise-db · 繁中</small></div>
+      <div class="brand">Yo<span>lian</span> 動作庫<small>free-exercise-db · 繁中</small></div>
       <div class="search">
         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
         <input id="q" type="search" placeholder="搜尋動作（中文或英文）…" autocomplete="off">
