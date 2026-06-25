@@ -7,6 +7,7 @@
 - `research/deep-dive-competitors.md` — 競品逐家深度拆解（含後台 / App 實機畫面）
 - `research/screenshots/` — 34 張競品實地截圖
 - `product/product-architecture.md` — Noki 產品架構、資料模型、Agent 能力目錄、MVP 範圍
+- `research/open-source-strategy.md` — 開源整併 → 商業服務策略、授權光譜與合規、變天事件簿、買借造矩陣
 - `docs/` — 由上述文件產生的可瀏覽網站（GitHub Pages 發布目錄）
 
 ## 線上瀏覽

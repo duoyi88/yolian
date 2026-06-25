@@ -21,7 +21,11 @@ DOCS = [
     ("research", "競品研究（台/外/中）", os.path.join(BASE, "research", "competitor-research.md")),
     ("deepdive", "競品深度拆解", os.path.join(BASE, "research", "deep-dive-competitors.md")),
     ("product", "Noki 產品架構", os.path.join(BASE, "product", "product-architecture.md")),
+    ("style", "UI 風格系統", os.path.join(BASE, "research", "ui-style-system.md")),
+    ("opensource", "開源整併與授權", os.path.join(BASE, "research", "open-source-strategy.md")),
     ("journeys", "使用者歷程", os.path.join(BASE, "product", "user-journeys.md")),
+    ("ossstack", "開源採用與缺口", os.path.join(BASE, "research", "oss-stack-and-gaps.md")),
+    ("backlog", "開發項目", os.path.join(BASE, "product", "dev-backlog.md")),
 ]
 
 # ---- screenshot captions ----
@@ -90,8 +94,12 @@ for did, title, path in DOCS:
     md_blocks.append(f'<script type="text/markdown" id="md-{did}">\n{md}\n</script>')
     sections.append(f'<section class="doc-section" id="sec-{did}" hidden><article class="md" id="art-{did}"></article></section>')
 
-# gallery
-shots = sorted(glob.glob(os.path.join(SHOTS_DST, "*.png")), key=lambda p: os.path.basename(p))
+# gallery (competitor screenshots only; style-*.png are design mockups shown inline in the UI-style doc)
+shots = sorted(
+    (p for p in glob.glob(os.path.join(SHOTS_DST, "*.png"))
+     if not os.path.basename(p).startswith("style-")),
+    key=lambda p: os.path.basename(p),
+)
 cards = []
 for p in shots:
     fn = os.path.basename(p)
@@ -239,6 +247,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
         <button data-target="research"><b>競品研究（台/外/中）</b><span>三地服務商總覽、功能、定價、AI 缺口分析</span></button>
         <button data-target="deepdive"><b>競品深度拆解</b><span>逐家功能/定價/後台/App 實機畫面 + 試用紀錄</span></button>
         <button data-target="product"><b>Noki 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
+        <button data-target="style"><b>UI 風格系統</b><span>6 風格原型 × Dark/Light × 多租戶品牌識別（Pencil 模擬）</span></button>
+        <button data-target="opensource"><b>開源整併與授權</b><span>開源→商業服務策略、買借造矩陣、授權合規與地雷</span></button>
+        <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
+        <button data-target="backlog"><b>開發項目</b><span>整併三份文件的可追蹤開發 backlog（Epic / 階段 / 依賴）</span></button>
         <button data-target="gallery"><b>截圖庫</b><span>34 張競品實地截圖</span></button>
       </div>
     </section>

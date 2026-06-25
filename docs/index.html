@@ -117,7 +117,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
 <button class="nav-btn" data-target="research">競品研究（台/外/中）</button>
 <button class="nav-btn" data-target="deepdive">競品深度拆解</button>
 <button class="nav-btn" data-target="product">Noki 產品架構</button>
+<button class="nav-btn" data-target="style">UI 風格系統</button>
+<button class="nav-btn" data-target="opensource">開源整併與授權</button>
 <button class="nav-btn" data-target="journeys">使用者歷程</button>
+<button class="nav-btn" data-target="ossstack">開源採用與缺口</button>
+<button class="nav-btn" data-target="backlog">開發項目</button>
 <button class="nav-btn" data-target="gallery">截圖（34）</button>
     <div class="side-foot">同業研究 · 競品深度拆解 · 產品藍圖<br>2026 · 內部文件</div>
   </aside>
@@ -140,6 +144,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
         <button data-target="research"><b>競品研究（台/外/中）</b><span>三地服務商總覽、功能、定價、AI 缺口分析</span></button>
         <button data-target="deepdive"><b>競品深度拆解</b><span>逐家功能/定價/後台/App 實機畫面 + 試用紀錄</span></button>
         <button data-target="product"><b>Noki 產品架構</b><span>定位、資料模型、Agent 能力目錄、MVP 範圍</span></button>
+        <button data-target="style"><b>UI 風格系統</b><span>6 風格原型 × Dark/Light × 多租戶品牌識別（Pencil 模擬）</span></button>
+        <button data-target="opensource"><b>開源整併與授權</b><span>開源→商業服務策略、買借造矩陣、授權合規與地雷</span></button>
+        <button data-target="ossstack"><b>開源採用與缺口</b><span>開源資源逐一採用方案、授權紅線、功能缺口評估</span></button>
+        <button data-target="backlog"><b>開發項目</b><span>整併三份文件的可追蹤開發 backlog（Epic / 階段 / 依賴）</span></button>
         <button data-target="gallery"><b>截圖庫</b><span>34 張競品實地截圖</span></button>
       </div>
     </section>
@@ -147,7 +155,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft Jheng
     <section class="doc-section" id="sec-research" hidden><article class="md" id="art-research"></article></section>
 <section class="doc-section" id="sec-deepdive" hidden><article class="md" id="art-deepdive"></article></section>
 <section class="doc-section" id="sec-product" hidden><article class="md" id="art-product"></article></section>
+<section class="doc-section" id="sec-style" hidden><article class="md" id="art-style"></article></section>
+<section class="doc-section" id="sec-opensource" hidden><article class="md" id="art-opensource"></article></section>
 <section class="doc-section" id="sec-journeys" hidden><article class="md" id="art-journeys"></article></section>
+<section class="doc-section" id="sec-ossstack" hidden><article class="md" id="art-ossstack"></article></section>
+<section class="doc-section" id="sec-backlog" hidden><article class="md" id="art-backlog"></article></section>
 
     <section class="doc-section" id="sec-gallery" hidden>
       <div class="gal-head"><h1>競品截圖庫</h1><p>實地走訪官網/功能頁/定價頁/App Store，逐一截圖存證（點圖放大）。</p></div>
@@ -967,7 +979,9 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ## 0. 一句話定位（研究收斂結論）
 
-> **Noki = 一個用「對話」就能跑的健身工作室營運系統 —— 把「教練行政效率」「學員看得見成長」「跨模組 AI Agent 操作」三件事，第一次縫進同一個產品。**
+> **Noki = 一個「系統（UI）為主體」的健身工作室營運平台，外加一個 AI Agent 加值窗口 —— 把「教練行政效率」「學員看得見成長」「（選擇性的）跨模組 AI Agent 操作」縫進同一個產品。**
+>
+> 定位校準：**系統能直接輸入、完成所有事**；Agent 是疊在系統之上的窗口，只在「值得」時介入（口語、語音、跨模組、零碎隨手）。**簡單的事用 Dashboard 解決就好，不必丟給 LLM 浪費 token。**
 
 研究已證實的市場真空（見 deep-dive §5、§6.5）：
 - 行政營運（CRM/排課/合約/金流/報表）是紅海，人人都有 → **門檻、非差異化**
@@ -989,7 +1003,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 ### 1.2 三層價值主張
 1. **教練**：用講的就完成行政與記錄，少開 Excel/LINE/截圖（對標 SimpleTraining 的效率 + 去掉手動輸入）
 2. **學員**：被 AI 用真實數據說出「你的成長故事」，不只看圖表（對標 OneFloors 的成長可視化 + 敘事升級）
-3. **AI**：不是功能點，是**第一介面**——對話驅動整個平台的讀與寫
+3. **AI**：不是功能點，也不是唯一入口，而是**疊在系統之上的加值窗口**——當口語/語音/跨模組比點擊更省事時才用；簡單操作仍走 Dashboard（省 token、體驗更快）
 
 ### 1.3 不做什麼（MVP 階段的紀律）
 不做大型連鎖的 IoT 門禁、不自建 C 端流量市集（Mindbody/Keep 的護城河無法短期複製）、不一開始就多分店/白標。
@@ -1016,10 +1030,11 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
    Agent 下決策前，能讀到該學員的完整脈絡：訓練數據 + 合約剩餘堂數 + 溝通紀錄 + 續約風險。這是把「生成式 AI」升級成「經營副駕」的關鍵，也是對手（只生成課表、不懂營運）做不到的。
 3. **寫入必經確認 + 全程留痕**
    Agent 的每個「寫」動作先回顯「我要做 X，確認嗎？」，執行後寫入 audit log。建立信任、可回溯、可撤銷。
-4. **程式化前端與 Agent 是互補不是二選一**
-   複雜批次/精細調整用 UI；零碎、跨模組、口語化的事用 Agent。兩者隨時可互換。
+4. **系統（Dashboard）為主體，Agent 為加值、選擇性使用（省 token）**
+   系統能直接輸入完成所有操作，Agent 不是必經之路。判準：簡單 / 單一模組 / 批次 / 精細 → 用 Dashboard（快、零 LLM 成本）；口語、語音、跨模組、零碎隨手 → 才用 Agent。**不把容易用點擊解決的事丟給 LLM 浪費 token。** 兩者共用同一 Action 層，隨時可互換。
 5. **行動優先、跨平台**（補 OneFloors iOS-only 與 SimpleTraining PWA 的缺）：教練 Web 後台 + 教練/學員行動端。
 6. **讓習慣便宜**（借 OneFloors 哲學）：每個高頻動作都壓到「10 秒內、手機上、一兩個點擊或一句話」。
+7. **輸入框必須支援語音輸入**：Agent 窗口（教練端與學員端）的輸入框一律支援「語音 → 文字（STT）」。教練帶課中、雙手忙、開車時用講的最自然，這是「讓習慣便宜」的關鍵手段。
 
 ---
 
@@ -1029,26 +1044,30 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 ┌─────────────────────────────────────────────────────────┐
 │                     Noki Platform                          │
 │                                                            │
-│   面 1：程式化前端          面 2：Agent 窗口                │
-│   (Structured UI)          (Conversational Hub)            │
-│   儀表板/行事曆/會員/        自然語言 → 跨模組讀寫           │
-│   合約/報表 = 用點的         + 經營副駕主動提醒 = 用講的     │
-│        \                          /                         │
-│         \                        /                          │
-│          ▼                      ▼                           │
-│        ┌──────────────────────────┐                        │
-│        │   共用 Action / Query 層   │ ← 設計原則 #1          │
-│        └──────────────────────────┘                        │
+│   面 2：Agent 窗口（加值層，非必經、可省則省）              │
+│   ┌───────────────────────────────────────────────┐      │
+│   │  自然語言 / 🎤語音輸入 → 跨模組讀寫 + 經營副駕   │      │
+│   │  只在「值得」時介入（口語/語音/跨模組/隨手）      │      │
+│   └───────────────────────────────────────────────┘      │
+│                     ▼ （疊在系統之上）                       │
+│   面 1：程式化前端（主體 — 多數操作在這直接完成）           │
+│   儀表板 / 行事曆 / 會員 / 合約 / 課表 / 報表 = 用點的       │
+│                     │                                       │
+│          ┌──────────────────────────┐                      │
+│          │   共用 Action / Query 層   │ ← 設計原則 #1        │
+│          └──────────────────────────┘                      │
 │                     │                                       │
 │              核心資料模型 (§5)                              │
 │                                                            │
-│   面 3：學員端 (Student App) — 今日課表/拍照記錄/成長敘事    │
+│   面 3：學員端（LINE LIFF）— 今日課表/語音·文字記錄/成長     │
 └─────────────────────────────────────────────────────────┘
+   原則：簡單的事 → Dashboard（快、零 LLM 成本）
+         口語/語音/跨模組 → Agent（值得才用）
 ```
 
-- **面 1 程式化前端**：教練/主理人的 Web + 行動後台。儀表板、行事曆排課、會員清單、合約、訓練課表編輯、報表。對標 SimpleTraining + 17FIT 的完整度。
-- **面 2 Agent 窗口**：Noki 的王牌。教練端「一句話完成跨模組操作 + 主動經營提醒」；可常駐側欄或行動端對話框。
-- **面 3 學員端**：今日課表、拍照/語音記錄、本次 vs 上次、12 週折線、AI 成長敘事。對標 OneFloors 學員端。
+- **面 1 程式化前端（主體）**：教練/主理人的 Web + 行動後台。儀表板、行事曆排課、會員清單、合約、訓練課表編輯、報表。**這是系統的主體，多數操作在此直接完成**。對標 SimpleTraining + 17FIT 的完整度。
+- **面 2 Agent 窗口（加值層，非必經）**：Noki 的差異化王牌，但**疊在系統之上**。教練端「一句話 / 一段語音完成跨模組操作 + 主動經營提醒」；**輸入框支援語音輸入**；可常駐側欄或行動端對話框。簡單操作不必走它（省 token）。
+- **面 3 學員端**：今日課表、語音/文字記錄、本次 vs 上次、12 週折線、成長敘事、與教練互動交流。跑在 **LINE LIFF（零安裝）**。（拍照記餐辨識為 Phase 2）
 
 ---
 
@@ -1127,6 +1146,8 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 | 週摘要 | 每週自動：填寫率、訓練完成、體態變化 | ✅(規則版) |
 
 ### 6.6 Agent 運作機制（架構）
+- **輸入**：文字或**語音輸入（STT 語音轉文字）**；輸入框一律支援語音
+- **省 token 路由**：明確、簡單、單一模組的請求可走規則/捷徑或直接導去 Dashboard，不必每次都呼叫 LLM
 - **意圖解析**：LLM 將自然語言 → 結構化意圖 + 參數（哪位學員、哪堂課、加多少重量）
 - **Tool calling**：意圖對應到 §3.1 共用 Action/Query（function calling）
 - **歧義澄清**：缺參數或多個「小明」→ 反問確認
@@ -1137,7 +1158,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ## 7. MVP 範圍與分期路線圖
 
-### 7.1 MVP（Phase 0）— 證明「對話式營運」可行 + 學員看得到成長
+### 7.1 MVP（Phase 0）— 完整可用的系統 UI + Agent 加值窗口 + 學員看得到成長
 **IN（做）**：
 - 會員 CRM（檔案/標籤/時間軸）
 - 排課/預約（1對1 + 團課、**多教練協作 + 衝堂偵測**、簽到、草稿模式）
@@ -1160,7 +1181,7 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 | **Phase 3** | 規模化 | 多分店/連鎖、白標、API、工作流市集（按次計費）、跨境 |
 
 ### 7.3 MVP 成功指標（建議）
-- 教練：> 50% 的排課/記錄動作經 Agent 完成（證明對話式被接受）
+- 教練：核心操作（排課/記錄/查詢）在系統 UI 內順暢完成；Agent 在「跨模組/語音/零碎」場景的採用率與滿意度（不追求高 Agent 佔比，省 token 為原則）
 - 教練：每週行政時間下降（對標 SimpleTraining「每天省 1 小時」訴求）
 - 學員：週填寫率、續約率（對標研究中國內 68% vs 國外 85% 的差距）
 
@@ -1180,6 +1201,8 @@ App Store 規格：開發者 LIN YI、健康與健身類、**iOS 14.0+、47.9 MB
 
 ### 8.3 AI Stack
 - **LLM + tool calling**：意圖解析 + 呼叫 Action（MVP 即可，繁中能力要好）
+- **STT 語音轉文字**：支援語音輸入（輸入框必備）；行動端可用原生 STT 或 Web Speech API，繁中辨識品質要顧
+- **省 token 設計**：系統 UI 處理多數操作；只有值得的請求才進 LLM；簡單意圖走規則/快捷；脈絡按需組裝，避免每次塞爆 prompt
 - **脈絡組裝**：以結構化資料為主（堂數/紀錄/訊息），輔以 RAG（教練筆記等非結構化）
 - **Phase 2 視覺模型**：飲食整盤辨識（對標 OneFloors，成本與準確率需評估，故延後）
 - **護欄**：寫入確認、audit log、可撤銷、權限邊界
@@ -1221,7 +1244,7 @@ LINE 官方帳號（學員加好友）
    │
    ├── Rich Menu（永久入口）
    │      └─▶ LIFF App = Noki 學員端（面 3）  零安裝、自動 LINE 身分
-   │             今日課表 / 拍照記錄 / 本次vs上次 / 12週折線 / 成長敘事
+   │             今日課表 / 語音·文字記錄 / 本次vs上次 / 12週折線 / 成長敘事
    │
    ├── 使用者傳訊 ──webhook──▶ Noki Agent（面 2）──reply(免費)──▶ 回覆
    │      「幫我約這週的課」「我這個月進步多少」→ 走同一套 Action/Query 層
@@ -1301,6 +1324,539 @@ LINE 官方帳號（學員加好友）
 - `research/screenshots/` — 34 張競品截圖
 
 </script>
+<script type="text/markdown" id="md-style">
+# Noki UI 風格系統與多租戶品牌識別研究
+
+> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 本文回答一個問題：**這個平台可以讓使用者自定哪些 UI 風格？** 並把它收斂成可實作的風格系統 —— 風格原型（Style Archetype）× 明暗模式（Dark/Light）× 多租戶品牌識別（Brand Identity）三個維度，定義每個維度可調什麼、由誰設定、套用到哪一面。
+> 日期：2026-06-25 · 狀態：v1 待校準（文末有「待決策」）
+> 關聯：`product-architecture.md` §4 產品三面、§5.1 實體（`Studio.品牌頁設定`、`Coach.個人頁`）；`deep-dive-competitors.md` §B（OneFloors 7 版型）
+
+---
+
+## 0. 為什麼風格要「可自定」（研究依據）
+
+研究已直接驗證這條路，不是憑空假設：
+
+- **OneFloors 7 種教練網站版型**（Ironclad 肌力健力 / Smash 球類競技 / Atelier 瑜伽體態 / Concrete 極簡黑白 / Velour 高階質感 / Verdant 療癒復健 / Voltage 能量競速）：7 種**共用同一資訊架構**，差異只在**配色與字體調性** → 印證「**選版型 + 填內容 = 自動生成**」是低成本、高感知價值的打法（見 deep-dive §B、§81、§86）。
+- **品牌官網自動生成**有跨地需求：SimpleTraining（`simpletraining.co/品牌`）、Glofox、PT Distinction、17FIT「專屬品牌官網」都證明（competitor §350）。
+- **白標**是國外明確賣點（SuperCoach、PT Distinction、Trainerize 高階、Glofox 白標 App 含基本價）。
+- **多租戶的本質**就是品牌分離：每個 `Studio` 是一個租戶、每位 `Coach` 又有自己的個人品牌頁 → 平台天生需要「一份程式、多種外觀」。
+
+> **收斂結論**：Noki 的「可自定風格」= **可選風格原型（版型的本質）** + **品牌識別覆蓋（租戶自填）** + **明暗模式（使用偏好）**。三者正交組合，用同一套 token 疊出最終主題。這同時延續產品設計原則 #1（UI 與 Agent 共用動作層）的精神：**風格也是一套有型別的 token，不是散落各處的硬編碼色碼。**
+
+---
+
+## 1. 三個可自定的維度（總覽）
+
+| # | 維度 | 是誰設定 | 改變什麼 | 主要套用面 |
+|---|------|---------|---------|-----------|
+| 1 | **風格原型 Style Archetype** | 租戶（Studio/Coach）從預設挑 | 整體視覺人格：色系基調、字體調性、圓角/陰影/密度 | 教練公開品牌頁（最強）、學員端 |
+| 2 | **明暗模式 Dark / Light** | 終端使用者偏好（可跟隨系統） | 同一語意 token 換成亮版或暗版的值 | 全平台所有面 |
+| 3 | **品牌識別資源 Brand Identity** | 租戶（Studio 為主、Coach 可覆蓋） | 品牌名、Logo、主色、字體、封面圖、網域… | 全平台，依面分輕重 |
+
+```
+       風格原型 (6 選 1)          品牌識別 (租戶自填)         明暗模式 (使用者)
+   ┌──────────────────┐      ┌──────────────────┐     ┌──────────────┐
+   │ Pulse / Forge /  │      │ 主色 / Logo /     │     │  Light       │
+   │ Velocity / ...   │  ×   │ 字體 / 封面圖 ...  │  ×  │  Dark        │
+   └──────────────────┘      └──────────────────┘     │  跟隨系統     │
+            │                          │              └──────────────┘
+            └──────────────┬───────────┘                     │
+                           ▼                                  ▼
+                 ┌─────────────────────────────────────────────┐
+                 │         最終主題（一組解析後的 CSS tokens）      │
+                 │   解析順序：Base → Archetype → Brand → Mode   │  ← §5
+                 └─────────────────────────────────────────────┘
+```
+
+---
+
+## 2. 六大風格原型（Style Archetypes）
+
+> 設計法則承 OneFloors：**所有原型共用同一資訊架構與元件**，只換 token（色彩 / 字體 / 圓角 / 陰影 / 密度）。新增原型 = 新增一組 token map，不動版面與功能。
+> 每個原型都對應 Noki 研究中真實存在的教練類型，並同時提供 Light / Dark 兩版值。
+
+> **以下風格模擬以 Pencil 實際繪製**：同一個 Noki 學員端卡片元件（品牌標記／今日課表／排課按鈕／統計卡／學員列），套上不同主題即換膚 —— 印證「一份元件 × N 種主題」的可行性。原始檔：`design/noki-styles.pen`（token 已存為主題化變數）。
+
+![Noki 6 風格原型 × Dark/Light 全覽](screenshots/style-showcase.png)
+
+### 2.1 Pulse 活力（平台預設）
+- **定位 / 人格**：現代、親和、乾淨。Noki 的中性預設，誰都不出錯。
+- **對應**：綜合工作室、一般私教、尚未決定品牌調性的新租戶。
+- **字體**：系統無襯線（Inter / -apple-system + PingFang TC）。
+- **形狀質感**：圓角 12–14、柔和陰影、中等密度。
+- **基底色**：青綠 Teal（沿用目前網站 `--accent:#14b8a6`，零遷移成本）。
+
+| Token | Light | Dark |
+|------|-------|------|
+| accent | `#14b8a6` | `#2dd4bf` |
+| accent-strong | `#0d9488` | `#14b8a6` |
+| ink（主文字） | `#0f172a` | `#e2e8f0` |
+| bg（底） | `#f6f8fa` | `#0b1220` |
+| card（卡面） | `#ffffff` | `#131c2e` |
+| line（分隔） | `#e2e8f0` | `#1e293b` |
+
+![Pulse 活力 Light/Dark 模擬](screenshots/style-pulse.png)
+
+### 2.2 Forge 鍛造（肌力 / 健力 / 重訓）
+- **定位 / 人格**：工業、厚重、原始、高對比。鐵與火的語彙。
+- **對應**：肌力健力、CrossFit、重訓私教（對標 OneFloors **Ironclad**）。
+- **字體**：壓縮粗體標題（Oswald / Archivo Narrow / Teko），標題常用大寫。
+- **形狀質感**：圓角 4–6（銳利）、硬陰影、高密度資訊。
+- **基底色**：炭黑 + 熔岩橙。**預設偏好 Dark**。
+
+| Token | Light | Dark（建議預設） |
+|------|-------|------|
+| accent | `#ea580c` | `#fb923c` |
+| accent-strong | `#c2410c` | `#ea580c` |
+| ink | `#1c1917` | `#fafaf9` |
+| bg | `#fafaf9` | `#0c0a09` |
+| card | `#ffffff` | `#1c1917` |
+| line | `#e7e5e4` | `#292524` |
+
+![Forge 鍛造 Light/Dark 模擬](screenshots/style-forge.png)
+
+### 2.3 Velocity 競速（球類 / HIIT / 運動）★「運動」原型
+- **定位 / 人格**：快速、動感、競技、能量。斜向、速度感。
+- **對應**：球類競技、HIIT、團課、競速訓練（對標 OneFloors **Smash + Voltage**）。
+- **字體**：動感無襯線、可帶斜體（Saira / Rajdhani / Archivo Expanded）。
+- **形狀質感**：圓角 8 + 局部斜切、漸層、強調動態 hover。
+- **基底色**：電光藍 + 萊姆綠輔色。Light / Dark 皆強勢。
+
+| Token | Light | Dark |
+|------|-------|------|
+| accent | `#2563eb` | `#3b82f6` |
+| accent-2（輔） | `#84cc16` | `#a3e635` |
+| ink | `#0f172a` | `#f1f5f9` |
+| bg | `#f8fafc` | `#0a0f1d` |
+| card | `#ffffff` | `#111a2e` |
+| line | `#e2e8f0` | `#1e293b` |
+
+![Velocity 競速 Light/Dark 模擬](screenshots/style-velocity.png)
+
+### 2.4 Atelier 體態（瑜伽 / 皮拉提斯 / 體態雕塑）
+- **定位 / 人格**：柔和、留白、雜誌感、精緻。
+- **對應**：瑜伽、皮拉提斯、體態雕塑、孕產塑身（對標 OneFloors **Atelier**）。
+- **字體**：襯線標題（Fraunces / Playfair / Cormorant）+ 輕量無襯線內文。
+- **形狀質感**：圓角 16–20（柔）、大量留白、極淡陰影、低密度。
+- **基底色**：暖紙白 + 陶土 / 鼠尾草。**預設偏好 Light**。
+
+| Token | Light（建議預設） | Dark |
+|------|-------|------|
+| accent | `#b08968` | `#c9a888` |
+| accent-strong | `#9c6f4e` | `#b08968` |
+| ink | `#3a352f` | `#ece5db` |
+| bg | `#f7f3ee` | `#1a1714` |
+| card | `#fffdfa` | `#241f1a` |
+| line | `#e8e0d5` | `#332c25` |
+
+![Atelier 體態 Light/Dark 模擬](screenshots/style-atelier.png)
+
+### 2.5 Mono 極簡（高端一對一 / 極簡主義）
+- **定位 / 人格**：克制、精品、字體驅動、近乎黑白。
+- **對應**：高端私教、一對一菁英教練、極簡品味的工作室（對標 OneFloors **Concrete + Velour**）。
+- **字體**：Grotesk（Helvetica Now / Neue Haas / Inter 緊排），數字用等寬。
+- **形狀質感**：圓角 0–2（方）、髮絲線邊框、無彩或單一點綴色。
+- **基底色**：純黑白灰。
+
+| Token | Light | Dark |
+|------|-------|------|
+| accent（= ink 系） | `#111111` | `#fafafa` |
+| accent-strong | `#000000` | `#e5e5e5` |
+| ink | `#0a0a0a` | `#fafafa` |
+| bg | `#ffffff` | `#0a0a0a` |
+| card | `#fafafa` | `#161616` |
+| line | `#ebebeb` | `#262626` |
+
+![Mono 極簡 Light/Dark 模擬](screenshots/style-mono.png)
+
+### 2.6 Vital 療癒（復健 / 銀髮 / 孕產 / 健康促進）
+- **定位 / 人格**：溫和、可信、無障礙。最高易讀性。
+- **對應**：物理治療 / 復健、銀髮族訓練、孕產、慢性病健康促進（對標 OneFloors **Verdant**）。
+- **字體**：人文圓體（Nunito / Mulish / Source Sans）+ PingFang，內文字級偏大。
+- **形狀質感**：圓角 14–18、更大點擊區、對比達 **WCAG AA+**、低視覺噪音。
+- **基底色**：沉穩青綠。
+
+| Token | Light | Dark |
+|------|-------|------|
+| accent | `#4d9d8f` | `#5ec9a8` |
+| accent-strong | `#3d8175` | `#4d9d8f` |
+| ink | `#1f2937` | `#e8efed` |
+| bg | `#f4f7f6` | `#0d1614` |
+| card | `#ffffff` | `#15211e` |
+| line | `#e3ebe8` | `#1f2d29` |
+
+![Vital 療癒 Light/Dark 模擬](screenshots/style-vital.png)
+
+### 對照表：Noki 原型 ↔ OneFloors 版型
+
+| Noki 原型 | 對應 OneFloors 版型 | 教練類型 |
+|----------|-------------------|---------|
+| Pulse 活力 | （Noki 新增，平台預設） | 綜合 / 一般私教 |
+| Forge 鍛造 | Ironclad | 肌力健力 / 重訓 |
+| Velocity 競速 | Smash + Voltage | 球類 / HIIT / 競速 |
+| Atelier 體態 | Atelier | 瑜伽 / 皮拉提斯 |
+| Mono 極簡 | Concrete + Velour | 高端私教 / 極簡 |
+| Vital 療癒 | Verdant | 復健 / 銀髮 / 孕產 |
+
+> 6 個原型把 OneFloors 7 版型的覆蓋面收斂進來（Smash/Voltage 合為 Velocity、Concrete/Velour 合為 Mono），再補一個平台中性預設 Pulse。
+
+---
+
+## 3. Dark / Light 主題模式
+
+明暗是**獨立於原型的軸**：每個原型都已在 §2 同時定義 Light 與 Dark 兩組值，使用者可在三種設定間切換。
+
+| 模式 | 行為 |
+|------|------|
+| **跟隨系統** | 讀 `prefers-color-scheme`，隨裝置/時間自動切（建議預設） |
+| **強制亮 Light** | 永遠用亮版 |
+| **強制暗 Dark** | 永遠用暗版 |
+
+**規則**：
+- 切換明暗**只換 token 的值，不換語意名**（`--ink`、`--bg`、`--card`…語意不變）→ 元件零改動。
+- 暗色不是把亮色反相，而是各原型獨立調校的暗版（見 §2 表），確保品味與對比。
+- 對比度目標 **WCAG AA**；Vital 原型要求 **AA+**。
+- 原型可宣告「建議預設模式」：Forge 偏 Dark、Atelier 偏 Light；使用者仍可覆蓋。
+- 品牌主色（§4）在暗模式下若對比不足，系統自動取同色相的較亮階替代（見 §5 護欄）。
+
+---
+
+## 4. 多租戶品牌識別資源（Brand Identity Kit）
+
+> 對應實體：`Studio.品牌頁設定`、`Coach.個人頁`。**租戶階層**：`Studio` 設定為該租戶預設 → 旗下每位 `Coach` 可在自己的個人品牌頁**局部覆蓋**（個人 Logo / 主色 / 封面），未覆蓋者繼承 Studio。
+
+| 資源 | 說明 | 格式 / 約束建議 | MVP |
+|------|------|----------------|:--:|
+| 品牌名稱 + Slogan | 顯示於側欄、公開頁、通知署名 | 純文字（名 ≤ 20 字） | ✅ |
+| Logo（主） | 側欄、公開頁 Header | SVG 優先，或 PNG ≥ 2x（含透明） | ✅ |
+| 標記 / Favicon | 行動端圖示、瀏覽器分頁 | 正方 SVG/PNG，512px | ◐ |
+| **品牌主色** | 覆蓋原型 `accent`；驅動按鈕/連結/強調 | HEX；**系統校驗對比**（見護欄） | ✅ |
+| 品牌輔色 | 次強調 / 圖表 | HEX（選填） | ◐ |
+| 字體選擇 | 從平台預設字庫挑（非自由上傳，控品質與授權） | 列表單選（每原型有預設） | ◐ |
+| 封面 / Hero 影像 | 公開品牌頁、學員端歡迎圖 | JPG/WebP ≥ 1600px；提供裁切框 | ◐ |
+| 自訂網域 / Slug | `noki.cc/coach/<名>` → 進階自訂網域 | slug 唯一；網域 = Phase 3 | ◐→Phase3 |
+| 通知寄件識別 | Email / LINE 署名、頁首 | 文字 + Logo | Phase 1.5 |
+| 學員端品牌開關 | 學員看到的是工作室品牌還是 Noki | 布林 | Phase 2 |
+| 預設明暗偏好 | 該租戶面向客戶頁的預設明暗 | Light / Dark / 跟隨 | ◐ |
+| 自訂 CSS / 完整白標 | 移除 Noki 標記、注入樣式 | 進階方案限定 | Phase 3 |
+
+> **MVP 收斂**：先做「品牌名 + Logo + 品牌主色 + 選 1 原型」就足以生成有辨識度的教練公開品牌頁 —— 這正是 OneFloors「選版型 + 填內容」被驗證的最小集合。其餘逐期開。
+
+---
+
+## 5. 主題 Token 架構（怎麼組起來）
+
+四層疊加，**後者覆蓋前者**，最終解析成一組 CSS variables。這與目前 `build_site.py` 的 `:root{ --accent … }` 寫法**完全相容**，是自然延伸而非重寫。
+
+> **風格已存檔**：六原型 × 明暗的完整 token 矩陣已存為 Pencil 主題化變數於 `design/noki-styles.pen`（兩條主題軸 `archetype` × `mode`，§2 各表的值即由此匯出）。此檔是設計端的單一事實來源，可直接匯出成前端 CSS variables 或 design token JSON。
+
+```
+解析順序（後蓋前）：
+
+  ① Base 原始 token        色階 / 間距 / 圓角階 / 字級階（全平台固定的原物料）
+        ↓
+  ② Archetype 原型層       選 1 原型 → 決定「用哪些原料」：accent 取哪階、
+                          圓角用幾、字體家族、陰影深度（§2）
+        ↓
+  ③ Brand 品牌覆蓋層        租戶填的 → 覆蓋特定語意 token：accent ← 品牌主色、
+                          font ← 選定字體、logo / 封面（§4）
+        ↓
+  ④ Mode 明暗層            Light / Dark → 換 neutral / surface / ink 的值（§3）
+        ↓
+     最終主題（runtime CSS variables）
+```
+
+**語意 token 清單（建議起手集）**：
+
+| 類別 | Token |
+|------|-------|
+| 色 | `--accent` `--accent-strong` `--accent-2` `--ink` `--muted` `--bg` `--card` `--line` |
+| 狀態 | `--success` `--warning` `--danger` `--info` |
+| 形 | `--radius` `--radius-lg` `--shadow` `--density`（緊/中/鬆） |
+| 字 | `--font-display` `--font-body` `--font-scale` |
+| 品牌資產 | `--logo-url` `--mark-url` `--cover-url` |
+
+**護欄（品牌覆蓋的安全網）**：
+- 品牌主色匯入時即時算與 `bg` / `card` 的對比；不足 AA 時，自動生成可用的 hover / on-accent 文字色，或提示租戶調整。
+- 字體限**平台預設字庫**單選（非自由上傳）→ 控授權與載入效能。
+- 自訂 CSS 僅限 Phase 3 白標方案，且沙箱化、不可覆蓋功能性樣式。
+
+---
+
+## 6. 套用範圍（四個面各吃多少品牌）
+
+> 不是每一面都該「滿版品牌」。後台要功能優先、可讀；公開頁才需要最強的風格表現。
+
+| 面（見 product §4） | 風格表現程度 | 說明 |
+|--------------------|:-----------:|------|
+| **面 1 教練後台**（結構化 UI） | 低–中 | 功能優先：吃 Logo + 品牌 accent + 明暗即可；版面密度不隨原型大改，避免影響效率 |
+| **面 2 Agent 窗口** | 低 | 僅 accent + 明暗，保持對話可讀、跨原型一致 |
+| **面 3 學員端**（Student App） | 高 | 學員看到的是**工作室品牌**（由 §4 開關決定）：原型 + 品牌色 + 封面全上 |
+| **教練公開品牌頁 / 官網** | 最高 | 原型完整表現的舞台，對標 OneFloors 版型：Hero/方案/見證/FAQ/預約全部吃原型字體與配色 |
+
+---
+
+## 7. 分期路線圖
+
+| 階段 | 風格能力 |
+|------|---------|
+| **Phase 0 MVP** | 預設 **Pulse** + **Light**；品牌基本集（名 / Logo / 主色）；公開品牌頁可**選 1 原型**。證明「選版型 + 填內容」跑通。 |
+| **Phase 1.5** | **Dark mode** 全平台；**6 原型全開**；字體預設庫；通知寄件品牌識別。 |
+| **Phase 2** | 學員端吃工作室品牌（含開關）；跟隨系統明暗；封面 / 標記資產；Coach 層覆蓋 Studio。 |
+| **Phase 3** | 自訂網域、自訂 CSS、移除 Noki 標記的**完整白標**（高階方案）。 |
+
+---
+
+## 8. 待決策（請校準）
+
+1. **首發原型數**：MVP 先只給 **Pulse 1 個**（最快），還是直接放 **3 個**（Pulse / Forge / Atelier 覆蓋最常見三類教練）？
+2. **Dark mode 進不進 MVP**：暗色雙倍 QA 成本；先只做 Light、Phase 1.5 補暗，可接受？
+3. **學員端品牌歸屬**：學員看到「工作室品牌」會稀釋 Noki 自身曝光（獲客 vs. 白標訴求的取捨）→ 預設給誰？是否做成方案差異（免費層露 Noki、付費層可隱藏）？
+4. **品牌主色自由度**：完全自由 HEX（最自由但易撞醜/低對比），還是限定**校驗過對比的色盤**？
+5. **字體**：鎖平台預設字庫（控品質/授權/效能），還是高階方案開放自訂上傳？
+6. **原型 vs. 自由調**：租戶只能「選原型」，還是可在原型上再細調圓角/密度等 token（彈性 vs. 一致性/維護成本）？
+
+---
+
+## 附：與既有文件的關聯
+- `product-architecture.md` §4（產品三面 → §6 套用範圍）、§5.1（`Studio`/`Coach` 實體 → §4 品牌資源歸屬）、設計原則 #1（共用動作層 → §5 token 化的同源思想）
+- `deep-dive-competitors.md` §B（OneFloors 7 版型 → §2 原型來源與對照）、§81/§86（選版型自動生成的低成本高感知驗證）
+- `competitor-research.md` §350（白標 / 品牌官網自動生成需求 → §4、§7 Phase 3）
+
+</script>
+<script type="text/markdown" id="md-opensource">
+# 開源整併 → 商業服務 策略與授權合規研究
+
+> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 本文回答一個問題：**Noki 要如何「整併開源資源」做成可長期收費的商業 SaaS，而不在授權、護城河、可維護性上踩雷。**
+> 收斂自 `competitor-research.md`、`deep-dive-competitors.md`、`product-architecture.md`。授權狀態以 2024–2026 一手來源查證（文中標注）。
+> 日期：2026-06-25 · 狀態：v1 · 用途：建置前的選型與合規依據
+>
+> **與 `oss-stack-and-gaps.md` 的分工**：那份文件回答「**具體拿哪些開源、怎麼接、藍圖漏了什麼功能**」（free-exercise-db、Vercel AI SDK、line-bot-sdk、cal.diy、wger、Open Food Facts + 功能缺口）；本文回答上一層的「**整併開源變成可收費服務的策略、授權光譜、變天風險、合規工程與 AGPL 邊界**」。兩份建議對照閱讀。
+
+---
+
+## 0. 一句話心法
+
+> **用寬鬆授權的開源把所有 commodity（DB、Auth、行事曆、圖表、LLM、LINE SDK、佇列、儲存）組起來，把唯一的工程火力集中在不可外包的護城河——共用 Action 層 + 跨模組 Agent + 經營副駕 + 成長敘事——再用「託管 + 繁中 + 台灣金流/發票/LINE 合規 + 支援 + SLA」包成付費服務。開源是你的「不用自己造」，不是你的「賣點」。**
+
+對 Noki 的意義：產品的差異化（見 `product-architecture.md` §0、§6.3）完全是自研層；底層全部站在巨人肩上。整併開源不是省成本的小事，而是**讓小團隊能在 MVP 期就擁有大廠級基礎設施**的關鍵槓桿。
+
+---
+
+## 1. 「開源 → 商業服務」的四種整併模式
+
+| 模式 | 做法 | 代表 | Noki 適用度 |
+|------|------|------|:--:|
+| **A. Host（託管原樣）** | 把一套開源軟體原封不動架起來收託管費 | AWS RDS、各家 Managed Redis | ✕ 非 Noki 本業 |
+| **B. Wrap & Integrate（包裹整併）** | 把多個開源元件當「零件」，縫進自有產品，客戶看不到底層 | Vercel、Supabase、絕大多數 SaaS | ★★★ **Noki 就是這型** |
+| **C. Open-Core（開放核心）** | 自家產品開源社群版，進階功能閉源收費 | GitLab、Cal.com、n8n | △ 早期不必，Phase 3 可考慮把 Action SDK 開源做生態 |
+| **D. Build-on-Platform（平台之上）** | 在別人的開源/開放平台上做加值 | LINE LIFF 上的應用 | ★★ 學員端就是長在 LINE 上 |
+
+> **對 Noki 的啟示**：主體是 **B（Wrap & Integrate）**。客戶買的是「用講的就完成營運」，不是「我們用了 PostgreSQL」。這決定了授權策略——**只要底層元件不要求你開源自己的商業碼即可**（見 §2）。
+
+---
+
+## 2. 授權光譜（決定能不能商用的根本）
+
+從「最自由」到「最危險」排列，重點是**對閉源 SaaS 的義務**：
+
+| 類別 | 代表授權 | 對 Noki（閉源 SaaS）的義務 | 判斷 |
+|------|---------|--------------------------|:--:|
+| **公眾領域** | CC0、Unlicense、0BSD | 無 | ✅ |
+| **寬鬆 Permissive** | **MIT、ISC、BSD-2/3、Apache-2.0** | 僅需保留版權聲明；Apache-2.0 另含**專利授權**＋改檔需在 NOTICE 標注 | ✅ **後端預設只收這類** |
+| **弱 Copyleft（檔案/連結級）** | **MPL-2.0、LGPL、EPL** | 只有「你直接改動的那些開源檔案」要開源；當函式庫呼叫、不改原碼，閉源產品不受影響 | ✅ 可用，勿改其原始檔 |
+| **強 Copyleft** | **GPL-2.0 / GPL-3.0** | 連結進你的程式 → 整個衍生作品須以 GPL 釋出。**但**：作為獨立進程的工具（CLI/服務）由你呼叫，通常不傳染 | ⚠️ 僅限「獨立進程」用法 |
+| **網路 Copyleft（SaaS 殺手）** | **AGPL-3.0** | 只要使用者「透過網路」用到，你就須對外提供（含你改動的）對應原始碼 | ⚠️ 見 §8，**能不碰主程式就不碰** |
+| **源碼可見 ≠ 開源** | **SSPL、BUSL/BSL、Elastic License v2、Functional Source License（FSL）、n8n Sustainable Use、Commons Clause** | 常**明文禁止**「拿來當服務賣 / 與原廠競爭」，或要你連帶開源整個服務堆疊 | 🚫 商業核心**絕不**壓在上面 |
+
+兩個最常被搞錯的點：
+1. **「源碼放在 GitHub 上」不等於「開源授權」。** SSPL / BUSL / ELv2 / FSL 都看得到碼，但**不是 OSI 認證的開源授權**，且專為堵 SaaS 而生。
+2. **Apache-2.0 > MIT 之處在「專利」。** Apache-2.0 內含明確專利授權與「專利報復」條款；對商業產品法務更安全，故元件同質時優先選 Apache-2.0。
+
+> **對 Noki 的啟示**：建立一條 CI 紅線——**新依賴若不是 §2 前三類（Permissive / 弱 Copyleft / 公眾領域），預設擋下，需人工審核**。AGPL 與所有 source-available 進「審核清單」。
+
+---
+
+## 3. 授權「變天」事件簿（2018–2026，皆一手查證）★ 這節是血淚教訓
+
+開源商業公司近年密集「換約掐脖」以防雲端大廠白嫖。**踩到正在變動的專案 = 你的技術選型可能一夕違法或被迫遷移。**
+
+| 年 | 專案 | 變動 | 社群 fork（救援） | 查證 |
+|----|------|------|------------------|------|
+| 2018 | MongoDB | AGPL → **SSPL** | — | — |
+| 2018 | Redis 模組 | 加 **Commons Clause** | — | The Register |
+| 2021 | Elasticsearch/Kibana | Apache-2.0 → **SSPL / ELv2** | **OpenSearch**（AWS，Apache-2.0） | — |
+| 2021 | Grafana | Apache-2.0 → **AGPL-3.0** | — | — |
+| 2023 | HashiCorp（Terraform/Vault…） | MPL-2.0 → **BUSL 1.1** | **OpenTofu**（Linux Foundation，MPL-2.0） | — |
+| 2024.03 | Redis | BSD → **SSPL / RSALv2** | **Valkey**（Linux Foundation，**保留 BSD**，由 Redis 原作者參與） | Wikipedia/Valkey、LF |
+| 2024.08 | Elasticsearch | **加回 AGPL**（重新成為開源） | （OpenSearch 已自立） | elastic.co 官方部落格 |
+| 2025.05 | Redis | **Redis 8 加回 AGPLv3**（原作者 antirez 回鍋推動） | （Valkey 已自立） | redis.io 官方部落格 |
+
+**兩個趨勢，直接影響選型：**
+1. **2023 是「rug pull」高峰，2024–2025 出現回頭**：Redis、Elastic 因為 fork（Valkey/OpenSearch）真的成功了、社群出走痛，於是**加回 OSI 開源授權（都是 AGPL）**。但注意——加回的是 **AGPL**，仍是 SaaS 敏感授權（§8）。
+2. **有基金會托管的 fork 是最穩的避風港**：Valkey、OpenTofu、OpenSearch 都進了 Linux Foundation / 多廠商治理，**不會被單一公司一夕改約**。
+
+> **對 Noki 的啟示（選型鐵則）**：同功能優先選**治理分散**者（Apache 基金會 / CNCF / Linux Foundation / 多廠商社群）勝過「單一公司主導」者。單一公司 + 創投背景 + 雲端競爭壓力 = 未來改約高風險。
+
+---
+
+## 4. Noki「買 / 借 / 造」決策矩陣（逐模組）
+
+對照 `product-architecture.md` §5 資料模型與 §4 三面。原則：**commodity 借開源、護城河自造、敏感合規買服務**。
+
+| Noki 模組 | 借（開源 commodity） | 典型授權 | 自造（護城河，不外包） |
+|----------|---------------------|---------|----------------------|
+| 前端框架 | Next.js / React / Vue / Svelte | MIT | 程式化前端的領域 UX |
+| UI 元件 | Tailwind、shadcn/ui、Radix、MUI | MIT | Noki 設計語言 |
+| 排課行事曆 | FullCalendar、Schedule-X | MIT* | **衝堂偵測、消課狀態機**（§5.2） |
+| 圖表 / 成長折線 | Recharts、Apache ECharts、visx | MIT / Apache-2.0 | **AI 成長敘事生成**（§6.5） |
+| 身分 / 權限 | Auth.js、Keycloak、Ory、Supabase Auth | ISC / Apache-2.0 | **Coach/Studio/Member 權限規則** |
+| 資料庫 | **PostgreSQL** | PostgreSQL（寬鬆） | 核心資料模型 |
+| ORM | Prisma、Drizzle | Apache-2.0 | — |
+| 快取 / 佇列 | **Valkey**（非 Redis 新版）、BullMQ | BSD / MIT | 提醒規則引擎排程 |
+| 向量 / RAG | **pgvector**（長在 PG 裡） | PostgreSQL | 教練筆記脈絡組裝 |
+| LLM 編排 | Vercel AI SDK、LangChain | Apache-2.0 / MIT | **意圖→Action 對應、寫入確認、audit** |
+| LLM 模型 | **API（Claude/OpenAI/Gemini）** | 商業 API | 繁中 prompt / 工具定義 |
+| LINE | `@line/bot-sdk`、LIFF SDK | Apache-2.0 / 免費 SDK | webhook→Action 路由、帳號綁定 |
+| 物件儲存（體態照） | **S3 / Cloudflare R2**；自架選 SeaweedFS | 商業 / Apache-2.0 | — |
+| 站內搜尋 | **Meilisearch**（MIT）；勿用 Typesense(GPL-3) | MIT | — |
+| 觀測 | Prometheus、OpenTelemetry、Grafana | Apache-2.0 / AGPL** | — |
+| 金流 / 發票（TW） | 綠界 / 藍新 SDK（非開源議題，直接接） | 商業 | 對帳邏輯 |
+
+\* FullCalendar **標準套件 MIT**，但「Scheduler / 資源時間軸」等進階外掛是**商業授權**——用到要付費，別誤用。
+\** Grafana 是 AGPL，但**獨立進程**部署（你不改它、不連結進產品）即可安全使用（§8）。
+
+> **對 Noki 的啟示**：上表幾乎全是 Permissive。唯三需留意：**Valkey 取代 Redis**、**儲存用 S3/R2 不自架 MinIO**、**搜尋用 Meilisearch 不用 Typesense**。把這三條寫進工程規範即可避開九成地雷。
+
+---
+
+## 5. 建議技術堆疊（全部寬鬆 / 安全，可直接照建）
+
+對齊 `product-architecture.md` §8（API-first + 共用 Action 層、PWA 起步、繁中 LLM）：
+
+```
+前端：Next.js (MIT) + Tailwind + shadcn/ui        ← 教練 Web 後台 + 學員 PWA/LIFF
+行事曆：FullCalendar 標準版 (MIT) / Schedule-X
+圖表：Recharts (MIT) 或 Apache ECharts (Apache-2.0)
+後端：Node/TS 或 Go ─ 全部操作 = 型別化 Command/Query（單一事實來源）
+資料庫：PostgreSQL (寬鬆) + pgvector (RAG)          ← 一個 DB 同時做關聯 + 向量，省一個元件
+ORM：Prisma / Drizzle (Apache-2.0)
+快取/佇列：Valkey (BSD) + BullMQ (MIT)             ← 注意：不是 Redis ≥7.4
+Auth：Auth.js (ISC)；多租戶複雜時 Keycloak/Ory (Apache-2.0)
+AI：Vercel AI SDK (Apache-2.0) + LLM 商業 API（function calling 接 Action 層）
+儲存：Cloudflare R2 / S3（體態照、InBody 圖）
+LINE：@line/bot-sdk (Apache-2.0) + LIFF
+觀測：OpenTelemetry + Prometheus (Apache-2.0)；Grafana 獨立進程
+部署：Docker + Kubernetes (Apache-2.0)；IaC 用 OpenTofu (MPL-2.0) 而非 Terraform
+```
+
+設計上每個外部元件都包在自有介面後（這正是 **`product-architecture.md` 設計原則 #1「共用 Action 層」的延伸**）：
+- LLM 後面可換 Claude ↔ OpenAI ↔ 本地模型
+- 儲存後面可換 S3 ↔ R2
+- 這層抽象**同時是 anti-vendor-lock-in 與 anti-授權變天的縫**——某元件改約，只換一個 adapter，不動上層。
+
+> **對 Noki 的啟示**：**pgvector 長在 PostgreSQL 裡**，MVP 不必另立向量資料庫（省 Pinecone/Milvus 一個元件與一筆錢）；**Valkey 一物多用**（快取 + 佇列 + pub/sub）。小團隊把元件數壓到最低，可維護性最高。
+
+---
+
+## 6. 授權地雷清單（Noki 路線圖上「最想用、卻有坑」的）
+
+這些是**會直接咬到 Noki 規劃**的具體陷阱：
+
+| 想用它做… | 專案 | 授權真相 | 正解 |
+|----------|------|---------|------|
+| 排課（§4 面1） | **Cal.com** | 根目錄 **MIT，但 Open-Core**：`/ee`、含 `.ee.` 的目錄是**商業授權**，Teams/Org/Workflows/SSO 等都在裡面 | 用 MIT 部分自建，或用 100% MIT 的社群 fork **Cal.diy**；避免依賴 `/ee` 功能 |
+| Phase 3 工作流市集（§7.2） | **n8n** | **Sustainable Use License**：僅限自用/非商業；**不可當服務賣給別人** | 自研 Action 編排引擎，或選 Apache/MIT 的工作流庫；要用 n8n 先讀條款談授權 |
+| 快取 / 佇列 | **Redis ≥ 7.4** | 2024 起 SSPL/RSALv2、2025 Redis 8 改 AGPL | **Valkey（BSD）** |
+| 體態照 / 檔案自架 | **MinIO** | **AGPL-3.0**，且 2025 砍社群版 console 功能 | **S3 / R2**（託管）；要自架用 SeaweedFS (Apache-2.0) |
+| 站內搜尋 | **Typesense** | **GPL-3.0** | **Meilisearch（MIT）** 或 OpenSearch (Apache-2.0) |
+| 錯誤追蹤自架 | **Sentry** | **FSL / BSL**（source-available） | 用 Sentry SaaS，或 fork **GlitchTip**；自架自有服務要看條款 |
+| 日誌 / 搜尋 | **Elasticsearch** | 有 AGPL 選項但仍敏感 | 多數情境 **OpenSearch (Apache-2.0)** 更省心 |
+| IaC | **Terraform** | **BUSL 1.1** | **OpenTofu（MPL-2.0）** |
+
+> **對 Noki 的啟示**：藍圖裡最危險的兩個「很想用」是 **Cal.com（排課）** 與 **n8n（工作流市集）**——兩者都是 Open-Core / source-available，**正好卡在 Noki 的核心模組與變現模組上**。結論：**排課與工作流引擎都該自研**（反正它們本來就要接 Noki 的 Action 層、是護城河的一部分，自研而非嵌入第三方反而更對）。
+
+---
+
+## 7. 合規工程化（把「不踩雷」變成自動化流程）
+
+授權合規不能靠人腦記，要變成 **CI 關卡**。從第一天就建：
+
+1. **SBOM（軟體物料清單）**：每次 build 產生依賴清單（CycloneDX / SPDX 格式），知道「我到底用了什麼、什麼授權」。
+2. **授權掃描器擋 PR**：`license-checker`（JS）、FOSSA、ScanCode、Trivy；命中 §2「審核清單」（AGPL / SSPL / BUSL / GPL / FSL…）就**紅燈擋下**，需人工放行。
+3. **依賴更新自動化**：Dependabot / Renovate——**順便偵測「授權變更」**（升版時授權可能變，如 Redis 7.2→7.4）。
+4. **漏洞掃描**：Trivy / Grype 掃 CVE。
+5. **NOTICE / 第三方授權頁**：保留所有 MIT/BSD/Apache 版權聲明，產品內附「開源授權」清單頁（法務義務，也是誠信）。
+6. **CLA / DCO**（若 Phase 3 開源 Action SDK 收外部貢獻時才需要）。
+
+> **對 Noki 的啟示**：MVP 階段就把「**授權掃描 + SBOM**」加進 CI——這是一次性低成本投入，卻能擋掉未來「上線後才發現某依賴是 AGPL / 某升版偷改授權」的災難。對閉源商業 SaaS 而言，這是不可省的保險。
+
+---
+
+## 8. AGPL 深入（因為它現在是最關鍵的灰區）
+
+Redis、Elastic、Grafana、MinIO 都回到或落在 **AGPL-3.0**，所以 Noki 必須懂它的精確邊界：
+
+- **AGPL 觸發點**：你**修改**了 AGPL 軟體，且讓使用者**透過網路互動**到它 → 你必須把「你改動的版本原始碼」對那些使用者提供。
+- **安全用法（不傳染給 Noki 商業碼）**：
+  - ✅ **不改原碼**，把它當**獨立進程 / 獨立服務**部署（例如 Grafana 儀表板、AGPL 版資料庫當後端），你的產品只透過網路/標準協定呼叫它。多數法律意見認為這**不使你的應用變成 AGPL 衍生作品**。
+  - ✅ 用它的**客戶端 driver**（driver 通常是寬鬆授權，非 AGPL）。
+- **危險用法**：
+  - 🚫 把 AGPL 程式庫**連結進**你的後端應用程式（in-process linking）。
+  - 🚫 **改了** AGPL 軟體又對外提供服務，卻不釋出改動。
+- **務實結論**：Noki 對 AGPL 元件採「**不改、隔進程、用寬鬆 driver**」三原則即可安全使用；但**能用 Apache/BSD 同類就優先用**（如 Valkey 取代 Redis），省去整個灰區。
+
+> **對 Noki 的啟示**：把這三原則寫進工程規範。AGPL 不是「絕對不能碰」，而是「**碰主程式才致命**」——理解邊界比恐懼更有用。
+
+---
+
+## 9. 把「開源組合」變成「可收費服務」的加值層
+
+客戶不會為「你用了 PostgreSQL」付錢。付費理由是你**在開源之上加的東西**——這也呼應研究中「定價透明、學員免費教練付費」（`competitor-research.md` §5.4）：
+
+| 加值層 | 具體內容 | 對應研究痛點 |
+|--------|---------|------------|
+| **託管與可用性** | 客戶免運維、自動備份、SLA、監控 | 競品多為 SaaS，自架不是教練的事 |
+| **在地化合規** | 繁中、台灣金流/電子發票、LINE 生態、個資/健康資料合規 | 國際大廠的弱點（`product-architecture.md` §1.1） |
+| **整合與體驗** | 把零散開源縫成「一句話完成營運」的無縫體驗 | 全市場 0 家做到（§0 真空） |
+| **資料主權與信任** | 客戶資料留在 Noki schema，不鎖進第三方模型；寫入確認 + audit | 對標但超越對手（設計原則 #3） |
+| **支援與成功** | 導入、教學、客服、教練社群 | 國內外都靠服務留存 |
+| **持續演進** | 新 Action 一加，UI 與 Agent 同時獲得新能力 | 設計原則 #1 的複利 |
+
+> **對 Noki 的啟示**：**開源讓你「站上起跑線」，加值層才是「跑道」。** Noki 的六層加值裡，「在地化合規」與「無縫整合體驗」是國際開源/大廠最難複製的，應作為定價與行銷的主訴求。
+
+---
+
+## 10. 風險與待決策
+
+**待校準的關鍵分岔：**
+1. **自架 vs 全託管**：MVP 是否全部用託管（Neon/Supabase Postgres、R2、LLM API），把運維降到最低？（建議：是，小團隊別自架 DB/儲存）
+2. **排課自研 vs Cal.diy**：自研排課（與 Action 層整合最深），或先用 Cal.diy(MIT) 加速？（建議：自研，它是護城河；Cal.diy 可作參考實作）
+3. **工作流引擎**：Phase 3 市集是自研 Action 編排，還是評估可商用的開源引擎？（建議：自研，n8n 授權不可商用轉售）
+4. **是否開源 Action SDK**：Phase 3 要不要把共用 Action 層 SDK 開源，做開發者生態（Open-Core C 型）？
+
+**主要風險與緩解：**
+- **授權變天**（Redis 前例）→ 元件包在 adapter 後 + CI 授權掃描 + 優先選基金會治理專案。
+- **AGPL 誤用**（連結進主程式）→ §8 三原則 + 掃描器擋 PR。
+- **Open-Core 陷阱**（Cal.com `/ee`、n8n）→ 核心模組自研，不依賴他人商業層。
+- **依賴升版偷改授權** → Renovate/Dependabot + 每次升版重掃授權。
+- **過度整併、元件爆炸** → 一物多用（pgvector 在 PG、Valkey 當快取+佇列），壓低元件數與維運面。
+
+---
+
+## 附：本文授權狀態查證來源（一手）
+- Elasticsearch 加回 AGPL（2024.08）：elastic.co/blog/elasticsearch-is-open-source-again
+- Redis 8 加 AGPLv3（2025.05）：redis.io/blog/agplv3
+- Valkey = BSD、Linux Foundation fork of Redis 7.2.4：en.wikipedia.org/wiki/Valkey
+- n8n Sustainable Use License（自用/非商業、不可轉售為服務）：github.com/n8n-io/n8n/LICENSE.md
+- Cal.com = MIT 根 + Open-Core（`.ee` 商業）；Cal.diy = 100% MIT fork：github.com/calcom
+- 其餘（MongoDB SSPL、HashiCorp BUSL→OpenTofu、Grafana AGPL、MinIO AGPL、Typesense GPL-3、Sentry FSL/BSL）：各專案 LICENSE 與官方公告
+> 鐵則：**採用任何元件前，到該專案當前 LICENSE 重新確認一次** —— 授權會變，本文是起點不是終點。
+
+</script>
 <script type="text/markdown" id="md-journeys">
 # Noki 使用者歷程（User Journeys）
 
@@ -1311,7 +1867,9 @@ LINE 官方帳號（學員加好友）
 - **多教練**：MVP 即含小工作室多教練（主理人 + 教練角色權限）。
 - **金流不進 MVP**：收款由教練/主理人**自行對帳（手動標記已收款）**，無線上金流。
 - **飲食只做「互動交流」**：MVP 不做拍照辨識與營養素追蹤；飲食 = 教練↔學員的訊息/問答 + 文字飲食筆記。Phase 2 才加拍照辨識。
-- **三面**：① Web 後台（教練/主理人）② Agent 對話窗口（教練端為主）③ 學員端（跑在 LINE LIFF，零安裝）。
+- **三面**：① Web 後台（教練/主理人，**系統主體、多數操作直接完成**）② Agent 對話窗口（**加值層、非必經**，教練端為主）③ 學員端（跑在 LINE LIFF，零安裝）。
+- **系統為主、Agent 選擇性**：簡單/單一/批次的事用 Dashboard（快、零 LLM 成本）；口語、跨模組、零碎隨手才用 Agent（不浪費 token）。本文歷程中「面」欄標 Web=系統直接操作、Agent=值得才用。
+- **語音輸入**：Agent 輸入框（教練端與學員端）一律支援語音 →文字；歷程中凡「一句話」皆可改為「講一句」。
 - 本文角色化名：主理人 **Nina**（Noki Studio）、教練 **Max**、學員 **小明 / 小美**。
 
 ---
@@ -1527,6 +2085,395 @@ Agent：✅ 已排課、已生成摘要（點此看）、已發送提醒。
 - 手動對帳 → MVP 先輕量、不被金流串接拖慢上線
 
 > 下一步可選：① 針對任一歷程畫**線框圖 / 畫面流程** ② 把「多教練權限模型」或「LINE LIFF 學員端」寫成細部 PRD ③ 定義 Agent 的 Action/意圖 schema。
+
+</script>
+<script type="text/markdown" id="md-ossstack">
+# Noki 開源資源採用方案與功能缺口評估 v1
+
+> 專案：Noki — 面向健身教練與個人工作室的營運平台
+> 本文承接 `product-architecture.md`，把第一輪掃到的開源資源**逐一深挖成可執行的採用方案**（拿什麼／不拿什麼／怎麼接／授權紅線／風險），並反向用這些成熟專案**檢查藍圖漏掉了哪些功能**。
+> 日期：2026-06-25 · 狀態：v1 · 視角：商用閉源 SaaS（授權合規優先於 star 數）
+
+---
+
+## 0. 這份文件回答兩個問題
+
+1. **怎麼用？** — 每個開源資源的「採用層級（直接內嵌 / 改造 / 僅參考）+ 整合方式 + 授權限制 + 落地風險」。
+2. **漏了什麼？** — 這些成熟產品已經踩過的坑，反推出 Noki 藍圖（§5 資料模型、§6 Agent、§7 MVP）目前**沒關注到的功能**。
+
+---
+
+## 1. 採用策略總綱（buy / borrow / build 的紀律）
+
+一句話結論先講：**Noki 的差異化（跨模組 Agent + LINE 原生交付 + 成長敘事）在任何開源專案裡都不存在，所以開源只負責「商品化的底層」，護城河必須自建。**
+
+| 層級 | 定義 | 適用授權 | 本文資源 |
+|------|------|---------|---------|
+| **直接採用（buy）** | 套件/資料直接進產品 | MIT / Apache-2.0 / Unlicense | free-exercise-db、AI SDK、line-bot-sdk、Open Food Facts 資料 |
+| **改造參考（borrow）** | 抄架構/資料模型，自行實作 | 任意（含 AGPL，只看不抄碼） | wger 資料模型、cal.com 排程設計 |
+| **自建（build）** | 沒有堪用開源、且是差異化 | — | 共用 Action 層、經營副駕、成長敘事、消課鏈 |
+
+> **AGPL 鐵律**：AGPL-3.0 的程式碼**連 SaaS（不分發、只提供網路服務）都會觸發開源義務**。wger、cal.com 本體屬此類 → **只准讀設計、不准複製程式碼進 Noki**。資料（CC/開放資料授權）另計，可用但要遵守姓名標示/相同方式分享。
+
+---
+
+## 2. 逐資源深度採用方案
+
+### 2.1 動作庫 — `yuhonas/free-exercise-db` ✅ 直接採用
+
+- **授權**：Unlicense（公共領域）→ 商用零限制，可重新打包、可閉源、無需標示。**最乾淨的一個。**
+- **內容**：800+ 動作，每筆獨立 JSON，欄位：`id / name / force(推拉) / level(難度) / mechanic(複合或孤立) / equipment(器材) / primaryMuscles / secondaryMuscles / instructions[] / category / images[]`。圖片可走 GitHub raw 或自架 CDN。
+- **對應 Noki**：直接灌進 §5 的 **Exercise 動作庫**實體。欄位幾乎一對一，`primaryMuscles/equipment/level` 可直接當篩選維度。
+- **採用方式**：
+  1. 抓 `dist/exercises.json`（合併檔）+ 整包圖片 → 存進 Noki 自己的 DB 與物件儲存（**不要 runtime 依賴對方 GitHub**）。
+  2. 建一張對照表，把英文 `name/instructions` 補上**繁中翻譯**（見下方風險）。
+  3. 器材/部位的 enum 收斂成 Noki 自己的分類法（對方 enum 偶有 null）。
+- **風險 / 缺口**：
+  - ⚠️ **純英文**：動作名、步驟全英文。台灣教練/學員要繁中 → 需一次性翻譯（800 筆，可用 LLM 批次初翻 + 教練校對）。**這是隱性成本，要排進 MVP 工。**
+  - 圖片是真人示範照（非統一風格），品牌一致性普通；MVP 可接受，Phase 2 再考慮統一重製或換繪。
+  - 沒有影片（只有靜態圖）。Noki §5 Exercise 寫的是「影片/圖示」→ 影片要嘛自建、要嘛之後接 YouTube 連結。
+
+### 2.2 AI Agent / 工具呼叫層 — Vercel AI SDK（`/vercel/ai`）★ 直接採用，這是漏研究的最關鍵一塊
+
+> §6.6 的「意圖解析 → tool calling → 確認 → 留痕」整套機制，過去藍圖只有概念、沒有技術載體。**AI SDK 幾乎是為 Noki 設計原則 #1 量身打造的。**
+
+- **授權**：Apache-2.0 ✅ 商用可用。TypeScript、provider 無關（可同時掛 OpenAI / Anthropic / Gemini / 阿里 Qwen，繁中可挑最強模型甚至 A/B）。
+- **核心 API 與 Noki 的對應**：
+
+| AI SDK 機制 | 做什麼 | 對應 Noki |
+|------------|--------|----------|
+| `tool({ description, inputSchema: z.object({...}), execute })` | 定義一個帶型別參數的工具 | **= 共用 Action 層的一個 Action**（設計原則 #1）。Booking/Program/Contract 每個 Action 就是一個 tool |
+| `generateText({ model, tools, prompt })` | LLM 讀自然語言 → 自動選 tool、填參數、呼叫 | §6.6 意圖解析 + tool calling 一步到位 |
+| `stopWhen: isStepCount(n)` | 多步驟 agent 迴圈（呼叫→看結果→再呼叫） | §6.3 跨模組複合指令（「剩 2 堂又沒進步 → 約續約 + 整理數據」要連續多動作）|
+| `Output.object({ schema })` | 強制結構化輸出（Zod 驗證） | 歧義澄清、回顯確認卡的結構化欄位 |
+| `execute` 不自動跑、改回傳「待確認」 | 人類確認後才真正寫入 | **設計原則 #3「寫入必經確認 + 留痕」** |
+
+- **「寫入確認」怎麼落地**（重要架構細節）：
+  - 把「寫」類 tool 的 `execute` 拆成兩段：LLM 先產生 **結構化意圖物件**（要做什麼、參數），UI/LINE 回顯「我要把小明本週三五 07:00 各排一堂，確認？」→ **使用者按確認後，後端才呼叫真正的 Action 並寫 AgentActionLog**。
+  - 即 AI SDK 負責「解析+選工具+填參數」，真正的副作用由 Noki 的 Action 層在確認後執行 → 天然滿足「可撤銷、可留痕」。
+- **一份 Zod schema 餵兩個前端**：同一個 `inputSchema`（Zod）既是 LLM 的 tool 參數定義，也能驅動程式化前端的表單驗證 → **真正做到「按鈕和對話呼叫同一套 Action」**。
+- **注意版本**：AI SDK v6 起 `generateObject` 標記為 deprecated，結構化輸出改用 `generateText({ output: Output.object(...) })`。新做就直接走 v6 寫法。
+- **替代/補充**：LangChain.js（MIT，生態大但偏重）、Mastra（MIT，agent 框架含 workflow/memory）。**建議主線用 AI SDK（輕、型別好、provider 無關），Phase 2 若要複雜自動化工作流再評估 Mastra。**
+
+### 2.3 LINE — `line/line-bot-sdk-nodejs` + LIFF SDK ✅ 直接採用
+
+- **授權**：Apache-2.0 ✅。需 Node.js 22+。
+- **對應 §9 三積木**：
+  - **Messaging API SDK**：webhook 收訊 → 進 Agent；`replyMessage`（免費）/ `pushMessage`（計費）；Flex Message 做課表卡/成長卡；Rich Menu 永久入口。
+  - **LIFF SDK**（前端另裝 `@line/liff`）：學員端零安裝載體。`liff.getProfile()` 拿 userId、`liff.getIDToken()` 傳後端綁定 Member、`liff.scanCodeV2()` 做 QR 簽到消課、`liff.shareTargetPicker()` 做轉介。
+- **採用架構**（省錢關鍵）：
+
+```
+教練/學員 LINE 訊息 ─webhook→ Noki 後端 ─→ AI SDK(意圖解析) ─→ 共用 Action 層
+                                            └─reply(免費) 回覆
+排程提醒/合約到期/成長敘事 ─→ push(計費，只在高價值時用)
+Rich Menu ─→ 開 LIFF = Noki 學員端(面 3)
+```
+
+- **關鍵紀律**：**Agent 對話一律走 reply（免費），push 只留給「降爽約提醒、合約到期、成長摘要」這種高價值主動推播**（§9.6 計費模型）。架構上把兩條路分開。
+- **風險**：LIFF 必須 HTTPS、OpenChat 不支援、外部瀏覽器無法 `scanCode`；健身鄰近健康業種，LINE 內建 AI bot(β) 可能被拒 → 用自有 Agent 走 webhook 不受限，但內容合規仍要留意。
+
+### 2.4 排課 — `calcom/cal.diy` ◐ 偏參考，謹慎改造
+
+> **務實提醒**：cal.com/cal.diy 的本質是「**Calendly 式的個人時段預約**」（某人開放空檔讓別人約），**不是「健身工作室多教練排班 + 團課名額 + 消合約堂數」**。兩者資料模型差很多。
+
+- **授權**：cal.diy = MIT ✅（社群版，已剔除企業功能）；**cal.com 本體 = Open Core 含 AGPL ⚠️**，要用務必用 cal.diy。
+- **技術棧**：Next.js + tRPC + Prisma + Tailwind（與 Noki 若走 TS 全棧高度相容）。
+- **正確用法**：
+  - ✅ **借設計**：可用時段計算、衝突偵測、行事曆雙向同步（Google/Apple/Outlook）、reschedule/cancel 流程、提醒工作流——這些是 cal 的強項，直接抄**設計與資料結構**。
+  - ◐ **改造**：若要直接用其程式碼，要嫁接「Contract 堂數扣除、團課名額、教練抽成」等 cal 沒有的概念，整合成本可能高於自建。
+  - ❌ **別期待**：開箱即用的「工作室排課系統」。
+- **建議**：**MVP 排課自建**（Booking 資料模型本來就要綁 Contract 消課，cal 沒這層），但**把 cal.diy 當「排程邏輯的活字典」**：可用時段、緩衝時間、衝突演算法、外部行事曆同步照它做。
+
+### 2.5 健身領域資料模型黃金參考 — `wger-project/wger` ⚠️ 只參考不抄碼
+
+- **授權**：程式碼 **AGPL-3.0 ⚠️**（閉源 SaaS 不能用程式碼）；**資料（動作/食材）是 CC 授權，可用**（遵守標示/相同方式分享）。
+- **價值**：目前最完整的開源健身管理，**它的資料模型是校準 Noki §5 的最佳對照**。它有的而 Noki 藍圖目前較弱或沒有的概念（→ 見 §4 缺口分析）：
+  - **Routine 自動重量漸進規則**（progression rules）
+  - **自訂體測項目**（custom measurements，不只 InBody 那幾項）
+  - **飲食/食材庫 + 接 Open Food Facts**
+  - **REST API 設計**（第三方整合）
+- **用法**：讀它的 models 與 API 文件（readthedocs），把它驗證過的欄位與關係納入 Noki 自己的（自寫）schema。**一行程式碼都不要複製。**
+
+### 2.6 飲食 / 營養 — Open Food Facts ◐ Phase 2 採用（資料 + API）
+
+- **授權**：資料庫 ODbL、內容 DbCL、圖片 CC-BY-SA ⚠️ → **可商用但有「姓名標示 + 相同方式分享」義務**，要在產品內標示來源。
+- **能力**：條碼 → 產品營養（Nutri-Score、NOVA、過敏原、四大營養素）；支援上傳照片由其 AI(Robotoff) 反算。
+- **務實限制**：
+  - 線上 API 有 **rate limit**（讀 15 req/min/IP、搜尋 10 req/min/IP），**不可拿來做 search-as-you-type**；量大要**下載 CSV/JSONL 自建本地庫**或自架 Product Opener。
+  - 寫操作要自訂 User-Agent + 帳號。
+- **對應 Noki**：§6.4 拍照記餐 / NutritionLog（Phase 2）。
+- **重點機會（見 §4.3）**：**條碼掃描比「整盤拍照辨識」便宜且準**。Open Food Facts 天生是條碼庫 → Noki Phase 2 應**先做條碼記餐，再做拍照辨識**，成本/準確率都更友善。
+
+---
+
+## 3. 還沒納入的開源層（補齊技術棧）
+
+第一輪只看了「健身/排課/LINE」，但要把 §8 技術架構落地，還缺這些層。以下都是商用友善授權：
+
+| 層 | 對應 Noki | 建議開源 | 授權 | 備註 |
+|----|----------|---------|------|------|
+| **圖表（成長折線/儀表板）** | §6.5 成長可視化、§7.1 經營儀表板 | Recharts / Chart.js / visx / Tremor | MIT（Tremor Apache-2.0） | 成長折線王牌功能的視覺載體，過去沒指定 |
+| **學員 intake / 健康問卷** | 新增學員、合規 | 自建（用 Zod schema）或 react-hook-form | MIT | **見 §4.5：PAR-Q 健康篩查是缺口** |
+| **通知/提醒排程引擎** | §6.3 續約提醒、§9.5 上課提醒 | BullMQ（Redis 佇列）/ node-cron | MIT | 「規則版提醒」背後需要一個排程器，藍圖沒提 |
+| **權限 / 多租戶 RBAC** | Studio→Coach→Member 權限 | CASL / 自建 | MIT | §5 有「角色權限」欄位但沒設計授權模型 |
+| **PWA / 前端框架** | §8.2 PWA 起步 | Next.js（+ next-pwa） | MIT | 與 AI SDK、cal.diy 同生態 |
+| **身分驗證** | 教練/學員登入、LINE 綁定 | Auth.js (NextAuth) | ISC/MIT | 支援 LINE Login provider |
+| **台灣金流 / 電子發票** | §8.4、Phase 1.5 | 綠界/藍新多為 SDK 非開源 | — | **開源缺口：台灣金流幾乎無成熟開源，要自接官方 SDK** |
+
+> 結論：**AI SDK + Next.js + Auth.js + line-bot-sdk + Recharts + BullMQ + Prisma** 可組成一條全 TS、授權乾淨、彼此同生態的主線技術棧。
+
+---
+
+## 4. 功能缺口評估 ★（OSS 揭露藍圖漏掉的東西）
+
+> 方法：拿成熟產品「已經內建」的功能，逐項問「Noki §5/§6/§7 有沒有？」。下面只列**目前藍圖沒有或明顯偏弱**的。
+
+### 4.1 排課域（對照 cal.com 的成熟度）
+
+| 缺口 | 說明 | 為何重要 | 建議 |
+|------|------|---------|------|
+| **教練可用時段 / 工作時間** | §5 Booking 沒有「Coach 的 availability」實體 | 沒有它就無法做學員自助預約、也算不準衝堂 | **補進 MVP 資料模型**（CoachAvailability） |
+| **No-show（爽約）處理** | 有「簽到」但沒有「未到」狀態 | 直接牽動消課：爽約到底扣不扣堂數？是營收/合約爭議點 | Booking 狀態機補 `no_show`，並定義消課規則 |
+| **緩衝時間 buffer** | 課與課之間的整理/移動時間 | 教練連堂需要間隔，影響可約時段計算 | 排課邏輯補 buffer |
+| **團課候補 waitlist** | §6 有團課但無滿員候補 | 團課滿了要候補+遞補通知，是高頻場景 | Phase 1.5 補 |
+| **循環排課的編輯語意** | 「每週三五」是循環序列 | 「改這一堂 vs 改整個系列」是經典難題，藍圖沒定義 | 明確設計 single/series 編輯 |
+| **外部行事曆雙向同步** | §5 Booking 未提 Google/Apple Calendar | 教練本來就活在自己行事曆，不同步會雙開 | Phase 1.5（cal.diy 有現成設計可抄） |
+| **取消政策 / 截止時間** | Agent 可改可取消，但無「開課前 X 小時不可取消」 | 保護教練時段、減少臨時取消 | 規則設定 |
+
+### 4.2 訓練域（對照 wger）
+
+| 缺口 | 說明 | 建議 |
+|------|------|------|
+| **自動重量漸進規則** | §5 Program 有「建議重量」但無「達標自動加重」規則 | 進階賣點，Phase 2；MVP 先手動 |
+| **RIR / RPE（自覺強度）** | WorkoutLog 只記重量/次數，沒有強度感受 | 低成本高價值，建議 MVP WorkoutLog 補一欄 |
+| **組類型（superset/dropset/熱身組）** | Program 結構偏平，沒有組間關係 | 影響課表表達力；MVP 至少分「正式組/熱身組」 |
+| **自訂體測項目** | §5 BodyComposition 寫死體重/體脂/骨骼肌/InBody | 教練常量腰圍/臂圍等自訂項 | 加一個彈性 Measurement 實體 |
+
+### 4.3 飲食域
+
+| 缺口 | 說明 | 建議 |
+|------|------|------|
+| **條碼記餐先於拍照辨識** | §6.4 只規劃「拍照辨識」（貴、難） | Open Food Facts 本質是條碼庫 → **Phase 2 先做條碼掃描記餐**，更便宜準確，拍照辨識當後續 |
+| **營養目標 / 每日達成** | 有 NutritionLog 但無「目標熱量/巨量 + 每日達成率」 | 飲食功能的留存鉤子 |
+
+### 4.4 LINE / 在地
+
+| 缺口 | 說明 | 建議 |
+|------|------|------|
+| **LINE Pay 金流** | §9 強在交付/通知，但沒提金流 | 競品 BookFast 用 LINE Pay；Phase 1.5 台灣金流應含 LINE Pay 選項 |
+| **分眾推播 / 標籤行銷** | push 只想到提醒 | 學員分眾（快到期/久未來）行銷，Phase 2 |
+
+### 4.5 跨切面 / 平台
+
+| 缺口 | 說明 | 為何重要 | 建議 |
+|------|------|---------|------|
+| **PAR-Q 健康篩查問卷** | 新增學員時無健康/傷病/禁忌篩查 | **健身有受傷與法律責任風險**，入會健康聲明是業界常規 | **建議納入 MVP 的新增學員流程** |
+| **通知排程引擎** | 「規則版提醒」沒有對應的技術元件 | 沒有佇列/排程器，定時提醒做不出來 | 技術架構補 BullMQ/cron |
+| **動作庫繁中化成本** | free-exercise-db 純英文 | 影響教練/學員體驗 | 列為 MVP 顯性工作項 |
+| **資料匯出 / 退出** | 無會員資料可攜/匯出 | 教練換系統的信任門檻、隱私合規 | Phase 1.5 |
+| **稽核/權限模型** | §5 有 AgentActionLog（好），但 RBAC 未設計 | 多教練工作室需要清楚的資料隔離 | MVP 設計基本 RBAC |
+
+---
+
+## 5. 對 `product-architecture.md` 的具體修訂建議
+
+1. **§5 資料模型新增實體**：`CoachAvailability`（可用時段）、`Measurement`（彈性體測）；`Booking` 狀態補 `no_show` 並定義消課規則；`Member` 加 `HealthScreening`（PAR-Q）。
+2. **§6.6 Agent 機制補技術載體**：明寫「以 Vercel AI SDK 的 `tool()` 實作共用 Action 層，Zod schema 同時驅動 LLM 與 UI 表單；寫入類 tool 採『產生意圖→確認→執行→AgentActionLog』兩段式」。
+3. **§7.1 MVP IN 補三項**：動作庫繁中化、學員健康篩查問卷、RIR/RPE 記錄欄位。
+4. **§8 技術架構**：補「通知排程引擎（佇列）」「外部行事曆同步」「身分驗證(Auth.js + LINE Login)」三個元件，並定出主線技術棧。
+5. **§9 LINE**：在金流段補 LINE Pay；§6.4 飲食改為「條碼記餐先行，拍照辨識後續」。
+
+---
+
+## 6. 授權紅線總表（商用閉源視角）
+
+| 資源 | 授權 | 能直接進產品？ | 用法 |
+|------|------|:---:|------|
+| free-exercise-db | Unlicense | ✅ 無限制 | 動作庫資料直接內嵌（需繁中化） |
+| Vercel AI SDK | Apache-2.0 | ✅ | Agent/工具呼叫主線 |
+| line-bot-sdk-nodejs + LIFF | Apache-2.0 | ✅ | LINE 整合主線 |
+| cal.diy | MIT | ✅（謹慎改造） | 排程邏輯參考/改造 |
+| Recharts/Chart.js/Next.js/Auth.js/BullMQ | MIT 系 | ✅ | 技術棧底層 |
+| Open Food Facts 資料 | ODbL/DbCL/CC-BY-SA | ◐ 須標示+相同分享 | 飲食庫（Phase 2） |
+| **wger 程式碼** | **AGPL-3.0** | ❌ 只看不抄 | 資料模型/API 設計參考 |
+| **cal.com 本體** | Open Core/AGPL | ❌ | 改用 cal.diy |
+
+---
+
+## 7. 建議的下一步
+
+1. **校準資料模型**：依 §5 修訂建議更新 `product-architecture.md` 的實體表。
+2. **做一個 Agent 技術驗證（spike）**：用 AI SDK + 3~5 個 tool（排課/查堂數/記錄完課）跑通「繁中自然語言 → 確認 → 寫入 → 留痕」，**早期實測繁中意圖解析準確率**（這是 §11 列的主要風險）。
+3. **動作庫前處理**：抓 free-exercise-db、設計繁中對照、收斂器材/部位分類法。
+4. **排程器與 LINE 串接**：BullMQ + line-bot-sdk 先把「上課提醒 push」這條最高 CP 值的鏈打通。
+
+</script>
+<script type="text/markdown" id="md-backlog">
+# Noki 開發項目（Dev Backlog）v1
+
+> 本文把三份來源**整併成可執行、可追蹤的開發項目**：
+> `product-architecture.md`（藍圖）+ `user-journeys.md`（已定案 MVP 範圍）+ `oss-stack-and-gaps.md`（開源採用方案 + 功能缺口）。
+> 日期：2026-06-25 · 狀態：v1 待排期
+>
+> **狀態圖例**：`[ ]` 未開始 · `[~]` 進行中 · `[x]` 完成　|　**階段**：MVP=Phase 0 · 1.5 · 2
+> **ID 規則**：E{epic}.{n}，方便後續在 issue / 看板引用。
+
+---
+
+## 0. 已定案前提（來自 user-journeys.md，不再討論）
+- **多教練進 MVP**（主理人 + 教練 + 學員三層權限）。
+- **線上金流不進 MVP**：手動對帳（標記已收/部分/未收）。金流 → Phase 1.5。
+- **MVP 飲食 = 對話 + 文字筆記**；拍照辨識/營養素 → Phase 2。
+- **學員端跑在 LINE LIFF（零安裝）**；教練/主理人以 Web 後台為主 + Agent。
+
+> 整併時的去重原則：journeys §8 已納入的邊界情境（衝堂、no-show、取消政策、堂數用盡、離職交接、同名澄清）**不再當「新缺口」**，直接列為對應 Epic 的 MVP 開發項。`oss-stack-and-gaps.md §4` 真正**新增**的項目以 `★缺口` 標注。
+
+---
+
+## 1. 建議施工順序（關鍵路徑）
+1. **E0 技術棧地基** → 沒有共用 Action 層 + Auth + 排程器，後面全卡。
+2. **E1 動作庫匯入＋繁中化**（可與 E0 並行，資料前處理）。
+3. **E2 CRM/合約 + E3 排課/消課**（核心營運閉環）。
+4. **E4 Agent spike**（早期就驗繁中意圖準確率＝最大風險）→ 再長成完整 Agent。
+5. **E5 LINE 交付**（先打通「上課提醒 push」這條最高 CP 值鏈）。
+6. **E6 品牌頁 / E7 儀表板** 補完 MVP。
+
+---
+
+## 2. Epic E0 — 技術棧地基（Foundation）★最高優先
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E0.1 | 定主線技術棧：TypeScript 全棧 — Next.js(PWA) + Prisma + Postgres + Auth.js + Vercel AI SDK + line-bot-sdk + Recharts + BullMQ | MVP | — | oss §3 結論；全部 MIT/Apache 系，授權乾淨同生態 |
+| E0.2 | **共用 Action / Query 層**：每個操作 = 一個型別化 Command/Query，**Zod schema 為單一事實來源**，同時供 UI 表單與 Agent tool 使用 | MVP | E0.1 | 架構 §3.1/§8.1；設計原則 #1 的技術載體 |
+| E0.3 | 身分驗證：Auth.js + **LINE Login provider**（教練 Email/LINE、學員 LINE） | MVP | E0.1 | journeys §2 |
+| E0.4 | **三層 RBAC**：店 → 教練 → 學員 資料邊界與權限 | MVP | E0.3 | journeys §1；架構 §5 有欄位但未設計授權模型 ★缺口 |
+| E0.5 | **AgentActionLog（稽核/可撤銷）基礎建設**：所有寫入經此落痕 | MVP | E0.2 | 架構 §5/設計原則 #3 |
+| E0.6 | **通知排程引擎**：BullMQ(Redis) + cron，供提醒/週摘要/到期推播 | MVP | E0.1 | ★缺口：journeys 有「規則版提醒」但無對應元件 |
+
+---
+
+## 3. Epic E1 — 動作庫與訓練（Exercise & Training）
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E1.1 | 匯入 `free-exercise-db`（800+ JSON + 圖）到**自有 DB / 物件儲存**（不 runtime 依賴對方 GitHub） | MVP | E0.1 | oss §2.1；Unlicense 可商用 |
+| E1.2 | **動作庫繁中化**：800 筆 name/instructions LLM 批次初翻 + 教練校對 | MVP | E1.1 | ★缺口（隱性成本）：原資料純英文 |
+| E1.3 | 器材/部位 enum 收斂成 Noki 分類法（對方偶有 null） | MVP | E1.1 | oss §2.1 |
+| E1.4 | Exercise / Program / Template 資料模型 + 模板複用 + 指派 | MVP | E0.2 | 架構 §5 |
+| E1.5 | WorkoutLog：每組重量/次數、完成度、**本次 vs 上次** | MVP | E1.4 | journeys 教練 J2 |
+| E1.6 | **RIR/RPE 自覺強度欄位** | MVP | E1.5 | ★缺口：低成本高價值 |
+| E1.7 | 組類型最小化：正式組 / 熱身組 | MVP | E1.4 | ★缺口：Program 結構偏平 |
+| E1.8 | 成長折線圖（各動作/體態，Recharts） | MVP | E1.5 | 架構 §6.5；指定圖表庫 |
+| E1.9 | 動作影片（靜態圖之外） | 1.5 | E1.1 | free-exercise-db 只有圖，無影片 |
+| E1.10 | 自動重量漸進規則（達標自動加重） | 2 | E1.4 | oss §4.2；wger 有，MVP 先手動 |
+
+---
+
+## 4. Epic E2 — CRM / 合約 / 消課
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E2.1 | Member CRM：檔案/標籤/來源/狀態 + 時間軸 | MVP | E0.4 | 架構 §5 |
+| E2.2 | **健康篩查問卷（PAR-Q）**：新增學員流程內，記傷病/禁忌 | MVP | E2.1 | ★缺口：受傷與法律責任，業界常規 |
+| E2.3 | Contract 合約/堂數包：建約、剩餘堂數、到期日 | MVP | E2.1 | 架構 §5 |
+| E2.4 | **消課邏輯**：簽到→扣堂→到期/續約提醒鏈→餵流失風險 | MVP | E2.3, E3.4 | 架構 §5.2 核心鏈 |
+| E2.5 | 到期提醒（規則版，走 E0.6 排程器） | MVP | E2.3, E0.6 | 架構 §6.3 |
+| E2.6 | 手動對帳：合約標記「已收/部分/未收」 | MVP | E2.3 | journeys J3（無線上金流） |
+| E2.7 | 彈性體測 Measurement 實體（腰圍/臂圍等自訂，不只 InBody） | 1.5 | E2.1 | ★缺口：BodyComposition 寫死 |
+| E2.8 | 會員資料匯出 / 可攜 | 1.5 | E2.1 | ★缺口：信任門檻/隱私合規 |
+
+---
+
+## 5. Epic E3 — 排課 Booking
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E3.1 | Booking 模型：時間/教練/類型(1對1/團課)/狀態，**綁定 Contract 消課** | MVP | E0.2, E2.3 | 架構 §5；cal 沒有消課層→自建 |
+| E3.2 | **CoachAvailability 可用時段 / 工作時間** | MVP | E3.1 | ★缺口：無此無法自助預約/算衝堂（journeys J1 已提「可預約時段規則」） |
+| E3.3 | 衝堂偵測（場地/時段/教練） | MVP | E3.2 | journeys §8 |
+| E3.4 | 簽到：LINE LIFF `scanCodeV2` QR → 扣堂 | MVP | E5.2 | journeys 教練 J2 |
+| E3.5 | **No-show 狀態 + 消課規則**（爽約扣不扣堂） | MVP | E3.1 | journeys §8 已納入 |
+| E3.6 | 取消政策 / 截止時間（太晚取消是否扣堂） | MVP | E3.1 | journeys §8 已納入 |
+| E3.7 | 循環排課的 single / series 編輯語意（「改這堂 vs 改整列」） | MVP | E3.1 | ★缺口：經典難題，需明確設計 |
+| E3.8 | 緩衝時間 buffer（連堂間隔） | 1.5 | E3.2 | ★缺口（參考 cal.diy） |
+| E3.9 | 團課候補 waitlist + 遞補通知 | 1.5 | E3.1, E0.6 | ★缺口 |
+| E3.10 | 外部行事曆雙向同步（Google/Apple/Outlook） | 1.5 | E3.1 | ★缺口：抄 cal.diy 設計，不抄碼 |
+
+---
+
+## 6. Epic E4 — Agent（核心差異化 / 護城河）
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E4.1 | **Agent 技術 spike**：AI SDK + 3~5 個 tool（排課/查堂數/記錄完課），跑通「繁中 NL → 確認 → 寫入 → 留痕」 | MVP | E0.2, E0.5 | oss §7；**最早期驗 §11 主要風險** |
+| E4.2 | tool() ↔ Action 層對映：每個 Action 註冊成一個 tool，共用同一 Zod schema | MVP | E4.1 | oss §2.2 |
+| E4.3 | **兩段式寫入確認**：LLM 產生意圖物件 → 回顯確認 → 後端執行 Action + 落 log | MVP | E4.2, E0.5 | oss §2.2；設計原則 #3 |
+| E4.4 | 教練端寫入意圖全集（排課/改課表/記錄/通知/改取消/新增學員/指派課表） | MVP | E4.2 | 架構 §6.1 |
+| E4.5 | 教練端查詢意圖（查堂數/進度/行程） | MVP | E4.2 | 架構 §6.2 |
+| E4.6 | 歧義澄清（多個「小明」→ 反問） | MVP | E4.2 | journeys §8 |
+| E4.7 | 多步驟 agent loop（`stopWhen`）做跨模組複合指令 | 1.5 | E4.4 | 架構 §6.3（部分 MVP） |
+| E4.8 | 學員端 Agent over LINE（查詢/預約等 reply 情境） | 1.5 | E4.2, E5.1 | 架構 §9.7 |
+| E4.9 | 經營副駕主動預警（流失/續約主動推播） | 2 | E4.7, E0.6 | 架構 §6.3 |
+| E4.10 | 自動化工作流引擎（評估 Mastra） | 2 | E4.7 | oss §2.2 |
+
+---
+
+## 7. Epic E5 — LINE 交付
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E5.1 | LINE OA + Messaging API webhook 接進後端/Agent | MVP | E0.1 | oss §2.3；Apache-2.0 |
+| E5.2 | **LIFF 學員端**：今日課表/記錄/成長，`getProfile` 自動身分 | MVP | E0.3 | journeys §5 |
+| E5.3 | account link：LINE userId ⇄ Noki Member 綁定 | MVP | E5.2, E0.3 | journeys §2 |
+| E5.4 | Rich Menu（今日課表/我的進度/預約/聯絡教練） | MVP | E5.1 | journeys §2 |
+| E5.5 | **reply(免費) / push(計費) 分流**：Agent 對話走 reply、提醒才 push | MVP | E5.1 | oss §2.3 省錢紀律 |
+| E5.6 | 上課提醒 push + 一鍵確認/改期（**最高 CP 值鏈**） | MVP | E5.5, E0.6 | journeys 學員 J2 |
+| E5.7 | 週摘要 push（規則版） | MVP | E0.6, E1.8 | journeys 學員 J5 |
+| E5.8 | `shareTargetPicker` 轉介獲客 | MVP | E5.2 | journeys J6 |
+| E5.9 | LINE Pay 金流選項 | 1.5 | E8.1 | ★缺口：journeys 未提；競品標配 |
+| E5.10 | 分眾/標籤行銷推播 | 2 | E0.6 | ★缺口 |
+
+---
+
+## 8. Epic E6 / E7 — 品牌頁與儀表板（補完 MVP）
+
+| ID | 項目 | 階段 | 依賴 | 來源/備註 |
+|----|------|:--:|------|----------|
+| E6.1 | 教練個人品牌頁：選版型自動生成（經歷/方案/成果/預約） | MVP | E0.1 | 架構 §7.1 |
+| E6.2 | 品牌頁表單 → CRM 線索 | MVP | E2.1, E6.1 | journeys 教練 J5 |
+| E7.1 | 經營儀表板：本週堂數/學員數/到期數（主理人全店 / 教練自己） | MVP | E2,E3 | journeys 主理人 J2 |
+| E7.2 | 流失預警清單（規則版）+ 一鍵請教練關心 | MVP | E2.4 | journeys 主理人 J2 |
+
+---
+
+## 9. Phase 1.5 / Phase 2 集中清單（商業化與 AI 深化）
+
+**Phase 1.5（商業化閉環）**
+| ID | 項目 | 備註 |
+|----|------|------|
+| E8.1 | 台灣金流 + 電子發票（自接綠界/藍新官方 SDK） | ★開源缺口：台灣金流幾無成熟開源 |
+| E8.2 | 業績薪資抽成自動計算 | 架構 §7.2；MVP 先給數據人工計薪 |
+| E8.3 | 營收報表 + Agent 查營收 | 架構 §6.2 |
+| — | 另含：E1.9 影片、E2.7 體測、E2.8 匯出、E3.8 buffer、E3.9 waitlist、E3.10 行事曆同步、E4.7/E4.8 | 散見各 Epic |
+
+**Phase 2（AI 深化）**
+| ID | 項目 | 備註 |
+|----|------|------|
+| E9.1 | **飲食：條碼記餐（Open Food Facts）先於拍照辨識** | oss §2.6/§4.3；更便宜準確。資料 ODbL 須標示 |
+| E9.2 | 飲食拍照辨識 + AI 營養 + 每日目標達成 | 架構 §6.4 |
+| E9.3 | AI 成長敘事（季度回顧把數據講成故事） | 架構 §6.5 留存王牌 |
+| — | 另含：E1.10 自動漸進、E4.9 主動副駕、E4.10 工作流 | 散見各 Epic |
+
+---
+
+## 10. 授權守門（動工前再確認一次）
+- ✅ 可直接進產品：free-exercise-db(Unlicense)、AI SDK / line-bot-sdk(Apache-2.0)、Next.js/Prisma/Auth.js/Recharts/BullMQ(MIT 系)。
+- ◐ 須標示+相同分享：Open Food Facts 資料（ODbL/DbCL/CC-BY-SA）。
+- ❌ 只看不抄碼：**wger(AGPL)**、**cal.com 本體(Open Core/AGPL)** → 排課要參考改造請用 **cal.diy(MIT)**。
+
+> 詳見 `oss-stack-and-gaps.md` §6 授權紅線總表。
 
 </script>
 <script>
